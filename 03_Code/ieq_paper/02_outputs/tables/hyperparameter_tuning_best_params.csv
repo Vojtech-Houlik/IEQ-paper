@@ -1,0 +1,6 @@
+model,best_cv_macro_f1,tuning_seconds,best_params_json
+Extra Trees,0.5910904944918103,37.80332389999967,"{""model__bootstrap"": true, ""model__class_weight"": ""balanced"", ""model__criterion"": ""entropy"", ""model__max_depth"": 20, ""model__max_features"": null, ""model__max_samples"": 0.9, ""model__min_samples_leaf"": 2, ""model__min_samples_split"": 10, ""model__n_estimators"": 700}"
+Random Forest,0.5823491699439124,104.01965460000065,"{""model__class_weight"": ""balanced"", ""model__max_depth"": 20, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 4, ""model__min_samples_split"": 10, ""model__n_estimators"": 300}"
+ANN / MLP,0.5173122267280694,86.11825359999966,"{""model__activation"": ""relu"", ""model__alpha"": 0.01, ""model__hidden_layer_sizes"": [32], ""model__learning_rate_init"": 0.003}"
+Gradient boosting,0.46358974916415024,35.44015480000053,"{""model__learning_rate"": 0.08, ""model__max_depth"": 3, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 3, ""model__n_estimators"": 120, ""model__subsample"": 1.0}"
+Logistic regression,0.4007582167054008,3.275446899999224,"{""model__C"": 30.0, ""model__class_weight"": ""balanced""}"

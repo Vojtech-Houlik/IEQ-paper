@@ -1,0 +1,9 @@
+target_variant,class,rows,percent
+three_class,dissatisfied,382,7.290076335877862
+three_class,neutral,1528,29.16030534351145
+three_class,satisfied,3330,63.54961832061069
+five_class,1,81,1.545801526717557
+five_class,2,301,5.744274809160306
+five_class,3,1528,29.16030534351145
+five_class,4,1727,32.958015267175576
+five_class,5,1603,30.59160305343511

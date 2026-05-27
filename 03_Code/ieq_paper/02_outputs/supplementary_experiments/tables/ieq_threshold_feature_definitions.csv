@@ -1,0 +1,4 @@
+feature,formula,unit,group,description,nonzero_count,nonzero_percent,mean,max
+CO2_gt_1000ppm,CO2 > 1000 ppm,binary,co2,High CO2 indicator.,240,3.511852502194908,0.03511852502194908,1.0
+Temperature_lt_18C,Temperature < 18 deg C,binary,temperature,Low-temperature indicator.,1474,21.568627450980394,0.21568627450980393,1.0
+Temperature_gt_24C,Temperature > 24 deg C,binary,temperature,High-temperature indicator.,609,8.911325724319578,0.08911325724319578,1.0

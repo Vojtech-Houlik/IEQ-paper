@@ -1,0 +1,28 @@
+model,parameter,value
+Logistic regression,C,30.0
+Logistic regression,class_weight,balanced
+Random Forest,n_estimators,300
+Random Forest,max_depth,20
+Random Forest,max_features,sqrt
+Random Forest,min_samples_leaf,4
+Random Forest,min_samples_split,10
+Random Forest,class_weight,balanced
+Extra Trees,n_estimators,700
+Extra Trees,criterion,entropy
+Extra Trees,bootstrap,True
+Extra Trees,max_samples,0.9
+Extra Trees,max_features,
+Extra Trees,max_depth,20
+Extra Trees,min_samples_leaf,2
+Extra Trees,min_samples_split,10
+Extra Trees,class_weight,balanced
+Gradient boosting,n_estimators,120
+Gradient boosting,learning_rate,0.08
+Gradient boosting,max_depth,3
+Gradient boosting,max_features,sqrt
+Gradient boosting,min_samples_leaf,3
+Gradient boosting,subsample,1.0
+ANN / MLP,hidden_layer_sizes,"(32,)"
+ANN / MLP,activation,relu
+ANN / MLP,alpha,0.01
+ANN / MLP,learning_rate_init,0.003

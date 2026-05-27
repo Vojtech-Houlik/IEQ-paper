@@ -1,0 +1,7 @@
+variant,accuracy_mean,balanced_accuracy_mean,macro_f1_mean,weighted_f1_mean,ordinal_mae_mean,fit_seconds_mean,notes
+soft_vote_et_0.90_rf_0.10,0.724611,0.597989,0.598763,0.722087,0.311531,3.074745,Soft-voting ensemble using 90% refined Extra Trees probabilities and 10% tuned Random Forest probabilities
+soft_vote_et_0.86_rf_0.14,0.725050,0.597802,0.598665,0.722524,0.311092,3.074745,Nearby soft-voting weight with slightly higher accuracy and ordinal MAE but marginally lower macro F1
+extra_trees_baseline,0.724757,0.596355,0.597367,0.722501,0.312410,1.911657,Current refined single-model Extra Trees baseline
+soft_vote_et_0.80_rf_0.20,0.724026,0.596037,0.597195,0.721368,0.311824,3.074745,More Random Forest contribution did not improve macro F1 over the single Extra Trees baseline
+et_reg_ordinal_threshold,0.709102,0.569924,0.576009,0.711064,0.310799,2.342808,Extra Trees regressor with inner-fold threshold calibration improved ordinal MAE slightly but hurt macro F1
+best_hist_gradient_boosting,0.681152,0.582939,0.564145,0.689856,0.364648,3.082018,Best screened HistGradientBoostingClassifier variant; below refined Extra Trees

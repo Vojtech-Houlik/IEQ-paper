@@ -1,0 +1,36 @@
+figure.facecolor: white
+axes.facecolor: white
+savefig.facecolor: white
+savefig.bbox: tight
+savefig.dpi: 300
+
+font.family: sans-serif
+font.sans-serif: Arial, DejaVu Sans, Liberation Sans
+font.size: 10.5
+
+axes.titlesize: 16
+axes.titleweight: bold
+axes.labelsize: 11.5
+axes.labelcolor: #111827
+axes.edgecolor: #AAB2B8
+axes.linewidth: 0.8
+axes.grid: True
+axes.axisbelow: True
+
+xtick.labelsize: 10
+ytick.labelsize: 10
+xtick.color: #111827
+ytick.color: #111827
+xtick.major.size: 3.0
+ytick.major.size: 0.0
+
+grid.color: #D9DEE3
+grid.linewidth: 0.8
+grid.alpha: 0.85
+
+legend.frameon: False
+legend.fontsize: 10
+
+lines.linewidth: 2.0
+patch.edgecolor: #1F2933
+patch.linewidth: 0.55

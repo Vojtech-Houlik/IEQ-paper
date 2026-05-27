@@ -1,0 +1,36 @@
+encoded_feature,importance,feature
+numeric__Age,0.08154523971369647,Age
+numeric__RH,0.0673246338518594,RH
+numeric__Lighting,0.06633887022224068,Lighting
+numeric__CLO,0.06516631124975808,CLO
+numeric__Temperature,0.06379160289781279,Temperature
+numeric__EA,0.05222985566984436,EA
+numeric__CO2,0.049112532533232424,CO2
+numeric__Sound,0.04571971274285813,Sound
+numeric__Vote hour,0.044371716790174605,Vote hour
+categorical__AC on/off_False,0.03587420715743541,AC on/off
+categorical__Gender_Female,0.031222498612176335,Gender
+categorical__Gender_Male,0.030702941810930025,Gender
+categorical__Vote weekday_Monday,0.02826990778224891,Vote weekday
+numeric__Ttrend,0.02812438835776125,Ttrend
+categorical__Vote weekday_Tuesday,0.027128852323373667,Vote weekday
+categorical__Vote weekday_Friday,0.021944857209575775,Vote weekday
+categorical__LocationMiddle_True,0.021438389515667695,LocationMiddle
+categorical__LocationLeft_False,0.02013936286417854,LocationLeft
+categorical__Vote weekday_Thursday,0.01972393848191473,Vote weekday
+categorical__LocationRight_False,0.019385172185464834,LocationRight
+categorical__LocationFront_False,0.017918098602547127,LocationFront
+categorical__LocationMiddle_False,0.017877509679819815,LocationMiddle
+categorical__Moment_End,0.01766865174497862,Moment
+categorical__Moment_Start,0.017315210604088242,Moment
+categorical__LocationRight_True,0.017018392371620627,LocationRight
+categorical__LocationLeft_True,0.015797145324489534,LocationLeft
+categorical__LocationBack_False,0.01534752980760295,LocationBack
+categorical__LocationBack_True,0.013166143314840041,LocationBack
+categorical__LocationFront_True,0.0123199639035524,LocationFront
+categorical__Student_Student,0.011919410369617387,Student
+categorical__Vote weekday_Wednesday,0.011581794635820729,Vote weekday
+categorical__Student_Unknown,0.006933170714311518,Student
+categorical__Student_Teacher/staff,0.005177184076581092,Student
+categorical__AC on/off_True,0.0003823415384911115,AC on/off
+categorical__Vote weekday_Saturday,2.246133943470921e-05,Vote weekday

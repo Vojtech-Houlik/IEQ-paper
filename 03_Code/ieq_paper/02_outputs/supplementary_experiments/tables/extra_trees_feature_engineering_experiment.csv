@@ -1,0 +1,9 @@
+variant,n_features,accuracy_mean,balanced_accuracy_mean,macro_f1_mean,weighted_f1_mean,ordinal_mae_mean,fit_seconds_mean,notes
+baseline,21,0.724757,0.596355,0.597367,0.722501,0.312410,1.911657,Refined Extra Trees without manual temperature or CO2 engineered predictors
+interactions,27,0.725197,0.593783,0.596107,0.722096,0.310653,3.117620,Temperature x CO2 and hot/cold high-CO2 interaction terms
+co2_thresholds,28,0.723002,0.594312,0.595248,0.720635,0.313580,2.079422,CO2 threshold and excess-above-threshold predictors
+temp_thresholds,33,0.718026,0.587496,0.590130,0.714734,0.318263,3.210306,Temperature thresholds and absolute deviations from candidate comfort values
+thresholds,40,0.715246,0.585922,0.587605,0.711567,0.322360,3.581797,Combined temperature and CO2 threshold predictors
+bins,23,0.715100,0.582513,0.585485,0.711475,0.323383,3.194527,Temperature and CO2 categorical bands
+all_engineered,48,0.709540,0.573099,0.576186,0.704657,0.329529,4.315008,All tested temperature and CO2 engineered predictors combined
+compact_engineered_retuned,32,,,"0.589425",,,,"Best 5-fold randomized-search macro F1 after retuning Extra Trees on compact temperature/CO2 engineered feature set"

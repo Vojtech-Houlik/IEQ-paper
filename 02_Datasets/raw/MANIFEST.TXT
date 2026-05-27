@@ -1,0 +1,7 @@
+FullDataset_CombinedSimple.csv (text/comma-separated-values) 2623950 bytes.
+README.txt (text/plain) 10575 bytes.
+OccupantSurveys.pdf (application/pdf) 476344 bytes.
+FullDataset_SecondarySchool.csv (text/comma-separated-values) 444519 bytes.
+FullDataset_TestLectureRoom.csv (text/comma-separated-values) 717268 bytes.
+Dataset_ParameterDescription.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) 34766 bytes.
+FullDataset_PrimarySchools.csv (text/comma-separated-values) 2571115 bytes.

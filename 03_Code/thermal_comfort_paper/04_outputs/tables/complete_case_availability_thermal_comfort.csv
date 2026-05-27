@@ -1,0 +1,4 @@
+case_definition,complete_rows,missing_or_incomplete_rows,total_rows,complete_percent
+Target available,6834,0,6834,100.0
+All inputs complete,2219,4615,6834,32.47000292654375
+Target + all inputs complete,2219,4615,6834,32.47000292654375

@@ -1,0 +1,5 @@
+variant,engineered_feature,base_feature_count,engineered_feature_count,total_feature_count,variant_description
+baseline,,21,0,21,Current model-ready IEQ predictors only.
+threshold_flags_co2_1000_t18_t24,CO2_gt_1000ppm,21,3,24,"Adds three binary threshold indicators: CO2 > 1000 ppm, Temperature < 18 deg C, and Temperature > 24 deg C."
+threshold_flags_co2_1000_t18_t24,Temperature_lt_18C,21,3,24,"Adds three binary threshold indicators: CO2 > 1000 ppm, Temperature < 18 deg C, and Temperature > 24 deg C."
+threshold_flags_co2_1000_t18_t24,Temperature_gt_24C,21,3,24,"Adds three binary threshold indicators: CO2 > 1000 ppm, Temperature < 18 deg C, and Temperature > 24 deg C."
