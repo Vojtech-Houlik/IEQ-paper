@@ -413,3 +413,157 @@ Use this after each work session in the relevant `progress.md`:
 - [ ] Add final feature-importance figures for IEQ Extra Trees.
 - [ ] Add final feature-importance figures for thermal comfort Random Forest.
 - [ ] Update manuscript result notes so IEQ values consistently reflect the current 20-predictor dataset without `Estimated Age`.
+
+## IEQ Publication-Readiness Addendum
+
+Added on `2026-06-08`. This section keeps the original two-paper roadmap intact while defining the additional IEQ-only work needed to make the overall IEQ manuscript publication-ready.
+
+### A. Clarify the IEQ Paper Claim
+
+- [ ] Decide whether the final title should keep the one-vote-veto framing or move toward a broader overall-IEQ prediction framing.
+- [x] Make the main claim explicit: overall classroom IEQ satisfaction can support occupant-centered and energy-aware decision support.
+- [x] Explain why separate temperature, CO$_2$, lighting, and acoustic thresholds are not enough for real classroom operation.
+- [x] Keep the energy-aware holistic-control argument visible in the Introduction and Contribution.
+- [x] Avoid claiming direct autonomous building control unless it is presented as future work or decision support.
+
+### B. Align IEQ Research Questions and Contributions
+
+- [x] Check whether RQ1, RQ2, and RQ3 still match the final manuscript.
+- [x] If no external transfer dataset is available, clarify RQ3 as internal cross-setting generalization.
+- [x] Keep contributions concise and practical.
+- [x] Keep these practical outputs in the contribution list:
+  - energy-aware holistic IEQ control
+  - dashboard or risk-warning support
+  - intervention prioritization
+  - future sensor/monitoring design
+  - warning about direct model reuse across schools
+
+### C. Strengthen IEQ Methods
+
+- [x] Add the exact final IEQ predictor list.
+- [x] Explain which variables were excluded and why.
+- [x] Describe the five-class to three-class target mapping and justify it.
+- [ ] State the final number of IEQ rows and predictors.
+- [ ] Describe the full preprocessing and imputation pipeline.
+- [ ] Document categorical encoding and handling of occupant/context variables.
+- [ ] Explain the validation scheme currently used.
+- [ ] Explain why macro F1 is the main metric.
+- [ ] Document hyperparameter tuning and final Extra Trees settings.
+- [ ] Add reproducibility details: dataset version, notebook path, random seed, output folders.
+
+### D. Add Stronger IEQ Validation
+
+- [ ] Test whether group-aware validation is feasible.
+- [ ] Choose the most defensible grouping variable:
+  - occupant
+  - classroom
+  - Group/Subgroup
+  - school type
+- [ ] Compare standard stratified 5-fold CV with at least one stricter validation scheme.
+- [ ] Run leave-one-school-type-out validation if feasible.
+- [ ] Interpret any performance drop as evidence about generalization, not just as worse performance.
+- [ ] Decide whether the paper should call this transfer learning, cross-setting validation, or domain-shift analysis.
+
+### E. Add IEQ Domain and Sensor Ablations
+
+- [ ] Define domain feature groups:
+  - thermal
+  - air quality
+  - lighting
+  - acoustics
+  - occupant/context
+  - building/session
+- [ ] Train domain-only models.
+- [ ] Train selected domain-combination models.
+- [ ] Compare domain models with the full IEQ model.
+- [ ] Identify variables or domains that add limited predictive value.
+- [ ] Use the result to support the future monitoring-design argument.
+- [ ] Avoid saying that low-importance variables are generally useless; limit the claim to this dataset and model setup.
+
+### F. Compare Against Simple Threshold Logic
+
+- [ ] Define simple rule-based indicators if possible:
+  - high CO$_2$
+  - low/high temperature
+  - low illuminance
+  - high sound level
+- [ ] Compare threshold flags against dissatisfaction or non-satisfaction.
+- [ ] Check whether the ML model captures risk cases that simple thresholds miss.
+- [ ] Use this to support the argument that overall IEQ is a multi-domain outcome.
+
+### G. Check Dashboard Readiness
+
+- [ ] Check whether predicted probabilities are reasonably calibrated.
+- [ ] Add a calibration curve or reliability table only if it improves the paper.
+- [ ] If calibration is weak, avoid claims about exact probability values.
+- [ ] Frame dashboard use as risk ranking or warning support unless calibrated probabilities are reliable.
+
+### H. Finalize IEQ Feature Importance
+
+- [ ] Generate final feature-importance results for the selected Extra Trees model.
+- [ ] Compare at least two importance methods if feasible:
+  - impurity importance
+  - permutation importance
+  - SHAP or another local explanation method
+- [ ] Check whether feature rankings are stable across folds or model variants.
+- [ ] Write the interpretation as model reliance, not causality.
+- [ ] Connect feature importance to monitoring design and intervention prioritization.
+
+### I. Rewrite IEQ Results
+
+- [ ] Present the main tuned benchmark first.
+- [ ] Clearly state that Extra Trees is the selected single-model baseline.
+- [ ] Explain why macro F1 matters more than raw accuracy here.
+- [ ] Interpret the confusion matrices, especially minority-class behavior.
+- [ ] Move exploratory or supervisor-only experiments to appendix/supplement or internal notes.
+- [ ] Remove informal wording such as "I hope", "my preliminary results", "good enough", and "supervisor-only".
+- [ ] Fix known typos: "Therefore", "preferred", "acoustics", and "evaluate feature importance".
+
+### J. Write IEQ Discussion
+
+- [ ] Add a full Discussion section.
+- [ ] Suggested subsections:
+  - interpretation of predictive performance
+  - practical implications for school operation
+  - energy-aware holistic control
+  - feature importance and future monitoring design
+  - generalization across educational settings
+  - limitations
+  - future work
+- [ ] Explain why moderate performance can still be meaningful for individual classroom vote prediction.
+- [ ] Compare the result with related IEQ/comfort prediction literature.
+- [ ] Explain why some papers report higher scores because they solve easier or different tasks.
+- [ ] Discuss how the model could support dashboards, maintenance prioritization, and energy-aware trade-offs.
+
+### K. Write IEQ Limitations
+
+- [ ] Mention COVID-period data collection for primary and secondary schools.
+- [ ] Explain that stronger ventilation may have affected CO$_2$ ranges.
+- [ ] Mention class imbalance toward satisfied votes.
+- [ ] Mention repeated votes from occupants and classrooms.
+- [ ] Mention the need for group-aware or external validation.
+- [ ] Mention that feature importance is not causal evidence.
+- [ ] Mention that the model is dataset-specific until externally validated.
+- [ ] Mention that direct automatic control would need additional operational validation.
+
+### L. Write IEQ Conclusion
+
+- [ ] Summarize the dataset and target.
+- [ ] State the selected model and main metrics.
+- [ ] State where the model performs well and where it struggles.
+- [ ] Restate the practical contribution:
+  - energy-aware IEQ trade-offs
+  - occupant-centered decision support
+  - intervention prioritization
+  - future monitoring design
+- [ ] State the next step: stronger cross-setting validation, external transfer, and dashboard calibration.
+
+### M. Clean the IEQ Manuscript Before Submission
+
+- [ ] Remove or rewrite `My Questions`.
+- [ ] Remove `Supervisor note` blocks from the paper-facing version.
+- [ ] Remove greyed-out supervisor-only figures or move them to internal notes.
+- [ ] Remove `\AIon` if color-coded drafting is not intended for submission.
+- [ ] Make sure Discussion and Conclusion are not empty.
+- [ ] Check all captions, labels, figure references, and citations.
+- [ ] Compile the final PDF and inspect it visually.

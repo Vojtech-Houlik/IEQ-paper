@@ -147,84 +147,439 @@
       \field{title}{Evaluation of indoor environmental quality and pupils' satisfaction in Flemish primary schools}
       \field{year}{2023}
     \endentry
-    \entry{wong2008}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=7125bda8907a1a18c7fed47abf0d7db8}{%
-           family={Wong},
-           familyi={W\bibinitperiod},
-           given={L.\bibnamedelimi T.},
-           giveni={L\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=f4f96e501d8907e4ec9b8c87b3aa4c06}{%
-           family={Mui},
+    \entry{yang2020classroomieq}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=f8db5b2ecbba04ef49cd503a01d331ba}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Ding},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b4aa4b4fba921341250cefdd07be9ad7}{%
+           family={Mak},
            familyi={M\bibinitperiod},
-           given={K.\bibnamedelimi W.},
-           giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-        {{hash=ef4f2d6ed53a6bd430c50e4504fa73b9}{%
-           family={Hui},
-           familyi={H\bibinitperiod},
-           given={P.\bibnamedelimi S.},
-           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+           given={Cheuk\bibnamedelima Ming},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
       }
-      \strng{namehash}{421903a50b7ecd32461e502d0a889e5d}
-      \strng{fullhash}{421903a50b7ecd32461e502d0a889e5d}
-      \strng{fullhashraw}{421903a50b7ecd32461e502d0a889e5d}
-      \strng{bibnamehash}{421903a50b7ecd32461e502d0a889e5d}
-      \strng{authorbibnamehash}{421903a50b7ecd32461e502d0a889e5d}
-      \strng{authornamehash}{421903a50b7ecd32461e502d0a889e5d}
-      \strng{authorfullhash}{421903a50b7ecd32461e502d0a889e5d}
-      \strng{authorfullhashraw}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{namehash}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \strng{fullhash}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \strng{fullhashraw}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \strng{bibnamehash}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \strng{authorbibnamehash}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \strng{authornamehash}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \strng{authorfullhash}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \strng{authorfullhashraw}{e9acb62cbfdab0f10a7e40622dafcc6c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{Relationships between indoor environmental quality and environmental factors in university classrooms}
+      \field{volume}{186}
+      \field{year}{2020}
+      \field{pages}{107331}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2020.107331
+      \endverb
+    \endentry
+    \entry{alam2025schoolieq}{article}{}{}
+      \name{author}{11}{}{%
+        {{hash=2b629e14a4cd39a027188fe207daadd8}{%
+           family={Alam},
+           familyi={A\bibinitperiod},
+           given={Azimil\bibnamedelima Gani},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=efd567996b32395042cdf30c881a0935}{%
+           family={Bartonova},
+           familyi={B\bibinitperiod},
+           given={Alena},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4062b61a03d15a78e891e50005dc5487}{%
+           family={H{ø}iskar},
+           familyi={H\bibinitperiod},
+           given={Britt\bibnamedelimb Ann\bibnamedelima K{å}stad},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=226743796d302dd93896d18afb59ce5b}{%
+           family={Fredriksen},
+           familyi={F\bibinitperiod},
+           given={Mirjam\bibnamedelima F.},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=c2e506efb6562b03338fa105b6c110ef}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Jivitesh},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2edaf58f253f93f335752ae96b872614}{%
+           family={Mathisen},
+           familyi={M\bibinitperiod},
+           given={Hans\bibnamedelima Martin},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=dc0b0af8178dab565be331d1dc0f039b}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Zhirong},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=b0af560d79465180ac7c9082c9df92c8}{%
+           family={Gustavsen},
+           familyi={G\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3f66f321f71e32ff5c068206ff967fb9}{%
+           family={Hart},
+           familyi={H\bibinitperiod},
+           given={Kent},
+           giveni={K\bibinitperiod}}}%
+        {{hash=106cd36867a276c05eabaa84fdb9fd3d}{%
+           family={Fredriksen},
+           familyi={F\bibinitperiod},
+           given={Tore},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2350e5c741b550a259929120af6e9aa4}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Guangyu},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{da756433eb217e3341a02f88ebf22e28}
+      \strng{fullhash}{febb85fa2d1c2e5e8daf5c6bac65cd08}
+      \strng{fullhashraw}{febb85fa2d1c2e5e8daf5c6bac65cd08}
+      \strng{bibnamehash}{da756433eb217e3341a02f88ebf22e28}
+      \strng{authorbibnamehash}{da756433eb217e3341a02f88ebf22e28}
+      \strng{authornamehash}{da756433eb217e3341a02f88ebf22e28}
+      \strng{authorfullhash}{febb85fa2d1c2e5e8daf5c6bac65cd08}
+      \strng{authorfullhashraw}{febb85fa2d1c2e5e8daf5c6bac65cd08}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{Predicting the student's perceptions of multi-domain environmental factors in a Norwegian school building: Machine learning approach}
+      \field{volume}{280}
+      \field{year}{2025}
+      \field{pages}{113144}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2025.113144
+      \endverb
+    \endentry
+    \entry{haverinen2015testscore}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=1fbc78a57af6cf70c0966642b8f8e1df}{%
+           family={Haverinen-Shaughnessy},
+           familyi={H\bibinithyphendelim S\bibinitperiod},
+           given={Ulla},
+           giveni={U\bibinitperiod}}}%
+        {{hash=a89d419ccc9334636f855cfec763932c}{%
+           family={Shaughnessy},
+           familyi={S\bibinitperiod},
+           given={Richard\bibnamedelima J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \strng{fullhash}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \strng{fullhashraw}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \strng{bibnamehash}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \strng{authorbibnamehash}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \strng{authornamehash}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \strng{authorfullhash}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \strng{authorfullhashraw}{b6ac2aa7acaea036c2bb3e3eb3d33f5f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLOS ONE}
+      \field{number}{8}
+      \field{title}{Effects of Classroom Ventilation Rate and Temperature on Students' Test Scores}
+      \field{volume}{10}
+      \field{year}{2015}
+      \field{pages}{e0136165}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0136165
+      \endverb
+    \endentry
+    \entry{wargocki2019temperature}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1077a4f8442ff128a8fc7e7830b36ba1}{%
+           family={Wargocki},
+           familyi={W\bibinitperiod},
+           given={Pawel},
+           giveni={P\bibinitperiod}}}%
+        {{hash=dd9b31078832a7a6b704c0e84f086eaa}{%
+           family={Porras-Salazar},
+           familyi={P\bibinithyphendelim S\bibinitperiod},
+           given={Jose\bibnamedelima Ali},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=5cd0c6690bcc69faeb072628fd32d6cb}{%
+           family={Contreras-Espinoza},
+           familyi={C\bibinithyphendelim E\bibinitperiod},
+           given={Sergio},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c4c16957141098c39beeb48d43befc28}
+      \strng{fullhash}{c4c16957141098c39beeb48d43befc28}
+      \strng{fullhashraw}{c4c16957141098c39beeb48d43befc28}
+      \strng{bibnamehash}{c4c16957141098c39beeb48d43befc28}
+      \strng{authorbibnamehash}{c4c16957141098c39beeb48d43befc28}
+      \strng{authornamehash}{c4c16957141098c39beeb48d43befc28}
+      \strng{authorfullhash}{c4c16957141098c39beeb48d43befc28}
+      \strng{authorfullhashraw}{c4c16957141098c39beeb48d43befc28}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Building and Environment}
-      \field{title}{A multivariate-logistic model for acceptance of indoor environmental quality ({IEQ}) in offices}
-      \field{volume}{43}
-      \field{year}{2008}
-      \field{pages}{1\bibrangedash 6}
-      \range{pages}{6}
+      \field{title}{The Relationship between Classroom Temperature and Children's Performance in School}
+      \field{volume}{157}
+      \field{year}{2019}
+      \field{pages}{197\bibrangedash 204}
+      \range{pages}{8}
       \verb{doi}
-      \verb 10.1016/j.buildenv.2007.01.001
+      \verb 10.1016/j.buildenv.2019.04.046
       \endverb
     \endentry
-    \entry{heinzerling2013}{article}{}{}
+    \entry{wargocki2020airquality}{article}{}{}
       \name{author}{4}{}{%
-        {{hash=2133e108110d1b2790f207c5eafcf85c}{%
-           family={Heinzerling},
-           familyi={H\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod}}}%
+        {{hash=1077a4f8442ff128a8fc7e7830b36ba1}{%
+           family={Wargocki},
+           familyi={W\bibinitperiod},
+           given={Pawel},
+           giveni={P\bibinitperiod}}}%
+        {{hash=dd9b31078832a7a6b704c0e84f086eaa}{%
+           family={Porras-Salazar},
+           familyi={P\bibinithyphendelim S\bibinitperiod},
+           given={Jose\bibnamedelima Ali},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=5cd0c6690bcc69faeb072628fd32d6cb}{%
+           family={Contreras-Espinoza},
+           familyi={C\bibinithyphendelim E\bibinitperiod},
+           given={Sergio},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c02531b5d880aa5697b30cd8cb0fcf6f}{%
+           family={Bahnfleth},
+           familyi={B\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{45118a847b3addb6dc23c343e5023a7d}
+      \strng{fullhash}{32ef202a8b803878da85ee13159c31ae}
+      \strng{fullhashraw}{32ef202a8b803878da85ee13159c31ae}
+      \strng{bibnamehash}{45118a847b3addb6dc23c343e5023a7d}
+      \strng{authorbibnamehash}{45118a847b3addb6dc23c343e5023a7d}
+      \strng{authornamehash}{45118a847b3addb6dc23c343e5023a7d}
+      \strng{authorfullhash}{32ef202a8b803878da85ee13159c31ae}
+      \strng{authorfullhashraw}{32ef202a8b803878da85ee13159c31ae}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{The Relationships between Classroom Air Quality and Children's Performance in School}
+      \field{volume}{173}
+      \field{year}{2020}
+      \field{pages}{106749}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2020.106749
+      \endverb
+    \endentry
+    \entry{kim2018newparadigm}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=5ebb774a1082f4a144fd483104560b72}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Joyce},
+           giveni={J\bibinitperiod}}}%
         {{hash=155f9f23ad62997b4de7517d099e7a02}{%
            family={Schiavon},
            familyi={S\bibinitperiod},
            given={Stefano},
            giveni={S\bibinitperiod}}}%
-        {{hash=aabb0823baae80dff0457a5a8142aabb}{%
-           family={Webster},
-           familyi={W\bibinitperiod},
-           given={Tom},
-           giveni={T\bibinitperiod}}}%
-        {{hash=d125480bf80827533934f0bcd5474078}{%
-           family={Arens},
-           familyi={A\bibinitperiod},
-           given={Edward},
-           giveni={E\bibinitperiod}}}%
+        {{hash=609d2951ca6fba7c12e8a8c909482c88}{%
+           family={Brager},
+           familyi={B\bibinitperiod},
+           given={Gail},
+           giveni={G\bibinitperiod}}}%
       }
-      \strng{namehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
-      \strng{fullhash}{6d372e3a39ed1b69c10644cd7897d876}
-      \strng{fullhashraw}{6d372e3a39ed1b69c10644cd7897d876}
-      \strng{bibnamehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
-      \strng{authorbibnamehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
-      \strng{authornamehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
-      \strng{authorfullhash}{6d372e3a39ed1b69c10644cd7897d876}
-      \strng{authorfullhashraw}{6d372e3a39ed1b69c10644cd7897d876}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \strng{namehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{fullhash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{fullhashraw}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{bibnamehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authorbibnamehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authornamehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authorfullhash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authorfullhashraw}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Building and Environment}
-      \field{title}{Indoor environmental quality assessment models: A literature review and a proposed weighting and classification scheme}
-      \field{year}{2013}
+      \field{title}{Personal Comfort Models: A New Paradigm in Thermal Comfort for Occupant-Centric Environmental Control}
+      \field{volume}{132}
+      \field{year}{2018}
+      \field{pages}{114\bibrangedash 124}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2018.01.023
+      \endverb
+    \endentry
+    \entry{kim2018}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=5ebb774a1082f4a144fd483104560b72}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Joyce},
+           giveni={J\bibinitperiod}}}%
+        {{hash=155f9f23ad62997b4de7517d099e7a02}{%
+           family={Schiavon},
+           familyi={S\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+        {{hash=609d2951ca6fba7c12e8a8c909482c88}{%
+           family={Brager},
+           familyi={B\bibinitperiod},
+           given={Gail},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{fullhash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{fullhashraw}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{bibnamehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authorbibnamehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authornamehash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authorfullhash}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \strng{authorfullhashraw}{fe3a3c494bf7cbe4916fc9ae8e7df925}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{Personal comfort models: Predicting individuals' thermal preference using occupant heating and cooling behavior and machine learning}
+      \field{volume}{129}
+      \field{year}{2018}
+      \field{pages}{96\bibrangedash 106}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2017.12.011
+      \endverb
+    \endentry
+    \entry{arakawa2022}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=49d3ac87d8b72cfe7741a89c6bfdf0d0}{%
+           family={Arakawa\bibnamedelima Martins},
+           familyi={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Larissa},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b94ec8cb00622fcbc5f956415d7f7050}{%
+           family={Soebarto},
+           familyi={S\bibinitperiod},
+           given={Veronica},
+           giveni={V\bibinitperiod}}}%
+        {{hash=1b91f7cb4b6eccbae8b48e4f73fe8270}{%
+           family={Williamson},
+           familyi={W\bibinitperiod},
+           given={Terence},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \strng{fullhash}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \strng{fullhashraw}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \strng{bibnamehash}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \strng{authorbibnamehash}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \strng{authornamehash}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \strng{authorfullhash}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \strng{authorfullhashraw}{d8f2ec34dd9783f6d99465a36e2e52a0}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{A systematic review of personal thermal comfort models}
+      \field{volume}{207}
+      \field{year}{2022}
+      \field{pages}{108502}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2021.108502
+      \endverb
+    \endentry
+    \entry{xu2026pcmcontrol}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=f600d7fa26c3b0148392a34015b80193}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Xinbo},
+           giveni={X\bibinitperiod}}}%
+        {{hash=1cbc9dc480ac707e6bc3a3f4508c707f}{%
+           family={Ghahramani},
+           familyi={G\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d46955f63059f7a1205f197f63ef757e}
+      \strng{fullhash}{d46955f63059f7a1205f197f63ef757e}
+      \strng{fullhashraw}{d46955f63059f7a1205f197f63ef757e}
+      \strng{bibnamehash}{d46955f63059f7a1205f197f63ef757e}
+      \strng{authorbibnamehash}{d46955f63059f7a1205f197f63ef757e}
+      \strng{authornamehash}{d46955f63059f7a1205f197f63ef757e}
+      \strng{authorfullhash}{d46955f63059f7a1205f197f63ef757e}
+      \strng{authorfullhashraw}{d46955f63059f7a1205f197f63ef757e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{Real-world Implementation of Personal Thermal Comfort Models in Building Thermal Systems Control: A Systematic Review}
+      \field{volume}{290}
+      \field{year}{2026}
+      \field{pages}{114187}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2025.114187
+      \endverb
+    \endentry
+    \entry{baker2016comfy}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=a5a992f654b40c09a6aebed7a1b3cd10}{%
+           family={Baker},
+           familyi={B\bibinitperiod},
+           given={Lindsay},
+           giveni={L\bibinitperiod}}}%
+        {{hash=435b4b892879ce2d49c8c1ee6015a4a2}{%
+           family={Hoyt},
+           familyi={H\bibinitperiod},
+           given={Tyler},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd439ac71c17a75e36c78b7c269ae890}
+      \strng{fullhash}{dd439ac71c17a75e36c78b7c269ae890}
+      \strng{fullhashraw}{dd439ac71c17a75e36c78b7c269ae890}
+      \strng{bibnamehash}{dd439ac71c17a75e36c78b7c269ae890}
+      \strng{authorbibnamehash}{dd439ac71c17a75e36c78b7c269ae890}
+      \strng{authornamehash}{dd439ac71c17a75e36c78b7c269ae890}
+      \strng{authorfullhash}{dd439ac71c17a75e36c78b7c269ae890}
+      \strng{authorfullhashraw}{dd439ac71c17a75e36c78b7c269ae890}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2016 {ACEEE} Summer Study on Energy Efficiency in Buildings}
+      \field{title}{Control for the People: How Machine Learning Enables Efficient {HVAC} Use Across Diverse Thermal Preferences}
+      \field{urlday}{8}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \field{pages}{8-1\bibrangedash 8-10}
+      \range{pages}{-1}
+      \verb{urlraw}
+      \verb https://www.aceee.org/files/proceedings/2016/data/papers/8_57.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.aceee.org/files/proceedings/2016/data/papers/8_57.pdf
+      \endverb
     \endentry
     \entry{frontczak2012}{article}{}{}
       \name{author}{6}{}{%
@@ -267,8 +622,8 @@
       \strng{authornamehash}{b77860ddcdb9a86c14296d146e60f7b7}
       \strng{authorfullhash}{4c92a8098213154a83acedf35937a3bb}
       \strng{authorfullhashraw}{4c92a8098213154a83acedf35937a3bb}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Indoor Air}
@@ -281,45 +636,44 @@
       \verb 10.1111/j.1600-0668.2011.00745.x
       \endverb
     \endentry
-    \entry{carton2026dataset}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=0169ddd183a2337a498293a41e3f5448}{%
-           family={Carton},
-           familyi={C\bibinitperiod},
-           given={Quinten},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=7d168f679170b691e4791abc3c02eb54}{%
-           family={Kolarik},
-           familyi={K\bibinitperiod},
-           given={Jakub},
-           giveni={J\bibinitperiod}}}%
-        {{hash=8f6b93b142d50b6d96bd2e82efca6d5a}{%
-           family={Breesch},
-           familyi={B\bibinitperiod},
-           given={Hilde},
-           giveni={H\bibinitperiod}}}%
+    \entry{heinzerling2013}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=2133e108110d1b2790f207c5eafcf85c}{%
+           family={Heinzerling},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=155f9f23ad62997b4de7517d099e7a02}{%
+           family={Schiavon},
+           familyi={S\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+        {{hash=aabb0823baae80dff0457a5a8142aabb}{%
+           family={Webster},
+           familyi={W\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d125480bf80827533934f0bcd5474078}{%
+           family={Arens},
+           familyi={A\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
       }
-      \strng{namehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \strng{fullhash}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \strng{fullhashraw}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \strng{bibnamehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \strng{authorbibnamehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \strng{authornamehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \strng{authorfullhash}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \strng{authorfullhashraw}{7a00cf8b1711ff3e02e4e4e0358a7069}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \strng{namehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
+      \strng{fullhash}{6d372e3a39ed1b69c10644cd7897d876}
+      \strng{fullhashraw}{6d372e3a39ed1b69c10644cd7897d876}
+      \strng{bibnamehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
+      \strng{authorbibnamehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
+      \strng{authornamehash}{d6fc6fedf67bdd3c72d5b6ee8d371ba2}
+      \strng{authorfullhash}{6d372e3a39ed1b69c10644cd7897d876}
+      \strng{authorfullhashraw}{6d372e3a39ed1b69c10644cd7897d876}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Scientific Data}
-      \field{title}{A dataset on occupant satisfaction with the indoor environmental quality in Belgian classrooms}
-      \field{volume}{13}
-      \field{year}{2026}
-      \field{pages}{229}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1038/s41597-026-06545-4
-      \endverb
+      \field{journaltitle}{Building and Environment}
+      \field{title}{Indoor environmental quality assessment models: A literature review and a proposed weighting and classification scheme}
+      \field{year}{2013}
     \endentry
     \entry{zhao2023}{article}{}{}
       \name{author}{2}{}{%
@@ -342,8 +696,8 @@
       \strng{authornamehash}{f4ecd935e719fcc0e33fc34bb5b3a19f}
       \strng{authorfullhash}{f4ecd935e719fcc0e33fc34bb5b3a19f}
       \strng{authorfullhashraw}{f4ecd935e719fcc0e33fc34bb5b3a19f}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Building and Environment}
@@ -354,6 +708,87 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.1016/j.buildenv.2022.109844
+      \endverb
+    \endentry
+    \entry{zhang2023ieqmodels}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=641801d0dec2ac482225c3b3114a5d02}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Dadi},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3b47034e54cbe805ff8c705325e1495f}{%
+           family={Mui},
+           familyi={M\bibinitperiod},
+           given={Kwok-Wai},
+           giveni={K\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=d383ef6290ebd9e219b9ac5ab61a9dc8}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Ling-Tim},
+           giveni={L\bibinithyphendelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9a3a8d7a454699f1328ead833c93a0e}
+      \strng{fullhash}{d9a3a8d7a454699f1328ead833c93a0e}
+      \strng{fullhashraw}{d9a3a8d7a454699f1328ead833c93a0e}
+      \strng{bibnamehash}{d9a3a8d7a454699f1328ead833c93a0e}
+      \strng{authorbibnamehash}{d9a3a8d7a454699f1328ead833c93a0e}
+      \strng{authornamehash}{d9a3a8d7a454699f1328ead833c93a0e}
+      \strng{authorfullhash}{d9a3a8d7a454699f1328ead833c93a0e}
+      \strng{authorfullhashraw}{d9a3a8d7a454699f1328ead833c93a0e}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{5}
+      \field{title}{Ten Questions Concerning Indoor Environmental Quality ({IEQ}) Models: The Development and Applications}
+      \field{volume}{13}
+      \field{year}{2023}
+      \field{pages}{3343}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/app13053343
+      \endverb
+    \endentry
+    \entry{wong2008}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=7125bda8907a1a18c7fed47abf0d7db8}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={L.\bibnamedelimi T.},
+           giveni={L\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=f4f96e501d8907e4ec9b8c87b3aa4c06}{%
+           family={Mui},
+           familyi={M\bibinitperiod},
+           given={K.\bibnamedelimi W.},
+           giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=ef4f2d6ed53a6bd430c50e4504fa73b9}{%
+           family={Hui},
+           familyi={H\bibinitperiod},
+           given={P.\bibnamedelimi S.},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{fullhash}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{fullhashraw}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{bibnamehash}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{authorbibnamehash}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{authornamehash}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{authorfullhash}{421903a50b7ecd32461e502d0a889e5d}
+      \strng{authorfullhashraw}{421903a50b7ecd32461e502d0a889e5d}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{A multivariate-logistic model for acceptance of indoor environmental quality ({IEQ}) in offices}
+      \field{volume}{43}
+      \field{year}{2008}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2007.01.001
       \endverb
     \endentry
     \entry{tang2022}{article}{}{}
@@ -392,8 +827,8 @@
       \strng{authornamehash}{0a883b8f69ed899dee5bad59106a9535}
       \strng{authorfullhash}{d675fcb9978e7766853fd251f406f624}
       \strng{authorfullhashraw}{d675fcb9978e7766853fd251f406f624}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Energy and Buildings}
@@ -404,6 +839,157 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.1016/j.enbuild.2022.111870
+      \endverb
+    \endentry
+    \entry{roumi2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=2befa5d18bc35c86aa3b9df03a378362}{%
+           family={Roumi},
+           familyi={R\bibinitperiod},
+           given={Soheil},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ae021641a8f85fd2607152ab99ed115b}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Fan},
+           giveni={F\bibinitperiod}}}%
+        {{hash=a6c9587e64d63dab023ea9b18507173e}{%
+           family={Stewart},
+           familyi={S\bibinitperiod},
+           given={Rodney\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=3dd490effe446c1527266ee436cb6c30}{%
+           family={Santamouris},
+           familyi={S\bibinitperiod},
+           given={Mattheos},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{4dc19a5b8ef13a73c27686a20e526c28}
+      \strng{fullhash}{3de3dad70de5082172d8d94ebc80beee}
+      \strng{fullhashraw}{3de3dad70de5082172d8d94ebc80beee}
+      \strng{bibnamehash}{4dc19a5b8ef13a73c27686a20e526c28}
+      \strng{authorbibnamehash}{4dc19a5b8ef13a73c27686a20e526c28}
+      \strng{authornamehash}{4dc19a5b8ef13a73c27686a20e526c28}
+      \strng{authorfullhash}{3de3dad70de5082172d8d94ebc80beee}
+      \strng{authorfullhashraw}{3de3dad70de5082172d8d94ebc80beee}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy and Buildings}
+      \field{title}{Commercial building indoor environmental quality models: A critical review}
+      \field{volume}{263}
+      \field{year}{2022}
+      \field{pages}{112033}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.enbuild.2022.112033
+      \endverb
+    \endentry
+    \entry{kallio2020}{article}{}{}
+      \name{author}{10}{}{%
+        {{hash=ea555ce3a6d050e3ff95bf60df99907b}{%
+           family={Kallio},
+           familyi={K\bibinitperiod},
+           given={Johanna},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1d3aa1b35a91107797ef9331855604de}{%
+           family={Vildjiounaite},
+           familyi={V\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod}}}%
+        {{hash=627e287c0f9256edf6109b049e56ba7d}{%
+           family={Koivusaari},
+           familyi={K\bibinitperiod},
+           given={Jani},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a703afbb57709874c44dc0277954a778}{%
+           family={Räsänen},
+           familyi={R\bibinitperiod},
+           given={Pauli},
+           giveni={P\bibinitperiod}}}%
+        {{hash=31e1f16a098b313afceae81d5c755ba7}{%
+           family={Similä},
+           familyi={S\bibinitperiod},
+           given={Heidi},
+           giveni={H\bibinitperiod}}}%
+        {{hash=2968c7c765b79f412a83042a569b606b}{%
+           family={Kyllönen},
+           familyi={K\bibinitperiod},
+           given={Vesa},
+           giveni={V\bibinitperiod}}}%
+        {{hash=3853914cc800dcab9cc686316ea821e5}{%
+           family={Muuraiskangas},
+           familyi={M\bibinitperiod},
+           given={Salla},
+           giveni={S\bibinitperiod}}}%
+        {{hash=06fabd857fbd7c558a3310a82f75fb2f}{%
+           family={Ronkainen},
+           familyi={R\bibinitperiod},
+           given={Jussi},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a60a8f5a7890e163a7299bb56fceb419}{%
+           family={Rehu},
+           familyi={R\bibinitperiod},
+           given={Jari},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2e47eb5642f96d66fbf0d1c2835fae06}{%
+           family={Vehmas},
+           familyi={V\bibinitperiod},
+           given={Kaisa},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{a1de7220af5c7398acd7ed154d5240e6}
+      \strng{fullhash}{05ef724e6db2c512717fa6a1f372bc91}
+      \strng{fullhashraw}{05ef724e6db2c512717fa6a1f372bc91}
+      \strng{bibnamehash}{a1de7220af5c7398acd7ed154d5240e6}
+      \strng{authorbibnamehash}{a1de7220af5c7398acd7ed154d5240e6}
+      \strng{authornamehash}{a1de7220af5c7398acd7ed154d5240e6}
+      \strng{authorfullhash}{05ef724e6db2c512717fa6a1f372bc91}
+      \strng{authorfullhashraw}{05ef724e6db2c512717fa6a1f372bc91}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Building and Environment}
+      \field{title}{Assessment of perceived indoor environmental quality, stress and productivity based on environmental sensor data and personality categorization}
+      \field{volume}{175}
+      \field{year}{2020}
+      \field{pages}{106787}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.buildenv.2020.106787
+      \endverb
+    \endentry
+    \entry{riffelli2022}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3c8542a4cb42f97bcf246fb1b82631cf}{%
+           family={Riffelli},
+           familyi={R\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \strng{fullhash}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \strng{fullhashraw}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \strng{bibnamehash}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \strng{authorbibnamehash}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \strng{authornamehash}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \strng{authorfullhash}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \strng{authorfullhashraw}{3c8542a4cb42f97bcf246fb1b82631cf}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sensors}
+      \field{number}{7}
+      \field{title}{A Wireless Indoor Environmental Quality Logger Processing the Indoor Global Comfort Index}
+      \field{volume}{22}
+      \field{year}{2022}
+      \field{pages}{2558}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/s22072558
       \endverb
     \endentry
     \entry{teli2012}{article}{}{}
@@ -432,8 +1018,8 @@
       \strng{authornamehash}{ec30853274de179651a5360a89945a16}
       \strng{authorfullhash}{ec30853274de179651a5360a89945a16}
       \strng{authorfullhashraw}{ec30853274de179651a5360a89945a16}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Energy and Buildings}
@@ -467,8 +1053,8 @@
       \strng{authornamehash}{0e82829cb0ee92c5cc2ac3a977c3b79d}
       \strng{authorfullhash}{0e82829cb0ee92c5cc2ac3a977c3b79d}
       \strng{authorfullhashraw}{0e82829cb0ee92c5cc2ac3a977c3b79d}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Buildings}
@@ -508,8 +1094,8 @@
       \strng{authornamehash}{a0577be54c6a3298847facfa66df8aee}
       \strng{authorfullhash}{a0577be54c6a3298847facfa66df8aee}
       \strng{authorfullhashraw}{a0577be54c6a3298847facfa66df8aee}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Building and Environment}
@@ -554,8 +1140,8 @@
       \strng{authorfullhash}{b98212f8a04b6568fe2d960aec946e76}
       \strng{authorfullhashraw}{b98212f8a04b6568fe2d960aec946e76}
       \field{extraname}{3}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Buildings}
@@ -566,6 +1152,46 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.3390/buildings16030486
+      \endverb
+    \endentry
+    \entry{carton2026dataset}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=0169ddd183a2337a498293a41e3f5448}{%
+           family={Carton},
+           familyi={C\bibinitperiod},
+           given={Quinten},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=7d168f679170b691e4791abc3c02eb54}{%
+           family={Kolarik},
+           familyi={K\bibinitperiod},
+           given={Jakub},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8f6b93b142d50b6d96bd2e82efca6d5a}{%
+           family={Breesch},
+           familyi={B\bibinitperiod},
+           given={Hilde},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \strng{fullhash}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \strng{fullhashraw}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \strng{bibnamehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \strng{authorbibnamehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \strng{authornamehash}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \strng{authorfullhash}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \strng{authorfullhashraw}{7a00cf8b1711ff3e02e4e4e0358a7069}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Data}
+      \field{title}{A dataset on occupant satisfaction with the indoor environmental quality in Belgian classrooms}
+      \field{volume}{13}
+      \field{year}{2026}
+      \field{pages}{229}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41597-026-06545-4
       \endverb
     \endentry
     \entry{ashrae2023standard55}{online}{}{}

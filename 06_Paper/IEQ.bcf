@@ -2376,27 +2376,47 @@
     <bcf:citekey order="1" intorder="1">carton2023iaqvec</bcf:citekey>
     <bcf:citekey order="1" intorder="2">sadick2017</bcf:citekey>
     <bcf:citekey order="1" intorder="3">carton2023primary</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">wong2008</bcf:citekey>
-    <bcf:citekey order="2" intorder="2">heinzerling2013</bcf:citekey>
-    <bcf:citekey order="2" intorder="3">frontczak2012</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">carton2026dataset</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">wong2008</bcf:citekey>
-    <bcf:citekey order="4" intorder="2">frontczak2012</bcf:citekey>
-    <bcf:citekey order="4" intorder="3">heinzerling2013</bcf:citekey>
-    <bcf:citekey order="4" intorder="4">zhao2023</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">tang2022</bcf:citekey>
-    <bcf:citekey order="5" intorder="2">zhao2023</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">teli2012</bcf:citekey>
-    <bcf:citekey order="6" intorder="2">lala2022children</bcf:citekey>
-    <bcf:citekey order="6" intorder="3">miao2024students</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">carton2026review</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">carton2026dataset</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="1" intorder="4">yang2020classroomieq</bcf:citekey>
+    <bcf:citekey order="1" intorder="5">alam2025schoolieq</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">haverinen2015testscore</bcf:citekey>
+    <bcf:citekey order="2" intorder="2">wargocki2019temperature</bcf:citekey>
+    <bcf:citekey order="2" intorder="3">wargocki2020airquality</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">kim2018newparadigm</bcf:citekey>
+    <bcf:citekey order="3" intorder="2">kim2018</bcf:citekey>
+    <bcf:citekey order="3" intorder="3">arakawa2022</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">xu2026pcmcontrol</bcf:citekey>
+    <bcf:citekey order="4" intorder="2">baker2016comfy</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">frontczak2012</bcf:citekey>
+    <bcf:citekey order="5" intorder="2">heinzerling2013</bcf:citekey>
+    <bcf:citekey order="5" intorder="3">zhao2023</bcf:citekey>
+    <bcf:citekey order="5" intorder="4">zhang2023ieqmodels</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">wong2008</bcf:citekey>
+    <bcf:citekey order="6" intorder="2">tang2022</bcf:citekey>
+    <bcf:citekey order="6" intorder="3">roumi2022</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">heinzerling2013</bcf:citekey>
+    <bcf:citekey order="7" intorder="2">zhao2023</bcf:citekey>
+    <bcf:citekey order="7" intorder="3">roumi2022</bcf:citekey>
+    <bcf:citekey order="7" intorder="4">zhang2023ieqmodels</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">kallio2020</bcf:citekey>
+    <bcf:citekey order="8" intorder="2">riffelli2022</bcf:citekey>
+    <bcf:citekey order="8" intorder="3">alam2025schoolieq</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">teli2012</bcf:citekey>
+    <bcf:citekey order="9" intorder="2">lala2022children</bcf:citekey>
+    <bcf:citekey order="9" intorder="3">miao2024students</bcf:citekey>
+    <bcf:citekey order="9" intorder="4">carton2026review</bcf:citekey>
     <bcf:citekey order="10" intorder="1">carton2026dataset</bcf:citekey>
-    <bcf:citekey order="10" intorder="2">ashrae2023standard55</bcf:citekey>
-    <bcf:citekey order="10" intorder="3">pythermalcomfortclothing2025</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">tang2022</bcf:citekey>
-    <bcf:citekey order="11" intorder="2">zhao2023</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">carton2026dataset</bcf:citekey>
+    <bcf:citekey order="18" intorder="2">ashrae2023standard55</bcf:citekey>
+    <bcf:citekey order="18" intorder="3">pythermalcomfortclothing2025</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">tang2022</bcf:citekey>
+    <bcf:citekey order="19" intorder="2">zhao2023</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
