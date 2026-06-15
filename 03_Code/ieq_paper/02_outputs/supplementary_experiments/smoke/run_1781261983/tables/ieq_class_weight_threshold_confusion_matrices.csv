@@ -1,0 +1,28 @@
+label,variant,true_class,predicted_class,count
+Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,dissatisfied,178
+Main all-school Extra Trees baseline,class_weight_balanced,neutral,dissatisfied,168
+Main all-school Extra Trees baseline,class_weight_balanced,satisfied,dissatisfied,146
+Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,neutral,154
+Main all-school Extra Trees baseline,class_weight_balanced,neutral,neutral,885
+Main all-school Extra Trees baseline,class_weight_balanced,satisfied,neutral,650
+Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,satisfied,152
+Main all-school Extra Trees baseline,class_weight_balanced,neutral,satisfied,802
+Main all-school Extra Trees baseline,class_weight_balanced,satisfied,satisfied,3699
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,dissatisfied,dissatisfied,174
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,neutral,dissatisfied,142
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,satisfied,dissatisfied,106
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,dissatisfied,neutral,148
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,neutral,neutral,841
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,satisfied,neutral,545
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,dissatisfied,satisfied,162
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,neutral,satisfied,872
+Best class-weight Extra Trees,class_weight_dissatisfied_5_neutral_2,satisfied,satisfied,3844
+Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,dissatisfied,173
+Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,dissatisfied,142
+Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,dissatisfied,121
+Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,neutral,172
+Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,neutral,1010
+Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,neutral,769
+Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,satisfied,139
+Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,satisfied,703
+Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,satisfied,3605

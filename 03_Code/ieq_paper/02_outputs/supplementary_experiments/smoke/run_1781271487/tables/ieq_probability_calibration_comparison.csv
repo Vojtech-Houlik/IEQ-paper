@@ -1,0 +1,5 @@
+variant,macro_f1_mean,macro_f1_delta_vs_main,accuracy_mean,accuracy_delta_vs_main,balanced_accuracy_mean,balanced_accuracy_delta_vs_main,ordinal_mae_mean,ordinal_mae_delta_vs_main,log_loss_mean,log_loss_delta_vs_main,brier_ovr_mean,brier_ovr_delta_vs_main,recall_dissatisfied_mean,recall_neutral_mean,recall_satisfied_mean
+main_all_school_extra_trees,0.557644,0.0,0.69681,0.0,0.555922,0.0,0.346795,0.0,0.833325,0.0,0.141338,0.0,0.367769,0.477084,0.822913
+calibrated_sigmoid_extra_trees,0.264513,-0.293132,0.657741,-0.039069,0.333333,-0.222589,0.413082,0.066286,0.815568,-0.017756,0.165005,0.023666,0.0,0.0,1.0
+calibrated_isotonic_extra_trees,0.347084,-0.21056,0.677056,-0.019754,0.373819,-0.182103,0.385279,0.038484,0.766173,-0.067152,0.152677,0.011339,0.03719,0.100283,0.983983
+calibrated_isotonic_extra_trees_nested_threshold,0.40312,-0.154525,0.680714,-0.016096,0.406311,-0.149611,0.375476,0.02868,0.845167,0.011843,0.172738,0.0314,0.070248,0.20652,0.942166

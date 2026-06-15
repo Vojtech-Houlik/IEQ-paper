@@ -442,12 +442,12 @@ Added on `2026-06-08`. This section keeps the original two-paper roadmap intact 
 
 - [x] Add the exact final IEQ predictor list.
 - [x] Explain which variables were excluded and why.
-- [x] Describe the five-class to three-class target mapping and justify it.
-- [ ] State the final number of IEQ rows and predictors.
-- [ ] Describe the full preprocessing and imputation pipeline.
-- [ ] Document categorical encoding and handling of occupant/context variables.
+- [ ] Describe the five-class to three-class target mapping and justify it.
+- [x] State the final number of IEQ rows and predictors.
+- [x] Describe the full preprocessing and imputation pipeline.
+- [x] Document categorical encoding and handling of occupant/context variables.
 - [ ] Explain the validation scheme currently used.
-- [ ] Explain why macro F1 is the main metric.
+- [x] Explain why macro F1 is the main metric.
 - [ ] Document hyperparameter tuning and final Extra Trees settings.
 - [ ] Add reproducibility details: dataset version, notebook path, random seed, output folders.
 

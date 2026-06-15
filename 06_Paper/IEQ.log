@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.12)  9 JUN 2026 12:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.12)  15 JUN 2026 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,27 +781,27 @@ Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 \@quotelevel=\count449
 \@quotereset=\count450
 LaTeX Font Info:    Trying to load font information for T1+Crlt-OsF on input li
-ne 49.
+ne 50.
 
 (c:/texlive/2026/texmf-dist/tex/latex/carlito/T1Crlt-OsF.fd
 File: T1Crlt-OsF.fd 2022/10/05 (autoinst) Font definitions for T1/Crlt-OsF.
 ) (./IEQ.aux)
 \openout1 = `IEQ.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -875,15 +875,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'IEQ.bbl' found.
  (./IEQ.bbl)
-Package biblatex Info: Reference section=0 on input line 49.
-Package biblatex Info: Reference segment=0 on input line 49.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+Package biblatex Info: Reference section=0 on input line 50.
+Package biblatex Info: Reference segment=0 on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
 
 
 (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
 
 
 (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -893,7 +893,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/
 texmf-dist/fonts/enc/dvips/carlito/crlt_hsqwq5.enc}]
 LaTeX Font Info:    Trying to load font information for TS1+Crlt-OsF on input l
-ine 90.
+ine 91.
 
 (c:/texlive/2026/texmf-dist/tex/latex/carlito/TS1Crlt-OsF.fd
 File: TS1Crlt-OsF.fd 2022/10/05 (autoinst) Font definitions for TS1/Crlt-OsF.
@@ -904,7 +904,7 @@ File: ../04_Figures/both_papers/fig_01_raw_dataset_column_completeness.pdf Grap
 hic file (type pdf)
 <use ../04_Figures/both_papers/fig_01_raw_dataset_column_completeness.pdf>
 Package pdftex.def Info: ../04_Figures/both_papers/fig_01_raw_dataset_column_co
-mpleteness.pdf  used on input line 131.
+mpleteness.pdf  used on input line 132.
 (pdftex.def)             Requested size: 457.90604pt x 276.82674pt.
 <../04_Figures/both_papers/fig_04_satisfaction_vote_distribution.pdf, id=18, 99
 0.20837pt x 279.17438pt>
@@ -912,7 +912,7 @@ File: ../04_Figures/both_papers/fig_04_satisfaction_vote_distribution.pdf Graph
 ic file (type pdf)
 <use ../04_Figures/both_papers/fig_04_satisfaction_vote_distribution.pdf>
 Package pdftex.def Info: ../04_Figures/both_papers/fig_04_satisfaction_vote_dis
-tribution.pdf  used on input line 131.
+tribution.pdf  used on input line 132.
 (pdftex.def)             Requested size: 457.90604pt x 129.09908pt.
  [3 <../04_Figures/both_papers/fig_01_raw_dataset_column_completeness.pdf>]
 <../04_Figures/both_papers/fig_04b_unified_satisfaction_category_distribution.p
@@ -922,7 +922,7 @@ ion.pdf Graphic file (type pdf)
 <use ../04_Figures/both_papers/fig_04b_unified_satisfaction_category_distributi
 on.pdf>
 Package pdftex.def Info: ../04_Figures/both_papers/fig_04b_unified_satisfaction
-_category_distribution.pdf  used on input line 131.
+_category_distribution.pdf  used on input line 132.
 (pdftex.def)             Requested size: 457.90604pt x 129.21512pt.
 <../04_Figures/ieq_paper/fig_05_ieq_environmental_feature_boxplots.pdf, id=122,
  635.3267pt x 680.47578pt>
@@ -930,7 +930,7 @@ File: ../04_Figures/ieq_paper/fig_05_ieq_environmental_feature_boxplots.pdf Gra
 phic file (type pdf)
 <use ../04_Figures/ieq_paper/fig_05_ieq_environmental_feature_boxplots.pdf>
 Package pdftex.def Info: ../04_Figures/ieq_paper/fig_05_ieq_environmental_featu
-re_boxplots.pdf  used on input line 131.
+re_boxplots.pdf  used on input line 132.
 (pdftex.def)             Requested size: 517.74062pt x 554.53615pt.
  [4 <../04_Figures/both_papers/fig_04_satisfaction_vote_distribution.pdf> <../0
 4_Figures/both_papers/fig_04b_unified_satisfaction_category_distribution.pdf>] 
@@ -942,113 +942,58 @@ File: ../04_Figures/ieq_paper/fig_03_ieq_feature_completeness.pdf Graphic file
 (type pdf)
 <use ../04_Figures/ieq_paper/fig_03_ieq_feature_completeness.pdf>
 Package pdftex.def Info: ../04_Figures/ieq_paper/fig_03_ieq_feature_completenes
-s.pdf  used on input line 157.
+s.pdf  used on input line 163.
 (pdftex.def)             Requested size: 426.68661pt x 347.9296pt.
+ [6 <../04_Figures/ieq_paper/fig_03_ieq_feature_completeness.pdf>]
 <../04_Figures/ieq_paper/fig_overall_ieq_satisfaction_vote_distribution_origina
-l_unified.pdf, id=344, 599.64775pt x 275.22098pt>
+l_unified.pdf, id=427, 599.64775pt x 275.22098pt>
 File: ../04_Figures/ieq_paper/fig_overall_ieq_satisfaction_vote_distribution_or
 iginal_unified.pdf Graphic file (type pdf)
 <use ../04_Figures/ieq_paper/fig_overall_ieq_satisfaction_vote_distribution_ori
 ginal_unified.pdf>
 Package pdftex.def Info: ../04_Figures/ieq_paper/fig_overall_ieq_satisfaction_v
-ote_distribution_original_unified.pdf  used on input line 157.
+ote_distribution_original_unified.pdf  used on input line 163.
 (pdftex.def)             Requested size: 457.90604pt x 210.16959pt.
- [6 <../04_Figures/ieq_paper/fig_03_ieq_feature_completeness.pdf>] [7 <../04_Fi
-gures/ieq_paper/fig_overall_ieq_satisfaction_vote_distribution_original_unified
-.pdf>]
-<../04_Figures/ieq_paper/tuned_model_comparison_performance.pdf, id=498, 974.70
-209pt x 291.59189pt>
+ [7 <../04_Figures/ieq_paper/fig_overall_ieq_satisfaction_vote_distribution_ori
+ginal_unified.pdf>] [8]
+<../04_Figures/ieq_paper/tuned_model_comparison_performance.pdf, id=501, 974.70
+209pt x 271.94197pt>
 File: ../04_Figures/ieq_paper/tuned_model_comparison_performance.pdf Graphic fi
 le (type pdf)
 <use ../04_Figures/ieq_paper/tuned_model_comparison_performance.pdf>
 Package pdftex.def Info: ../04_Figures/ieq_paper/tuned_model_comparison_perform
-ance.pdf  used on input line 206.
-(pdftex.def)             Requested size: 457.90604pt x 136.9859pt.
-<../04_Figures/ieq_paper/tuned_model_comparison_confusion_matrices.pdf, id=499,
+ance.pdf  used on input line 263.
+(pdftex.def)             Requested size: 457.90604pt x 127.75464pt.
+<../04_Figures/ieq_paper/tuned_model_comparison_confusion_matrices.pdf, id=502,
  927.73094pt x 260.50385pt>
 File: ../04_Figures/ieq_paper/tuned_model_comparison_confusion_matrices.pdf Gra
 phic file (type pdf)
 <use ../04_Figures/ieq_paper/tuned_model_comparison_confusion_matrices.pdf>
 Package pdftex.def Info: ../04_Figures/ieq_paper/tuned_model_comparison_confusi
-on_matrices.pdf  used on input line 213.
+on_matrices.pdf  used on input line 263.
 (pdftex.def)             Requested size: 483.91693pt x 135.88014pt.
- [8
-
- <../04_Figures/ieq_paper/tuned_model_comparison_performance.pdf>]
+ [9 <../04_Figures/ieq_paper/tuned_model_comparison_performance.pdf> <../04_Fig
+ures/ieq_paper/tuned_model_comparison_confusion_matrices.pdf>] [10]
+<../04_Figures/ieq_paper/final_extra_trees_confusion_matrix.pdf, id=677, 398.38
+481pt x 348.10002pt>
+File: ../04_Figures/ieq_paper/final_extra_trees_confusion_matrix.pdf Graphic fi
+le (type pdf)
+<use ../04_Figures/ieq_paper/final_extra_trees_confusion_matrix.pdf>
+Package pdftex.def Info: ../04_Figures/ieq_paper/final_extra_trees_confusion_ma
+trix.pdf  used on input line 354.
+(pdftex.def)             Requested size: 322.61128pt x 281.89572pt.
 <../04_Figures/ieq_paper/final_extra_trees_importance_method_comparison.pdf, id
-=587, 945.74643pt x 497.31808pt>
+=678, 800.8024pt x 614.39424pt>
 File: ../04_Figures/ieq_paper/final_extra_trees_importance_method_comparison.pd
 f Graphic file (type pdf)
 <use ../04_Figures/ieq_paper/final_extra_trees_importance_method_comparison.pdf
 >
 Package pdftex.def Info: ../04_Figures/ieq_paper/final_extra_trees_importance_m
-ethod_comparison.pdf  used on input line 222.
-(pdftex.def)             Requested size: 509.93576pt x 268.15317pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
-[]\T1/cmtt/m/n/10 n_estimators=700\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 criteri
-on=entropy\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 bootstrap=True\T1/Crlt-OsF/m/n/
-10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
-\T1/cmtt/m/n/10 max_samples=0.9\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 max_featur
-es=None\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 max_depth=20\T1/Crlt-OsF/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
-\T1/cmtt/m/n/10 min_samples_leaf=2\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 min_sam
-ples_split=10\T1/Crlt-OsF/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
-[]\T1/cmtt/m/n/10 n_estimators=300\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 max_dep
-th=20\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 max_features=sqrt\T1/Crlt-OsF/m/n/10
- ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
-\T1/cmtt/m/n/10 min_samples_leaf=4\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 min_sam
-ples_split=10\T1/Crlt-OsF/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
-[]\T1/cmtt/m/n/10 hidden_layer_sizes=(32,)\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10
- activation=relu\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 alpha=0.01\T1/Crlt-OsF/m/
-n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
-[]\T1/cmtt/m/n/10 n_estimators=120\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 learnin
-g_rate=0.08\T1/Crlt-OsF/m/n/10 , \T1/cmtt/m/n/10 max_depth=3\T1/Crlt-OsF/m/n/10
- ,
- []
-
-[9 <../04_Figures/ieq_paper/tuned_model_comparison_confusion_matrices.pdf> <../
-04_Figures/ieq_paper/final_extra_trees_importance_method_comparison.pdf>]
-[10]
-<../04_Figures/ieq_paper/ieq_5240_three_vs_five_extra_trees_confusion_matrices.
-pdf, id=778, 941.66356pt x 319.19202pt>
-File: ../04_Figures/ieq_paper/ieq_5240_three_vs_five_extra_trees_confusion_matr
-ices.pdf Graphic file (type pdf)
-<use ../04_Figures/ieq_paper/ieq_5240_three_vs_five_extra_trees_confusion_matri
-ces.pdf>
-Package pdftex.def Info: ../04_Figures/ieq_paper/ieq_5240_three_vs_five_extra_t
-rees_confusion_matrices.pdf  used on input line 305.
-(pdftex.def)             Requested size: 457.90604pt x 155.21217pt.
- [11 <../04_Figures/ieq_paper/ieq_5240_three_vs_five_extra_trees_confusion_matr
-ices.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 325--325
-
- []
-
-[12] [13] [14] (./IEQ.aux)
+ethod_comparison.pdf  used on input line 354.
+(pdftex.def)             Requested size: 509.93576pt x 391.24225pt.
+ [11 <../04_Figures/ieq_paper/final_extra_trees_confusion_matrix.pdf>] [12 <../
+04_Figures/ieq_paper/final_extra_trees_importance_method_comparison.pdf>] [13] 
+[14] [15] (./IEQ.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
@@ -1058,13 +1003,13 @@ Package logreq Info: Writing requests to 'IEQ.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24113 strings out of 467349
- 492204 string characters out of 5419862
- 1308463 words of memory out of 5000000
- 52804 multiletter control sequences out of 15000+600000
- 721168 words of font info for 98 fonts, out of 8000000 for 9000
+ 24124 strings out of 467349
+ 492383 string characters out of 5419862
+ 1311712 words of memory out of 5000000
+ 52814 multiletter control sequences out of 15000+600000
+ 728470 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,11n,121p,2743b,1378s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,11n,121p,2743b,1386s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/google/carlito/Crlt-Bold.pfb><c:/texl
 ive/2026/texmf-dist/fonts/type1/google/carlito/Crlt-Italic.pfb><c:/texlive/2026
 /texmf-dist/fonts/type1/google/carlito/Crlt-Regular.pfb><c:/texlive/2026/texmf-
@@ -1074,10 +1019,10 @@ blic/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
 .pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/t
 exlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on IEQ.pdf (14 pages, 509358 bytes).
+Output written on IEQ.pdf (15 pages, 493968 bytes).
 PDF statistics:
- 913 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
+ 893 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

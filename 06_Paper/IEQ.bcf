@@ -2415,8 +2415,13 @@
     <bcf:citekey order="18" intorder="1">carton2026dataset</bcf:citekey>
     <bcf:citekey order="18" intorder="2">ashrae2023standard55</bcf:citekey>
     <bcf:citekey order="18" intorder="3">pythermalcomfortclothing2025</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">tang2022</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">heinzerling2013</bcf:citekey>
     <bcf:citekey order="19" intorder="2">zhao2023</bcf:citekey>
+    <bcf:citekey order="19" intorder="3">roumi2022</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">sokolova2009performance</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">alam2025schoolieq</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">tang2022</bcf:citekey>
+    <bcf:citekey order="22" intorder="2">zhao2023</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

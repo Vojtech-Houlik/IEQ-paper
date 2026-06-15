@@ -1,0 +1,4 @@
+variant,model,cv_splits,rows,predictors,same_population_as_main,macro_f1_mean,macro_f1_delta_vs_main,accuracy_mean,accuracy_delta_vs_main,balanced_accuracy_mean,balanced_accuracy_delta_vs_main,ordinal_mae_mean,ordinal_mae_delta_vs_main
+main_all_school_extra_trees,Extra Trees,5,6834,20,True,0.590984,0.0,0.722562,0.0,0.591758,0.0,0.31475,0.0
+ordinal_extra_trees_decomposition,Extra Trees,5,6834,20,True,0.586372,-0.004612,0.730611,0.008048,0.585155,-0.006602,0.31036,-0.00439
+ordinal_random_forest_decomposition,Random Forest,5,6834,20,True,0.552747,-0.038237,0.713345,-0.009217,0.560278,-0.031479,0.334502,0.019752

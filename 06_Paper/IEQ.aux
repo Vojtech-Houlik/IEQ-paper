@@ -86,7 +86,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Supervisor-only supporting figure: satisfaction vote distributions across the overall IEQ target and the four domain targets on the original five-class scale.}}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Supervisor-only supporting figure: unified satisfaction-category distributions across the shared target set.}}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Supervisor-only supporting figure: environmental feature boxplots for the IEQ paper variables.}}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data Cleaning and Imputation}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Prediction Task and Model Inputs}{5}{}\protected@file@percent }
 \abx@aux@cite{0}{carton2026dataset}
 \abx@aux@segm{0}{0}{carton2026dataset}
 \abx@aux@cite{0}{ashrae2023standard55}
@@ -94,48 +95,67 @@
 \abx@aux@cite{0}{pythermalcomfortclothing2025}
 \abx@aux@segm{0}{0}{pythermalcomfortclothing2025}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Feature completeness for the variables currently retained in the IEQ paper.}}{6}{}\protected@file@percent }
-\newlabel{fig:ieq-feature-completeness}{{5}{6}{Data Cleaning and Imputation}{figure.5}{}}
+\newlabel{fig:ieq-feature-completeness}{{5}{6}{Prediction Task and Model Inputs}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Data Cleaning and Imputation}{6}{}\protected@file@percent }
+\abx@aux@cite{0}{heinzerling2013}
+\abx@aux@segm{0}{0}{heinzerling2013}
+\abx@aux@cite{0}{zhao2023}
+\abx@aux@segm{0}{0}{zhao2023}
+\abx@aux@cite{0}{roumi2022}
+\abx@aux@segm{0}{0}{roumi2022}
+\abx@aux@cite{0}{sokolova2009performance}
+\abx@aux@segm{0}{0}{sokolova2009performance}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Original and unified overall IEQ satisfaction vote distributions in the current dataset.}}{7}{}\protected@file@percent }
 \newlabel{fig:overall-ieq-distribution}{{6}{7}{Data Cleaning and Imputation}{figure.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Analysis}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Modeling Setup}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Tuning Workflow}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Model Validation Strategy}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Benchmark Model Training}{7}{}\protected@file@percent }
+\abx@aux@cite{0}{alam2025schoolieq}
+\abx@aux@segm{0}{0}{alam2025schoolieq}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Hyperparameter Tuning and Final Model Optimization}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Follow-Up Analyses}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1}Personalization Analysis}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2}Transfer-Learning and Cross-Setting Validation}{8}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Main Tuned Benchmark}{8}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Tuned five-fold cross-validation summary for the current all-school IEQ benchmark.}}{8}{}\protected@file@percent }
-\newlabel{tab:ieq-main-benchmark}{{1}{8}{Main Tuned Benchmark}{table.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Performance comparison for the tuned IEQ benchmark models under five-fold cross-validation.}}{8}{}\protected@file@percent }
-\newlabel{fig:ieq-tuned-performance}{{7}{8}{Main Tuned Benchmark}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Benchmark Model Comparison}{8}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Five-fold cross-validation summary for the current all-school IEQ benchmark after hyperparameter tuning.}}{8}{}\protected@file@percent }
+\newlabel{tab:ieq-main-benchmark}{{1}{8}{Benchmark Model Comparison}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Main selected hyperparameter settings for the IEQ model families.}}{9}{}\protected@file@percent }
+\newlabel{tab:ieq-best-params}{{2}{9}{Benchmark Model Comparison}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Performance comparison for the IEQ benchmark models after hyperparameter tuning.}}{9}{}\protected@file@percent }
+\newlabel{fig:ieq-tuned-performance}{{7}{9}{Benchmark Model Comparison}{figure.7}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Aggregated confusion matrices for the tuned IEQ benchmark models.}}{9}{}\protected@file@percent }
-\newlabel{fig:ieq-tuned-confusion}{{8}{9}{Main Tuned Benchmark}{figure.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Feature-importance comparison for the final Extra Trees IEQ prediction model.}}{9}{}\protected@file@percent }
-\newlabel{fig:ieq-feature-importance}{{9}{9}{Main Tuned Benchmark}{figure.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Best Hyperparameters}{10}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Best tuned configurations for the main IEQ model families.}}{10}{}\protected@file@percent }
-\newlabel{tab:ieq-best-params}{{2}{10}{Best Hyperparameters}{table.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Fine-Tuning Results}{10}{}\protected@file@percent }
+\newlabel{fig:ieq-tuned-confusion}{{8}{9}{Benchmark Model Comparison}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Extra Trees Fine Tuning Results}{9}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Manual temperature and CO$_2$ feature engineering.}{10}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Ensemble and ordinal alternatives.}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Imputation-indicator columns.}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Soft-voting ensemble.}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ordinal classification experiment.}{10}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Data-quality and row-filtering strategies.}{10}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Synthetic class balancing.}{10}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Primary-school-specific and transfer analysis.}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Class-weight and decision-threshold tuning.}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ten-fold validation check.}{10}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Extra Trees optimization summary.}}{10}{}\protected@file@percent }
+\newlabel{tab:ieq-ablation-summary}{{3}{10}{Ten-fold validation check.}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Final Extra Trees Model Results}{11}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Final Extra Trees model performance under ten-fold stratified cross-validation.}}{11}{}\protected@file@percent }
+\newlabel{tab:ieq-final-extra-trees-results}{{4}{11}{Final Extra Trees Model Results}{table.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Out-of-fold confusion matrix for the final Extra Trees model. Cells show row percentages and counts.}}{11}{}\protected@file@percent }
+\newlabel{fig:ieq-final-confusion}{{9}{11}{Final Extra Trees Model Results}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Feature-importance comparison for the final Extra Trees IEQ prediction model. All original predictors are shown; imputation indicators are excluded.}}{12}{}\protected@file@percent }
+\newlabel{fig:ieq-feature-importance}{{10}{12}{Final Extra Trees Model Results}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Personalization Results}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Transfer-Learning and Cross-Setting Validation Results}{12}{}\protected@file@percent }
 \abx@aux@cite{0}{tang2022}
 \abx@aux@segm{0}{0}{tang2022}
 \abx@aux@cite{0}{zhao2023}
 \abx@aux@segm{0}{0}{zhao2023}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Selected follow-up experiments after the refined Extra Trees model was chosen.}}{11}{}\protected@file@percent }
-\newlabel{tab:ieq-ablation-summary}{{3}{11}{Primary-school-specific and transfer analysis.}{table.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Supervisor-only five-class target comparison.}{11}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Supervisor-only comparison of three-class and five-class Extra Trees targets on the 5{,}240-row complete-case subset.}}{11}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Supervisor-only supporting figure: three-class and five-class Extra Trees confusion matrices on the 5{,}240-row complete-case comparison subset.}}{11}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Preliminary Literature Benchmark}{11}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Transfer Learning}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}My Questions}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Future Work}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11}References}{12}{}\protected@file@percent }
-\abx@aux@read@bbl@mdfivesum{8117779DD245D8CECA3AC5D8D11ECE18}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Preliminary Literature Benchmark}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Submission Notes}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Future Work}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}References}{13}{}\protected@file@percent }
+\abx@aux@read@bbl@mdfivesum{2AABB0119C1F1FC9AD9C1F298912D551}
 \abx@aux@defaultrefcontext{0}{carton2023iaqvec}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{sadick2017}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{carton2023primary}{none/global//global/global/global}
@@ -165,4 +185,5 @@
 \abx@aux@defaultrefcontext{0}{carton2026dataset}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{ashrae2023standard55}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{pythermalcomfortclothing2025}{none/global//global/global/global}
-\gdef \@abspage@last{14}
+\abx@aux@defaultrefcontext{0}{sokolova2009performance}{none/global//global/global/global}
+\gdef \@abspage@last{15}

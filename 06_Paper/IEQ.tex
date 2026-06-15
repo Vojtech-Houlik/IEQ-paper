@@ -32,6 +32,7 @@
 \newcommand{\AIon}{\color{blue!65!black}}
 \newcommand{\Reviewed}[1]{\begingroup\color{black}#1\endgroup}
 \newcommand{\ReviewedOn}{\color{black}}
+\newcommand{\notretained}[1]{\textcolor{gray}{#1}}
 \newcommand{\supervisornote}[1]{\par\begingroup\color{gray}\small #1\par\endgroup}
 \newcommand{\supervisorgraphic}[2][]{%
   \begin{tikzpicture}
@@ -42,7 +43,7 @@
   \end{tikzpicture}%
 }
 
-\title{Toward Testing the One-Vote-Veto Hypothesis in Overall IEQ Satisfaction in Belgian Classrooms}
+\title{Predicting Overall Indoor Environmental Quality Satisfaction in Classrooms Using Sensor, Occupant, and Contextual Data}
 \author{}
 \date{\today}
 
@@ -52,7 +53,7 @@
 
 \maketitle
 \begin{abstract}
-This paper investigates whether overall indoor environmental quality (IEQ) satisfaction in classrooms can be predicted from environmental, contextual, occupant, and building-related variables. The analysis uses an open Belgian classroom dataset containing 6{,}834 repeated satisfaction assessments from 321 occupants across primary, secondary, and university classrooms. The original five-point overall IEQ scale is collapsed into three classes: dissatisfied, neutral, and satisfied. Five model families are compared under matched five-fold cross-validation, using macro F1 as the main selection metric because the target distribution is imbalanced. The best single model is an Extra Trees classifier, reaching accuracy = 0.722, balanced accuracy = 0.592, macro F1 = 0.591, weighted F1 = 0.719, and ordinal MAE = 0.316.
+This paper investigates whether overall indoor environmental quality (IEQ) satisfaction in classrooms can be predicted from environmental, contextual, occupant, and building-related variables. The analysis uses an open Belgian classroom dataset containing 6{,}834 repeated satisfaction assessments from 321 occupants across primary, secondary, and university classrooms. The original five-point overall IEQ scale is collapsed into three classes: dissatisfied, neutral, and satisfied. Five model families are compared under matched five-fold cross-validation, using macro F1 as the main selection metric because the target distribution is imbalanced. The best single model is an Extra Trees classifier, reaching macro F1 = 0.591, accuracy = 0.723, balanced accuracy = 0.592, and ordinal MAE = 0.315.
 
 The confusion matrices show that satisfied votes are predicted most reliably, while dissatisfied and neutral responses remain harder to separate. Feature-importance and sensitivity analyses suggest that overall IEQ satisfaction is shaped by a combination of environmental, occupant, and contextual factors rather than by one dominant domain alone. Follow-up experiments with complete-case filtering, feature engineering, synthetic class balancing, and primary-school-specific training produce only modest gains and reveal domain shift between educational settings. The results quantify the performance and limits of classroom IEQ prediction and show how such models could support occupant-centered and energy-aware decision support in school buildings.
 \end{abstract}
@@ -131,7 +132,9 @@ This study uses the combined simplified version of the dataset, which keeps vari
 \end{figure}}
 
 \Reviewed{
-\subsection{Data Cleaning and Imputation}
+\section{Methodology}
+
+\subsection{Prediction Task and Model Inputs}
 
 Before imputation, the model input and output variables were defined explicitly. The output variable was the overall IEQ satisfaction vote. The input variables were grouped into sensor-based measurements (\texttt{Temperature}, \texttt{RH}, \texttt{CO2}, \texttt{Lighting}, \texttt{Sound}, and \texttt{Ttrend}), occupant descriptors (\texttt{Age}, \texttt{Gender}, \texttt{Student}, and \texttt{CLO}), seating context (classroom location), and other contextual variables (\texttt{EA}, \texttt{Vote hour}, \texttt{Vote weekday}, \texttt{Moment}, and \texttt{AC on/off}). In the model-ready dataset, classroom location was represented by five binary columns: \texttt{LocationBack}, \texttt{LocationFront}, \texttt{LocationLeft}, \texttt{LocationRight}, and \texttt{LocationMiddle}. Almost all variables that were consistently available in the combined simplified dataset were retained. The remaining variables were excluded mainly because they were not available across the three cases, had too many missing values for a comparable model, or would introduce leakage. In particular, domain-specific satisfaction votes were not used as predictors because they are subjective responses close to the target variable, while trace and grouping identifiers, including \texttt{Occupant ID}, \texttt{Group}, and \texttt{Subgroup}, were excluded to avoid identity- or classroom-specific leakage and unintended personalization to individual occupants or classrooms. The completeness of the retained inputs is summarized in Figure~\ref{fig:ieq-feature-completeness}.
 
@@ -143,7 +146,9 @@ Before imputation, the model input and output variables were defined explicitly.
     \vspace{-0.35\baselineskip}
 \end{figure}
 
-Missing values were filled using fixed, reproducible rules. Missing classroom position was set to Middle. Clothing insulation (CLO) was imputed by the median within each Group, with the global dataset median used as fallback. In the survey and dataset documentation, clothing is recorded as either a simple three-level category (light, neutral, warm) or a more detailed clothing description, not as a directly measured insulation value. Here, the simple categories were mapped to approximate clo values of 0.44, 0.64, and 0.81 based on standard clothing-insulation tables; these values should therefore be interpreted as representative approximations rather than observed measurements \cite{carton2026dataset,ashrae2023standard55,pythermalcomfortclothing2025}. Temperature trend, sound level, and lighting were imputed by the median within Group + Subgroup, then by Group, and finally by the global median as a fallbacks. Age was first inferred from other records with the same Occupant ID using that occupant's median reported age; if no age was available for that ID, the fallback sequence was the median within Group + student-status, then Group, then the global median. Gender was first copied from other records with the same Occupant ID; if no gender was available for that ID, it was assigned by a seeded random draw from the gender distribution within the same Group, with the overall dataset distribution used as fallback. The original five-category overall IEQ scale (1 = very dissatisfied, 2 = dissatisfied, 3 = ok, 4 = satisfied, 5 = very satisfied) was collapsed into three classes for modeling purposes, with categories 1 and 2 merged as dissatisfied, category 3 retained as neutral, and categories 4 and 5 merged as satisfied. The distributions on both scales are shown in Figure~\ref{fig:overall-ieq-distribution}.
+\subsection{Data Cleaning and Imputation}
+
+Missing values were filled using fixed, reproducible rules. Missing classroom position was set to Middle. Clothing insulation (CLO) was imputed by the median within each Group, with the global dataset median used as fallback. In the survey and dataset documentation, clothing is recorded as either a simple three-level category (light, neutral, warm) or a more detailed clothing description, not as a directly measured insulation value. Here, the simple categories were mapped to approximate clo values of 0.44, 0.64, and 0.81 based on standard clothing-insulation tables; these values should therefore be interpreted as representative approximations rather than observed measurements \cite{carton2026dataset,ashrae2023standard55,pythermalcomfortclothing2025}. Temperature trend, sound level, and lighting were imputed by the median within Group + Subgroup, then by Group, and finally by the global median as fallback. Age was first inferred from other records with the same Occupant ID using that occupant's median reported age; if no age was available for that ID, the fallback sequence was the median within Group + student-status, then Group, then the global median. Gender was first copied from other records with the same Occupant ID; if no gender was available for that ID, it was assigned by a seeded random draw from the gender distribution within the same Group, with the overall dataset distribution used as fallback. The original five-category overall IEQ scale (1 = very dissatisfied, 2 = dissatisfied, 3 = ok, 4 = satisfied, 5 = very satisfied) was collapsed into three classes for modeling purposes, with categories 1 and 2 merged as dissatisfied, category 3 retained as neutral, and categories 4 and 5 merged as satisfied. The distributions on both scales are shown in Figure~\ref{fig:overall-ieq-distribution}.
 
 
 
@@ -154,57 +159,97 @@ Missing values were filled using fixed, reproducible rules. Missing classroom po
     \label{fig:overall-ieq-distribution}
 \end{figure}
 
-\supervisornote{Supervisor note: the following supporting figures are intentionally greyed out in the draft to show that they are included only for discussion, orientation, and easier interpretation. They are not yet intended as part of the core article narrative.}}
 
+}
 
-\Reviewed{}
-\clearpage
-\section{Analysis}
+\Reviewed{
 
-\subsection{Modeling Setup}
+\subsection{Model Validation Strategy}
 
-The cleaned dataset was used for ML modelling three-class overall IEQ satisfaction label (dissatisfied, neutral, satisfied). All models were evaluated with five-fold cross-validation using the same folds for fair comparison. The first benchmark stage compared Logistic Regression, Gradient Boosting, ANN/MLP, Random Forest, and Extra Trees. Because the class distribution is imbalanced toward the satisfied class, macro F1 (a score that gives equal importance to all three classes) was used as the main model-selection metric, while raw accuracy, balanced accuracy, and ordinal mean absolute error (MAE) were retained as complementary diagnostics.
+Previous IEQ reviews show that differences in measurement protocols, building contexts, sample sizes, and modeling approaches make direct comparison between studies difficult \cite{heinzerling2013,zhao2023,roumi2022}. To ensure a fair comparison, the same validation protocol was applied to all model families.
 
-\subsection{Tuning Workflow}
+Model performance was evaluated using five-fold cross-validation on the cleaned dataset with the defined predictor set and three-class IEQ satisfaction target. The folds were kept identical for all model families and tuning stages. Preprocessing was fitted within each training fold to prevent information leakage. Because the three target classes were unevenly distributed, macro F1 was used as the primary selection metric: it averages class-level F1 scores without weighting them by class frequency, allowing minority classes to contribute equally to model evaluation \cite{sokolova2009performance}. Accuracy is reported only as a secondary metric because it can be inflated by the dominant satisfied class. Balanced accuracy provides a complementary class-imbalance diagnostic. Ordinal mean absolute error (MAE) was also reported by coding the ordered classes as dissatisfied = 0, neutral = 1, and satisfied = 2, so larger class-distance errors were penalized more strongly than adjacent-class errors.
 
-The analysis was done step by step so the draft shows not only the final result, but also how we got there.
+Macro F1 will also be used as the main metric for personalization and transfer analysis. Personalization will compare the pooled model with classroom- and occupant-specific variants and estimate how many feedback votes are needed for useful adaptation. Transfer learning will first evaluate the Belgian classroom model on a new classroom or school from an independent dataset. It will then test whether a limited number of local feedback votes improves performance in the target setting.}
+
+\Reviewed{
+\subsection{Benchmark Model Training}
+
+The benchmark compared five supervised model families for tabular classification: Logistic Regression, Gradient Boosting, ANN/MLP, Random Forest, and Extra Trees. All five model families were evaluated on the same predictor set, cross-validation folds, and primary selection metric. Hyperparameters were tuned for each model family before the final benchmark comparison.}
+
+\Reviewed{
+\subsection{Hyperparameter Tuning and Final Model Optimization}
+
+Hyperparameter tuning was treated as part of the modeling protocol rather than as a result. The workflow proceeded in three steps:
 \begin{enumerate}
-    \item First, we compared five baseline models on the same feature set.
-    \item Next, we tuned the strongest models.
-    \item Extra Trees then received an additional tuning round because it performed best.
-    \item Finally, we tested several follow-up variants and checked whether the results stayed similar under slightly different settings.
-\end{enumerate}
+    \item Tune all five model families using the same cross-validation protocol and macro F1 objective.
+    \item Select the strongest tuned model family as the main reference model.
+    \item Test additional optimization strategies for the selected model.
+\end{enumerate}}
 
+\Reviewed{After the strongest tuned model was selected, additional optimization strategies were tested for that model. These included manual temperature and CO$_2$ threshold features, ensemble and ordinal alternatives, complete-case row filtering, and synthetic class balancing. The selected Extra Trees model was also interpreted using complementary feature-importance approaches, including model-based importance, permutation importance, and SHAP-based importance grouped back to the original input variables. These analyses were used to identify potentially useful predictors for monitoring and decision support, not to claim causal effects.}
+\Reviewed{
+\subsection{Follow-Up Analyses}
+
+\subsubsection{Personalization Analysis}
+
+Personalization will be evaluated for new classrooms and new occupants. For each target classroom or occupant, all of its records will be excluded from the base model training. A limited number of target feedback votes will then be used for adaptation, and the remaining target votes will be used for testing. Learning-curve experiments will estimate how many feedback votes are needed before personalization becomes useful. Identifiers such as \texttt{Occupant ID}, \texttt{Group}, and \texttt{Subgroup} will be used only to define personalization groups and evaluation splits, not as predictors in the general model.}
+
+\Reviewed{
+\subsubsection{Transfer-Learning and Cross-Setting Validation}
+
+Transfer learning will be evaluated using the Norwegian classroom dataset used by Alam et al.~\cite{alam2025schoolieq}. The model will first be trained on the full Belgian classroom dataset. Before evaluation, the variables and target classes will be harmonized across the Belgian and Norwegian datasets. The Belgian-trained model will then be tested on the Norwegian data before and after adaptation with a limited number of local feedback votes.}
+
+\Reviewed{
 \section{Results}
-\ReviewedOn
-\subsection{Main Tuned Benchmark}
+\subsection{Benchmark Model Comparison}
 
-The tuned comparison identifies Extra Trees as the strongest single model for the all-school IEQ benchmark. Extra Trees was the strongest single model in the main benchmark. Random Forest remains the closest competitor, while the simpler linear baseline and the weaker nonlinear baselines lag clearly behind on macro F1.
+Table~\ref{tab:ieq-main-benchmark} summarizes the performance after hyperparameter tuning. Extra Trees achieved the highest macro F1, followed closely by Random Forest, while the MLP, Gradient Boosting, and Logistic Regression models performed less well on the class-balanced selection metric. The selected hyperparameter configurations are reported in Table~\ref{tab:ieq-best-params} for reproducibility.
 
 \begin{table}[H]
     \centering
     \small
-    \caption{Tuned five-fold cross-validation summary for the current all-school IEQ benchmark.}
+    \caption{Five-fold cross-validation summary for the current all-school IEQ benchmark after hyperparameter tuning.}
     \label{tab:ieq-main-benchmark}
     \begin{tabular}{lccccc}
         \hline
-        Model & Accuracy & Bal. acc. & Macro F1 & Weighted F1 & Ordinal MAE \\
+        Model & Macro F1 & Accuracy & Bal. acc. & Ordinal MAE \\
         \hline
-        Extra Trees & 0.722 & 0.592 & 0.591 & 0.719 & 0.316 \\
-        Random Forest & 0.713 & 0.584 & 0.582 & 0.708 & 0.326 \\
-        ANN / MLP & 0.698 & 0.495 & 0.517 & 0.676 & 0.345 \\
-        Gradient Boosting & 0.692 & 0.446 & 0.464 & 0.635 & 0.356 \\
-        Logistic Regression & 0.483 & 0.464 & 0.401 & 0.521 & 0.671 \\
+        Extra Trees & 0.591 & 0.723 & 0.592 & 0.315 \\
+        Random Forest & 0.585 & 0.715 & 0.587 & 0.325 \\
+        ANN / MLP & 0.510 & 0.694 & 0.490 & 0.344 \\
+        Gradient Boosting & 0.461 & 0.690 & 0.444 & 0.358 \\
+        Logistic Regression & 0.401 & 0.483 & 0.464 & 0.671 \\
         \hline
     \end{tabular}
 \end{table}
 
-Extra Trees therefore becomes the current paper-facing reference model. It performs better than the tuned Random Forest on the main benchmark metrics and also improves on the earlier tuned Extra Trees version.
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Main selected hyperparameter settings for the IEQ model families.}
+    \label{tab:ieq-best-params}
+    \begin{tabular}{p{3.0cm}p{9.9cm}}
+        \hline
+        Model & Main selected settings \\
+        \hline
+        Extra Trees & 700 trees, entropy criterion, bootstrap sampling, max depth 20, balanced class weights \\
+        Random Forest & 300 trees, max depth 20, square-root feature sampling, balanced class weights \\
+        ANN / MLP & One hidden layer with 32 neurons, ReLU activation, \texttt{alpha=0.01}, learning rate 0.003 \\
+        Gradient Boosting & 120 estimators, learning rate 0.08, max depth 3, square-root feature sampling \\
+        Logistic Regression & \texttt{C=30.0}, balanced class weights \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The full scikit-learn configurations are available in the accompanying code and output tables.
+
+Extra Trees was therefore selected as the main reference model for the following analyses. Its advantage over Random Forest was small but consistent for the primary macro F1 metric and the secondary accuracy and ordinal MAE metrics.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.88\textwidth]{04_Figures/ieq_paper/tuned_model_comparison_performance.pdf}
-    \caption{Performance comparison for the tuned IEQ benchmark models under five-fold cross-validation.}
+    \caption{Performance comparison for the IEQ benchmark models after hyperparameter tuning.}
     \label{fig:ieq-tuned-performance}
 \end{figure}
 
@@ -215,121 +260,126 @@ Extra Trees therefore becomes the current paper-facing reference model. It perfo
     \label{fig:ieq-tuned-confusion}
 \end{figure}
 
-The confusion patterns help explain why macro F1 is a more informative selection metric than raw accuracy in this problem. For the refined Extra Trees model, the satisfied class is recognized strongly, but the model still recovers 42.1\% of dissatisfied votes and 53.0\% of neutral votes. Random Forest behaves similarly but is slightly weaker for the neutral class. Gradient Boosting and ANN/MLP push too many cases into the satisfied class, which inflates apparent accuracy while damaging minority-class performance. Logistic Regression is the clearest baseline showing that simple linear decision boundaries are insufficient for this classroom IEQ target.
+The confusion matrices show that satisfied votes are predicted most reliably, while dissatisfied and neutral votes remain harder to detect. Extra Trees gives the most balanced class-level performance, correctly detecting 42.1\% of dissatisfied votes and 53.0\% of neutral votes. Gradient Boosting and ANN/MLP assign too many observations to the satisfied class, which reduces minority-class performance while maintaining relatively high accuracy. This supports the use of macro F1 instead of accuracy alone.}
+
+\Reviewed{
+\subsection{Extra Trees Fine Tuning Results}
+
+Several optimization experiments were compared with the selected all-school Extra Trees model:
+
+\paragraph{Manual temperature and CO$_2$ feature engineering.} We added three threshold indicators: CO$_2$ $>$ 1000 ppm, $T < 18^\circ$C, and $T > 24^\circ$C. Results: macro F1 = -0.003, accuracy = -0.004, balanced accuracy = -0.001, and ordinal MAE = +0.004. The indicators therefore did not improve the current baseline.
+
+\paragraph{Imputation-indicator columns.} We added imputation flags for incomplete predictors plus a row-level imputation count. Results: macro F1 = +0.013, accuracy = +0.007, balanced accuracy = +0.015, and ordinal MAE = -0.008. This was the strongest simple improvement.
+
+\paragraph{Soft-voting ensemble.} We combined Extra Trees and Random Forest probabilities; the best weight used 80\% Extra Trees and 20\% Random Forest. Results: macro F1 = +0.001, accuracy = 0.000, balanced accuracy = +0.001, and ordinal MAE = +0.000. The gain was negligible.
+
+\paragraph{Ordinal classification experiment.} We tested two-threshold ordinal decompositions for $y >$ dissatisfied and $y >$ neutral. Extra Trees results: macro F1 = -0.005, accuracy = +0.008, balanced accuracy = -0.007, and ordinal MAE = -0.004. This stayed supplementary because macro F1 did not improve.
+
+\paragraph{Data-quality and row-filtering strategies.} We tested complete-case filters for originally observed sensor values. The main-sensor filter kept 5{,}349 rows. Results: macro F1 = +0.013, accuracy = -0.002, balanced accuracy = +0.015, and ordinal MAE = +0.001. The stricter Lighting + Sound + Ttrend filter kept 2{,}314 rows. Results: macro F1 = +0.010, accuracy = -0.022, balanced accuracy = +0.011, and ordinal MAE = +0.018. We did not keep these filters because accuracy did not improve and other indicators improved only slightly.
+
+
+\paragraph{Synthetic class balancing.} We tried to reduce the class imbalance by adding extra copies of under-represented training samples. This was done only inside each training fold, so the validation data remained unchanged. The best setting raised the smaller classes to 50\% of the majority class size. It slightly improved macro F1 +0.003 and balanced accuracy +0.011, but reduced accuracy -0.004 and worsened ordinal MAE +0.008, so it was not retained.
+
+\paragraph{Class-weight and decision-threshold tuning.} We screened class weights and probability multipliers. The best class-weight setting, \{dissatisfied: 3, neutral: 2, satisfied: 1\}, gave: macro F1 = +0.006, accuracy = +0.013, balanced accuracy = -0.015, and ordinal MAE = -0.018. Nested threshold tuning gave: macro F1 = +0.008, accuracy = -0.001, balanced accuracy = +0.001, and ordinal MAE = -0.003. The gain was useful but small.
+
+\paragraph{Ten-fold validation check.} We reran the baseline and imputation-indicator models with ten stratified folds. The ten-fold baseline reached macro F1 = 0.597, accuracy = 0.726, balanced accuracy = 0.598, and ordinal MAE = 0.311. Imputation indicators gave: macro F1 = +0.012, accuracy = +0.007, balanced accuracy = +0.015, and ordinal MAE = -0.009. Overall, the ten-fold validation produced slightly better results than the five-fold validation.
+
+
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Extra Trees optimization summary.}
+    \label{tab:ieq-ablation-summary}
+    \begin{tabular}{p{6.0cm}cccc}
+        \hline
+        Experiment & Macro F1 & Accuracy & Bal. acc. & Ordinal MAE \\
+        \hline
+        \textbf{Main all-school Extra Trees baseline} & \textbf{0.591} & \textbf{0.722} & \textbf{0.592} & \textbf{0.316} \\
+        \notretained{Threshold T/CO$_2$ feature engineering} & \notretained{-0.003} & \notretained{-0.004} & \notretained{-0.001} & \notretained{+0.004} \\
+        Imputation-indicator columns & +0.013 & +0.007 & +0.015 & -0.008 \\
+        \notretained{Soft-vote ET 0.80 + RF 0.20} & \notretained{+0.001} & \notretained{0.000} & \notretained{+0.001} & \notretained{0.000} \\
+        \notretained{Ordinal Extra Trees decomposition} & \notretained{-0.005} & \notretained{+0.008} & \notretained{-0.007} & \notretained{-0.004} \\
+        \notretained{Ordinal Random Forest decomposition} & \notretained{-0.038} & \notretained{-0.009} & \notretained{-0.032} & \notretained{+0.019} \\
+        Best class-weight Extra Trees & +0.006 & +0.013 & -0.015 & -0.018 \\
+        Best class-weight + nested threshold & +0.008 & -0.001 & +0.001 & -0.003 \\
+        \notretained{Main-sensor complete-case filter} & \notretained{+0.013} & \notretained{-0.002} & \notretained{+0.015} & \notretained{+0.001} \\
+        \notretained{Lighting + Sound + Ttrend complete-case filter} & \notretained{+0.010} & \notretained{-0.022} & \notretained{+0.011} & \notretained{+0.018} \\
+        \notretained{Best synthetic sampling screen} & \notretained{+0.003} & \notretained{-0.004} & \notretained{+0.011} & \notretained{+0.008} \\
+        Ten-fold validation check & +0.006 & +0.004 & +0.006 & -0.005 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+In Table~\ref{tab:ieq-ablation-summary}, the baseline row reports the original metric values. The other rows report changes relative to this baseline. Black rows show the strategies used in the final Extra Trees workflow, while grey rows show experiments that were not used. The final workflow therefore kept the imputation-indicator columns, class-weight tuning, nested threshold adjustment, and ten-fold validation. The other experiments were treated only as supplementary checks, because their improvements were small, inconsistent across metrics, or based on a different subset of rows. For ordinal MAE, negative changes indicate improvement.}
+
+\Reviewed{
+\subsection{Final Extra Trees Model Results}
+
+The final Extra Trees model therefore includes the fine-tuning steps retained in the previous section: imputation-indicator predictors, class-weight adjustment, nested threshold tuning, and ten-fold stratified validation. The threshold multipliers were selected only within the training portion of each fold, so the held-out folds remained independent validation data.
+
+Table~\ref{tab:ieq-final-extra-trees-results} reports the final cross-validated performance. The model reached macro F1 = 0.621, accuracy = 0.737, balanced accuracy = 0.624, and ordinal MAE = 0.295.
+
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Final Extra Trees model performance under ten-fold stratified cross-validation.}
+    \label{tab:ieq-final-extra-trees-results}
+    \begin{tabular}{lcccc}
+        \hline
+        Model & Macro F1 & Accuracy & Bal. acc. & Ordinal MAE \\
+        \hline
+        Final Extra Trees & 0.621 & 0.737 & 0.624 & 0.295 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.62\textwidth]{04_Figures/ieq_paper/final_extra_trees_confusion_matrix.pdf}
+    \caption{Out-of-fold confusion matrix for the final Extra Trees model. Cells show row percentages and counts.}
+    \label{fig:ieq-final-confusion}
+\end{figure}
+
+Figure~\ref{fig:ieq-final-confusion} shows that satisfied votes remain the easiest class. The model correctly identified 3{,}687 of 4{,}495 satisfied votes, giving satisfied recall of 0.820. Neutral recall was 0.613, and dissatisfied recall was 0.438. The main remaining errors were between neighboring classes: 568 neutral votes were predicted as satisfied, and 697 satisfied votes were predicted as neutral. This means the model is more reliable for broad IEQ screening than for exact separation of adjacent satisfaction states.
+
+After cross-validation, the same final workflow was fitted once more on the full dataset of 6{,}834 observations. This full-data model is the version saved for later prediction or deployment. Its settings use the probability multipliers selected from the cross-validation results: \{dissatisfied: 1.5, neutral: 1.2, satisfied: 1.0\}. No additional performance score is reported for this fitted model, because it is trained on all available observations and therefore has no separate validation fold.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.98\textwidth]{04_Figures/ieq_paper/final_extra_trees_importance_method_comparison.pdf}
-    \caption{Feature-importance comparison for the final Extra Trees IEQ prediction model.}
+    \caption{Feature-importance comparison for the final Extra Trees IEQ prediction model. All original predictors are shown; imputation indicators are excluded.}
     \label{fig:ieq-feature-importance}
 \end{figure}
 
-The feature-importance results vary drastically depending on the method, model or even hyperparameters used. Therefore, the figure is useful for identifying potentially important predictors, but it should not be read as a definitive causal explanation of overall IEQ satisfaction.
-
-\subsection{Best Hyperparameters}
-
-\begin{table}[H]
-    \centering
-    \small
-    \caption{Best tuned configurations for the main IEQ model families.}
-    \label{tab:ieq-best-params}
-    \begin{tabular}{p{2.7cm}p{10.6cm}}
-        \hline
-        Model & Selected hyperparameters \\
-        \hline
-        Extra Trees & \texttt{n\_estimators=700}, \texttt{criterion=entropy}, \texttt{bootstrap=True}, \texttt{max\_samples=0.9}, \texttt{max\_features=None}, \texttt{max\_depth=20}, \texttt{min\_samples\_leaf=2}, \texttt{min\_samples\_split=10}, \texttt{class\_weight=balanced} \\
-        Random Forest & \texttt{n\_estimators=300}, \texttt{max\_depth=20}, \texttt{max\_features=sqrt}, \texttt{min\_samples\_leaf=4}, \texttt{min\_samples\_split=10}, \texttt{class\_weight=balanced} \\
-        ANN / MLP & \texttt{hidden\_layer\_sizes=(32,)}, \texttt{activation=relu}, \texttt{alpha=0.01}, \texttt{learning\_rate\_init=0.003} \\
-        Gradient Boosting & \texttt{n\_estimators=120}, \texttt{learning\_rate=0.08}, \texttt{max\_depth=3}, \texttt{max\_features=sqrt}, \texttt{min\_samples\_leaf=3}, \texttt{subsample=1.0} \\
-        Logistic Regression & \texttt{C=30.0}, \texttt{class\_weight=balanced} \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\subsection{Fine-Tuning Results}
-
-Several follow-up experiments were compared with the final selected all-school Extra Trees model.
-
-\paragraph{Manual temperature and CO$_2$ feature engineering.} We added three threshold indicators: CO$_2$ $>$ 1000 ppm, $T < 18^\circ$C, and $T > 24^\circ$C. Results: accuracy = +0.000, macro F1 = +0.003, ordinal MAE = -0.001. This gave only a very small improvement, so the indicators were not kept as the main model.
-
-\paragraph{Ensemble and ordinal alternatives.} The soft-voting ensemble combined model probabilities using 90\% Extra Trees and 10\% Random Forest. It gave a small gain. Results: accuracy = +0.003, macro F1 = +0.008, ordinal MAE = -0.004. Because the improvement was modest, the single Extra Trees model was kept as the simpler baseline.
-
-\paragraph{Data-quality and row-filtering strategies.} We tested complete-case filters that removed rows with missing sensor values before model evaluation. The main-sensor filter kept only rows with complete original Temperature, RH, CO$_2$, Lighting, and Sound values, leaving 5{,}349 complete rows. Results: accuracy = +0.004, macro F1 = +0.021, ordinal MAE = -0.006. The stricter filter additionally focused on rows with complete Lighting, Sound, and Ttrend values, leaving 2{,}314 complete rows. Results: accuracy = -0.012, macro F1 = +0.024, ordinal MAE = +0.008, but it removed many more rows. These filters were not used as the main model because they change the evaluation population and make comparison with the full dataset less direct.
-
-\paragraph{Synthetic class balancing.} Class balancing was applied only inside the training folds, leaving validation folds unchanged. We screened three variants: random oversampling to 50\% of the majority class, synthetic interpolation to 50\%, and synthetic interpolation to full balance. The best balancing variant gave Results: accuracy = +0.006, macro F1 = +0.003, ordinal MAE = -0.000. Because the improvement was small, this approach was not used further.
-
-\paragraph{Primary-school-specific and transfer analysis.} Training and testing only on primary-school data improved the primary subset. Results: accuracy = +0.037, macro F1 = +0.033, ordinal MAE = -0.041. But when the primary-trained model was evaluated on all rows, performance dropped. Results: accuracy = -0.020, macro F1 = -0.044, ordinal MAE = +0.032. This suggests domain shift between school types, so primary-only training was not used as the general model.
-
-\begin{table}[H]
-    \centering
-    \small
-    \caption{Selected follow-up experiments after the refined Extra Trees model was chosen.}
-    \label{tab:ieq-ablation-summary}
-    \begin{tabular}{p{5.3cm}ccccc}
-        \hline
-        Experiment & Rows & Accuracy & Bal. acc. & Macro F1 & Ordinal MAE \\
-        \hline
-        \textbf{Main all-school Extra Trees baseline} & \textbf{6{,}834} & \textbf{0.722} & \textbf{0.592} & \textbf{0.591} & \textbf{0.316} \\
-        Threshold T/CO$_2$ feature engineering & 6{,}834 & 0.722 & 0.596 & 0.594 & 0.315 \\
-        Soft-vote ET 0.90 + RF 0.10 & 6{,}834 & 0.725 & 0.598 & 0.599 & 0.312 \\
-        Main-sensor complete-case filter & 5{,}349 & 0.726 & 0.614 & 0.612 & 0.310 \\
-        Lighting + Sound + Ttrend complete-case filter & 2{,}314 & 0.710 & 0.618 & 0.615 & 0.324 \\
-        Best synthetic sampling screen & 6{,}834 & 0.728 & 0.597 & 0.594 & 0.316 \\
-        Primary-only ET, full-data model evaluated on primary rows & 5{,}101 & 0.758 & 0.611 & 0.614 & 0.282 \\
-        Primary-only ET, trained and evaluated only on primary rows & 5{,}101 & 0.762 & 0.625 & 0.624 & 0.275 \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\supervisornote{Supervisor note: for a meeting or internal review, I would show the main all-school Extra Trees result first, then immediately show the main-sensor filtered result and the primary-only result as the two most informative sensitivity checks. The ensemble result is interesting, but it is probably too small an increment to be the headline unless the goal becomes purely predictive performance.}
+Figure~\ref{fig:ieq-feature-importance} compares built-in Extra Trees importance, permutation importance, and TreeSHAP importance. The rows are sorted by built-in Extra Trees importance. The highest built-in values were found for Vote weekday, Age, CLO, relative humidity, temperature, lighting, and Gender. Some predictors, especially Gender, LocationLeft, and AC on/off, had stronger permutation or TreeSHAP importance than built-in importance. This shows that the ranking depends on the interpretation method. The figure should therefore be read as model interpretation, not as causal evidence.}
 
 
-\paragraph{Supervisor-only five-class target comparison.} \supervisornote{I also tried creating a model for 5-class satisfaction with results presented below. I would stick with 3-class classification as results are better and transfer learning will be easier.}
+\supervisornote{We have to decide which decide which method to public. For our results Built-in importance looks the best, because RH, Temperature, Lighting, CO2 and sound score quite high, which would show that the satisfaction is predicted more on sensor data than in the other two methods.}
 
-\begin{table}[H]
-    \centering
-    \small
-    \caption{Supervisor-only comparison of three-class and five-class Extra Trees targets on the 5{,}240-row complete-case subset.}
-    \begin{tabular}{lccc}
-        \hline
-        Variant & Accuracy & Macro F1 & Ordinal MAE \\
-        \hline
-        3-class & 0.725 & 0.597 & 0.312 \\
-        5-class & 0.605 & 0.510 & 0.540 \\
-        \hline
-    \end{tabular}
-\end{table}
+\subsection{Personalization Results}
 
-\begin{figure}[H]
-    \centering
-    \supervisorgraphic[width=0.88\textwidth]{04_Figures/ieq_paper/ieq_5240_three_vs_five_extra_trees_confusion_matrices.pdf}
-    \caption{Supervisor-only supporting figure: three-class and five-class Extra Trees confusion matrices on the 5{,}240-row complete-case comparison subset.}
-\end{figure}
+\supervisornote{Not done yet.}
 
-\ReviewedOn
+\subsection{Transfer-Learning and Cross-Setting Validation Results}
+
+\supervisornote{The transfer-learning and cross-setting validation will be done after the Norwegian dataset is available. (They should send us the dataset until June 21st)}
+
+\Reviewed{
 \section{Preliminary Literature Benchmark}
 
-This section compares my preliminary results with other papers. The selected all-school Extra Trees model reaches accuracy = 0.722, balanced accuracy = 0.592, macro F1 = 0.591, and ordinal MAE = 0.316 for the three-class overall IEQ target. These numbers are not extremely high, but the task is difficult: the model predicts individual classroom votes, across different school settings, with imbalanced classes, and mostly from measured environmental and context data.
+This section compares the final results with related IEQ prediction studies. The final Extra Trees model reached macro F1 = 0.621, accuracy = 0.737, balanced accuracy = 0.624, and ordinal MAE = 0.295 for the three-class overall IEQ target. These values are lower than some reported benchmarks, but the comparison is limited. This study predicts individual classroom votes across primary, secondary, and university classrooms, and it mainly uses sensor, occupant, and context variables rather than subjective votes from other IEQ domains.
 
-Some papers report higher scores, but they often solve an easier or different problem. For example, some use only two classes (satisfied / dissatisfied), train person-specific models, predict an average dissatisfaction rate, or use subjective votes in other domains (thermal, IAQ, visual, acustics) as inputs for IEQ prediction. These choices can lead to accuracy above 0.80 or very strong test results, but they are not the same as predicting individual three-class overall IEQ satisfaction from classroom sensors and context variables. Papers that predict overall IEQ from subjective domain satisfaction are still useful, but they start from information that is already close to the final answer \cite{tang2022,zhao2023}.
+Higher scores in the literature are often reported for easier or different settings, such as binary targets, aggregated dissatisfaction rates, person- or building-specific models, or models using subjective thermal, air-quality, visual, and acoustic satisfaction as inputs \cite{tang2022,zhao2023}. In this context, the current performance appears realistic. The model is weaker for dissatisfied and neutral votes, but it still shows that sensor and context data can support broad IEQ satisfaction screening. Macro F1 and balanced accuracy are therefore important alongside accuracy, because they show the weaker performance on minority classes.}
 
-For that reason, the current results seem realistic. It is lower than some values in the literature, but it comes from a harder task. The useful message is that the model works reasonably well on a mixed classroom dataset. The checks also show where the model improves: using only complete sensor rows increases macro F1 by 0.015, and training only on primary-school data improves the primary subset, but does not transfer well to all rows. Therfore I hope that these results are good enough for paper publication.
-
-\section{Transfer Learning}
-\supervisornote{I have requested access to the Norwegian classroom dataset, but I have not yet received a response. Based on the available description, this dataset may not include sound information, so the acoustic variables may need to be excluded or treated separately in the transfer-learning analysis.}
-
-\section{My Questions}
-
-\supervisornote{Question 1: Should I continue with the three-class target, or should I still try to
-develop the five-class classification?\\ Question 2: Are the results good enough to publish?\\
-Question 3: Is there any preffered method to evaluated feature importance?\\ Question 4: To which journal do we want to submit?\\}
+\section{Submission Notes}
+\supervisornote{The most suitable target journal currently seems to be \textit{Building and Environment}, because the paper combines IEQ, occupant satisfaction, classroom measurements, and building-operation implications. Possible fallback journals are \textit{Indoor and Built Environment}, \textit{Journal of Building Engineering}, and \textit{Energy and Buildings}. \textit{Indoor and Built Environment} fits the IEQ and occupant-response focus, \textit{Journal of Building Engineering} fits the applied building-performance and modelling angle, and \textit{Energy and Buildings} could be suitable if the paper emphasizes the future use of the model for balancing satisfaction and energy use.}
 
 \section{Discussion}
 
 \section{Future Work}
-Future work should move from retrospective model evaluation toward real-world deployment and operational testing. The current results suggest that overall IEQ satisfaction models may support occupant-centered and energy-aware decision support, but they should not yet be interpreted as ready for direct autonomous building control. A practical next step would be to implement the model in a classroom monitoring dashboard and test whether its risk warnings help school staff identify problematic rooms, lessons, or operating conditions earlier than standard threshold-based monitoring.
+Future work should move the model closer to real building operation. A practical next step would be to test it in a classroom monitoring dashboard, where predicted satisfaction could be compared with new student feedback and used to identify problematic rooms, lessons, or operating conditions. Such testing would show whether the model is useful not only as a retrospective benchmark, but also as a simple decision-support tool for school operation.
 
-Further validation is also needed under real building operation. The model should be tested prospectively in occupied classrooms, where predicted satisfaction can be compared with new student feedback and where actions such as ventilation changes, shading, heating adjustments, or cooling strategies can be evaluated in practice. This would show whether the model is useful not only as a statistical benchmark, but also as a decision-support tool for balancing occupant satisfaction and energy use. Future studies should also examine how well the approach transfers across schools, seasons, and sensor configurations, and whether calibrated risk estimates can be made reliable enough for operational dashboards.
+Future studies should also compare ML-based IEQ approaches with more conservative building-operation strategies. This would help determine whether IEQ satisfaction models can bring measurable energy benefits when used as part of more complex building control, and what benefits different satisfaction-energy trade-offs could provide. Further progress will require more data from different building types, schools, seasons, and climate zones. It would also be useful to define a more unified set of variables that should be collected in IEQ studies, so that future datasets are easier to combine and compare.
 
 \section{Conclusion}
 

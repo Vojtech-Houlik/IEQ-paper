@@ -1260,6 +1260,51 @@
       \verb https://pythermalcomfort.readthedocs.io/en/stable/documentation/clothing.html
       \endverb
     \endentry
+    \entry{sokolova2009performance}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=2adefbc8409f58c304df957e60c49341}{%
+           family={Sokolova},
+           familyi={S\bibinitperiod},
+           given={Marina},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2c32da83b97570a90db8231cf70f38ce}{%
+           family={Lapalme},
+           familyi={L\bibinitperiod},
+           given={Guy},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{7583d9686fbf26bcb2c9608545b6c971}
+      \strng{fullhash}{7583d9686fbf26bcb2c9608545b6c971}
+      \strng{fullhashraw}{7583d9686fbf26bcb2c9608545b6c971}
+      \strng{bibnamehash}{7583d9686fbf26bcb2c9608545b6c971}
+      \strng{authorbibnamehash}{7583d9686fbf26bcb2c9608545b6c971}
+      \strng{authornamehash}{7583d9686fbf26bcb2c9608545b6c971}
+      \strng{authorfullhash}{7583d9686fbf26bcb2c9608545b6c971}
+      \strng{authorfullhashraw}{7583d9686fbf26bcb2c9608545b6c971}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Information Processing \& Management}
+      \field{number}{4}
+      \field{title}{A Systematic Analysis of Performance Measures for Classification Tasks}
+      \field{volume}{45}
+      \field{year}{2009}
+      \field{pages}{427\bibrangedash 437}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/j.ipm.2009.03.002
+      \endverb
+      \verb{file}
+      \verb ../05_Related_papers/04_Methods_Standards/sokolova2009_evaluation_methodology.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.ipm.2009.03.002
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.ipm.2009.03.002
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
