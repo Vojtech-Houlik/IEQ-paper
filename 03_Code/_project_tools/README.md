@@ -6,12 +6,13 @@ These scripts are not paper-facing materials for supervisors. Paper-ready output
 
 ## Scripts
 
-- `create_article_figures.py`: regenerates the manuscript-ready figures directly in the relevant `../04_Figures` subfolder.
+- `create_article_figures.py`: regenerates the manuscript-ready IEQ figures directly in `../04_Figures`.
 - `create_step1_clean_paper_datasets.py`: regenerates the clean Excel datasets in `../02_Datasets/clean` from the raw Belgian classrooms dataset.
 - `create_step2_imputed_model_datasets.py`: reads `../02_Datasets/clean` and writes model-ready imputed datasets to `../02_Datasets/model_ready`.
 - `create_step2_completeness_graphs.py`: regenerates the Step 2 completeness figures and source tables for both papers.
 - `export_project_docs_to_pdf.py`: exports the root roadmap and paper progress logs from Markdown to PDF.
-- `paper_style.py`: shared plotting helper for all paper figures.
+- `paper_style.py`: compatibility wrapper for the shared plotting helper. Edit
+  the implementation in `../ieq_paper/01_notebook/paper_style.py`.
 - `tu_hri_paper.mplstyle`: shared Matplotlib style file for notebooks or quick plots.
 
 ## Notebook Versions

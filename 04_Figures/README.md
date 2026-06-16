@@ -1,13 +1,8 @@
-# Figures
+# IEQ Paper Figures
 
-Central folder for paper-facing figures. LaTeX drafts should reference figures
-from this folder, not from `03_Code` output folders.
+This folder contains the manuscript-ready figures for the IEQ paper. The
+thermal comfort paper is handled separately, so figures are no longer split into
+`ieq_paper`, `both_papers`, or `thermal_comfort_paper` subfolders.
 
-## Structure
-
-- `both_papers`: shared figures used by both manuscripts.
-- `ieq_paper`: figures used by the overall IEQ paper.
-- `thermal_comfort_paper`: figures used by the thermal comfort paper.
-- `_legacy_article_figures_flat`: archived copy of the former
-  `03_Code/article_figures` folder. It is kept only for traceability and should
-  not be used in LaTeX paths.
+LaTeX drafts should reference figures directly from this folder, not from
+`03_Code` output folders.

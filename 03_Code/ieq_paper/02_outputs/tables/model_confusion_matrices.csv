@@ -1,46 +1,46 @@
 model,true_label,predicted_label,count,row_percent
-Logistic regression,dissatisfied,dissatisfied,233,48.14049586776859
-Logistic regression,dissatisfied,neutral,116,23.96694214876033
-Logistic regression,dissatisfied,satisfied,135,27.892561983471076
-Logistic regression,neutral,dissatisfied,501,27.008086253369274
-Logistic regression,neutral,neutral,722,38.921832884097036
-Logistic regression,neutral,satisfied,632,34.07008086253369
-Logistic regression,satisfied,dissatisfied,916,20.378197997775306
-Logistic regression,satisfied,neutral,1235,27.474972191323694
-Logistic regression,satisfied,satisfied,2344,52.146829810901
-Random Forest,dissatisfied,dissatisfied,212,43.80165289256198
+Logistic regression,dissatisfied,dissatisfied,238,49.17355371900827
+Logistic regression,dissatisfied,neutral,118,24.380165289256198
+Logistic regression,dissatisfied,satisfied,128,26.446280991735538
+Logistic regression,neutral,dissatisfied,507,27.331536388140158
+Logistic regression,neutral,neutral,724,39.02964959568733
+Logistic regression,neutral,satisfied,624,33.63881401617251
+Logistic regression,satisfied,dissatisfied,912,20.28921023359288
+Logistic regression,satisfied,neutral,1241,27.60845383759733
+Logistic regression,satisfied,satisfied,2342,52.10233592880979
+Random Forest,dissatisfied,dissatisfied,216,44.62809917355372
 Random Forest,dissatisfied,neutral,131,27.066115702479337
-Random Forest,dissatisfied,satisfied,141,29.132231404958674
-Random Forest,neutral,dissatisfied,189,10.18867924528302
-Random Forest,neutral,neutral,895,48.24797843665768
-Random Forest,neutral,satisfied,771,41.5633423180593
-Random Forest,satisfied,dissatisfied,131,2.914349276974416
-Random Forest,satisfied,neutral,586,13.03670745272525
-Random Forest,satisfied,satisfied,3778,84.04894327030034
-Extra Trees,dissatisfied,dissatisfied,202,41.735537190082646
-Extra Trees,dissatisfied,neutral,149,30.785123966942145
-Extra Trees,dissatisfied,satisfied,133,27.479338842975203
-Extra Trees,neutral,dissatisfied,181,9.757412398921833
-Extra Trees,neutral,neutral,962,51.85983827493261
-Extra Trees,neutral,satisfied,712,38.38274932614556
-Extra Trees,satisfied,dissatisfied,122,2.71412680756396
+Random Forest,dissatisfied,satisfied,137,28.305785123966942
+Random Forest,neutral,dissatisfied,182,9.811320754716983
+Random Forest,neutral,neutral,904,48.73315363881402
+Random Forest,neutral,satisfied,769,41.455525606469
+Random Forest,satisfied,dissatisfied,132,2.9365962180200222
+Random Forest,satisfied,neutral,606,13.481646273637374
+Random Forest,satisfied,satisfied,3757,83.5817575083426
+Extra Trees,dissatisfied,dissatisfied,205,42.35537190082644
+Extra Trees,dissatisfied,neutral,144,29.75206611570248
+Extra Trees,dissatisfied,satisfied,135,27.892561983471076
+Extra Trees,neutral,dissatisfied,188,10.134770889487871
+Extra Trees,neutral,neutral,960,51.75202156334232
+Extra Trees,neutral,satisfied,707,38.113207547169814
+Extra Trees,satisfied,dissatisfied,118,2.625139043381535
 Extra Trees,satisfied,neutral,599,13.325917686318132
-Extra Trees,satisfied,satisfied,3774,83.95995550611791
-Gradient boosting,dissatisfied,dissatisfied,87,17.97520661157025
-Gradient boosting,dissatisfied,neutral,86,17.768595041322314
-Gradient boosting,dissatisfied,satisfied,311,64.25619834710744
-Gradient boosting,neutral,dissatisfied,46,2.4797843665768196
-Gradient boosting,neutral,neutral,382,20.59299191374663
-Gradient boosting,neutral,satisfied,1427,76.92722371967655
-Gradient boosting,satisfied,dissatisfied,21,0.46718576195773087
-Gradient boosting,satisfied,neutral,225,5.005561735261402
-Gradient boosting,satisfied,satisfied,4249,94.52725250278087
-ANN / MLP,dissatisfied,dissatisfied,89,18.388429752066116
-ANN / MLP,dissatisfied,neutral,184,38.01652892561984
-ANN / MLP,dissatisfied,satisfied,211,43.595041322314046
-ANN / MLP,neutral,dissatisfied,68,3.665768194070081
-ANN / MLP,neutral,neutral,797,42.96495956873315
-ANN / MLP,neutral,satisfied,990,53.36927223719676
-ANN / MLP,satisfied,dissatisfied,44,0.978865406006674
-ANN / MLP,satisfied,neutral,597,13.281423804226918
-ANN / MLP,satisfied,satisfied,3854,85.7397107897664
+Extra Trees,satisfied,satisfied,3778,84.04894327030034
+Gradient boosting,dissatisfied,dissatisfied,110,22.727272727272727
+Gradient boosting,dissatisfied,neutral,124,25.6198347107438
+Gradient boosting,dissatisfied,satisfied,250,51.652892561983464
+Gradient boosting,neutral,dissatisfied,59,3.1805929919137466
+Gradient boosting,neutral,neutral,504,27.169811320754718
+Gradient boosting,neutral,satisfied,1292,69.64959568733153
+Gradient boosting,satisfied,dissatisfied,35,0.778642936596218
+Gradient boosting,satisfied,neutral,325,7.230255839822025
+Gradient boosting,satisfied,satisfied,4135,91.99110122358177
+ANN / MLP,dissatisfied,dissatisfied,101,20.867768595041323
+ANN / MLP,dissatisfied,neutral,144,29.75206611570248
+ANN / MLP,dissatisfied,satisfied,239,49.3801652892562
+ANN / MLP,neutral,dissatisfied,86,4.636118598382749
+ANN / MLP,neutral,neutral,607,32.722371967654986
+ANN / MLP,neutral,satisfied,1162,62.64150943396226
+ANN / MLP,satisfied,dissatisfied,56,1.2458286985539488
+ANN / MLP,satisfied,neutral,426,9.477196885428253
+ANN / MLP,satisfied,satisfied,4013,89.2769744160178

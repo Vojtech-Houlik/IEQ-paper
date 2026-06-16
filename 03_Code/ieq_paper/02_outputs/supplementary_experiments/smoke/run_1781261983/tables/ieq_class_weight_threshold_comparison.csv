@@ -1,4 +1,0 @@
-variant,macro_f1_mean,macro_f1_delta_vs_main,accuracy_mean,accuracy_delta_vs_main,balanced_accuracy_mean,balanced_accuracy_delta_vs_main,ordinal_mae_mean,ordinal_mae_delta_vs_main,recall_dissatisfied_mean,recall_neutral_mean,recall_satisfied_mean
-main_all_school_extra_trees,0.557644,0.0,0.69681,0.0,0.555922,0.0,0.346795,0.0,,,
-class_weight_dissatisfied_5_neutral_2,0.566912,0.009268,0.711004,0.014194,0.556014,9.2e-05,0.328212,-0.018584,0.359504,0.453366,0.855171
-best_class_weight_nested_threshold,0.570942,0.013297,0.700615,0.003805,0.567968,0.012046,0.33743,-0.009365,0.357438,0.544464,0.802001

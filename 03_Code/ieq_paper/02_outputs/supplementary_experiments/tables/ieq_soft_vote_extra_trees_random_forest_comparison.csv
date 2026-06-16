@@ -1,0 +1,6 @@
+variant,decision_label,model,cv_splits,rows,predictors,same_population_as_main,macro_f1_mean,macro_f1_delta_vs_main,accuracy_mean,accuracy_delta_vs_main,balanced_accuracy_mean,balanced_accuracy_delta_vs_main,ordinal_mae_mean,ordinal_mae_delta_vs_main
+main_all_school_extra_trees,REFERENCE - baseline or validation check,Extra Trees,5,6834,20,True,0.592314,0.0,0.723294,0.0,0.593757,0.0,0.313725,0.0
+soft_vote_et_0.80_rf_0.20,REJECTED after testing,Extra Trees + Random Forest,5,6834,20,True,0.593842,0.001528,0.724465,0.001171,0.59497,0.001214,0.313286,-0.000439
+soft_vote_et_0.90_rf_0.10,REJECTED after testing,Extra Trees + Random Forest,5,6834,20,True,0.593345,0.001031,0.72388,0.000586,0.594146,0.000389,0.313286,-0.000439
+soft_vote_et_0.86_rf_0.14,REJECTED after testing,Extra Trees + Random Forest,5,6834,20,True,0.593338,0.001024,0.724465,0.001171,0.59404,0.000284,0.313139,-0.000586
+soft_vote_et_0.95_rf_0.05,REJECTED after testing,Extra Trees + Random Forest,5,6834,20,True,0.592818,0.000504,0.723587,0.000293,0.593701,-5.6e-05,0.313579,-0.000147

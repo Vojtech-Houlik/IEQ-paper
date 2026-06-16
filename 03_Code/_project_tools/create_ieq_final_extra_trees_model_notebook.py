@@ -6,7 +6,7 @@ from textwrap import dedent
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-NOTEBOOK_PATH = PROJECT_ROOT / "03_Code" / "ieq_paper" / "01_notebook" / "07_ieq_final_extra_trees_model.ipynb"
+NOTEBOOK_PATH = PROJECT_ROOT / "03_Code" / "ieq_paper" / "01_notebook" / "05_ieq_final_extra_trees_model.ipynb"
 
 
 def markdown_cell(source: str) -> dict:
@@ -45,7 +45,9 @@ cells = [
         """
         from __future__ import annotations
 
+        import builtins
         import json
+        import sys
         import time
         from pathlib import Path
         from typing import Callable
@@ -54,12 +56,6 @@ cells = [
         import matplotlib.pyplot as plt
         import numpy as np
         import pandas as pd
-        from matplotlib.colors import LinearSegmentedColormap
-        try:
-            from IPython.display import display
-        except ImportError:
-            def display(value):
-                print(value)
 
         from sklearn.compose import ColumnTransformer
         from sklearn.ensemble import ExtraTreesClassifier
@@ -67,6 +63,20 @@ cells = [
         from sklearn.model_selection import StratifiedKFold, StratifiedShuffleSplit
         from sklearn.pipeline import Pipeline
         from sklearn.preprocessing import OneHotEncoder, StandardScaler
+
+        STYLE_DIR = Path.cwd()
+        for root in [Path.cwd(), *Path.cwd().parents]:
+            candidate = root / "03_Code" / "ieq_paper" / "01_notebook"
+            if (candidate / "paper_style.py").exists():
+                STYLE_DIR = candidate.resolve()
+                break
+        if str(STYLE_DIR) not in sys.path:
+            sys.path.insert(0, str(STYLE_DIR))
+
+        from paper_style import COLORS as PAPER_COLORS, apply_paper_style, plot_confusion_matrix, save_figure, style_axes
+
+        apply_paper_style()
+        display = getattr(builtins, "display", print)
 
         pd.set_option("display.max_columns", 120)
         pd.set_option("display.width", 160)
@@ -84,21 +94,6 @@ cells = [
         CLASS_ORDER = ["dissatisfied", "neutral", "satisfied"]
         CLASS_TO_NUMBER = {label: i for i, label in enumerate(CLASS_ORDER)}
         REPORT_METRICS = ["macro_f1", "accuracy", "balanced_accuracy", "ordinal_mae"]
-        PAPER_COLORS = {
-            "text": "#111827",
-            "muted_text": "#4B5563",
-            "border": "#1F2933",
-            "axis": "#AAB2B8",
-            "grid": "#D9DEE3",
-            "best": "#2A9D8F",
-            "medium": "#E9C46A",
-            "dark_blue": "#457B9D",
-            "secondary_green": "#5A9E6F",
-        }
-        CONFUSION_CMAP = LinearSegmentedColormap.from_list(
-            "paper_confusion",
-            ["#FFFFFF", PAPER_COLORS["grid"], PAPER_COLORS["dark_blue"]],
-        )
 
         # Best manual class-weight setting retained from the fine-tuning notebook.
         FINAL_CLASS_WEIGHT = {"dissatisfied": 3.0, "neutral": 2.0, "satisfied": 1.0}
@@ -139,7 +134,7 @@ cells = [
         TABLE_DIR = OUTPUT_DIR / "tables"
         FIGURE_DIR = OUTPUT_DIR / "figures"
         MODEL_DIR = OUTPUT_DIR / "model"
-        PAPER_FIGURE_DIR = PROJECT_ROOT / "04_Figures" / "ieq_paper"
+        PAPER_FIGURE_DIR = PROJECT_ROOT / "04_Figures"
 
         for directory in [TABLE_DIR, FIGURE_DIR, MODEL_DIR, PAPER_FIGURE_DIR]:
             directory.mkdir(parents=True, exist_ok=True)
@@ -524,31 +519,18 @@ cells = [
             )
         )
 
-        row_percentages = matrix.div(matrix.sum(axis=1), axis=0).fillna(0) * 100
-
         fig, ax = plt.subplots(figsize=(5.2, 4.5), constrained_layout=True)
-        image = ax.imshow(row_percentages.to_numpy(), cmap=CONFUSION_CMAP, vmin=0, vmax=100)
-        ax.set_title("Final Extra Trees confusion matrix", fontsize=10)
-        ax.set_xticks(range(len(CLASS_ORDER)), CLASS_ORDER, rotation=35, ha="right")
-        ax.set_yticks(range(len(CLASS_ORDER)), CLASS_ORDER)
-        for row in range(len(CLASS_ORDER)):
-            for col in range(len(CLASS_ORDER)):
-                count = int(matrix.iloc[row, col])
-                percent = row_percentages.iloc[row, col]
-                text_color = "white" if percent >= 55 else "black"
-                ax.text(
-                    col,
-                    row,
-                    f"{percent:.0f}%\\n{count}",
-                    ha="center",
-                    va="center",
-                    fontsize=9.5,
-                    color=text_color,
-                )
-        ax.set_xlabel("Predicted")
-        ax.set_ylabel("True")
+        image, colorbar_label = plot_confusion_matrix(
+            ax,
+            matrix,
+            labels=CLASS_ORDER,
+            display_labels=CLASS_ORDER,
+            title=None,
+            xtick_rotation=35,
+            annotation_fontsize=9.5,
+        )
         colorbar = fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
-        colorbar.set_label("Row percentage")
+        colorbar.set_label(colorbar_label)
         plt.show()
         """
     ),
@@ -795,8 +777,8 @@ cells = [
         )
         builtin_importance = (
             encoded_builtin
-            .groupby("feature", as_index=False)["builtin_importance"]
-            .sum()
+            .groupby("feature", as_index=False)
+            .agg(builtin_importance=("builtin_importance", "sum"))
             .sort_values("builtin_importance", ascending=False)
         )
         builtin_importance["builtin_importance_percent"] = (
@@ -854,8 +836,8 @@ cells = [
             )
             shap_importance = (
                 encoded_shap
-                .groupby("feature", as_index=False)["shap_mean_abs"]
-                .sum()
+                .groupby("feature", as_index=False)
+                .agg(shap_mean_abs=("shap_mean_abs", "sum"))
                 .sort_values("shap_mean_abs", ascending=False)
             )
             shap_importance["shap_importance_percent"] = (
@@ -945,45 +927,51 @@ cells = [
 
         fig, axes = plt.subplots(ncols=3, figsize=(13.8, 8.2), sharey=True)
         for ax, (normalized_column, raw_column, title, formatter, color) in zip(axes, method_panels):
-            bars = ax.barh(plot_data["feature"], plot_data[normalized_column], color=color, alpha=0.88)
-            ax.set_title(title)
+            bars = ax.barh(
+                plot_data["feature"],
+                plot_data[normalized_column],
+                color=color,
+                edgecolor=PAPER_COLORS["border"],
+                linewidth=0.55,
+                alpha=0.92,
+            )
+            ax.set_title(title, fontsize=11.5, fontweight="bold", pad=9)
             ax.set_xlim(0, 1.08)
-            ax.grid(axis="x", alpha=0.25)
-            ax.spines["top"].set_visible(False)
-            ax.spines["right"].set_visible(False)
-            ax.spines["left"].set_visible(False)
-            ax.tick_params(axis="y", length=0)
+            ax.set_xlabel("Normalized importance", fontsize=11, labelpad=6)
+            style_axes(ax, grid_axis="x")
+            ax.tick_params(axis="x", labelsize=10)
+            ax.tick_params(axis="y", labelsize=10)
             for bar, raw_value in zip(bars, plot_data[raw_column]):
                 ax.text(
                     bar.get_width() + 0.02,
                     bar.get_y() + bar.get_height() / 2,
                     formatter(raw_value),
                     va="center",
-                    fontsize=8.5,
+                    fontsize=9,
+                    color=PAPER_COLORS["text"],
                 )
 
-        axes[0].set_ylabel("Predictor")
+        axes[0].set_ylabel("Predictor", fontsize=11, labelpad=8)
+        for ax in axes[1:]:
+            ax.tick_params(axis="y", labelleft=False)
         fig.text(
             0.5,
             -0.015,
             f"Rows show all original predictors ranked by built-in Extra Trees importance. Imputation indicators are excluded. TreeSHAP sample rows: {shap_sample_rows:,}.",
             ha="center",
             fontsize=8.8,
+            color=PAPER_COLORS["muted_text"],
         )
         fig.tight_layout()
 
-        importance_figure_png = FIGURE_DIR / "ieq_final_extra_trees_importance_method_comparison.png"
-        importance_figure_pdf = FIGURE_DIR / "ieq_final_extra_trees_importance_method_comparison.pdf"
-        paper_importance_figure_png = PAPER_FIGURE_DIR / "final_extra_trees_importance_method_comparison.png"
-        paper_importance_figure_pdf = PAPER_FIGURE_DIR / "final_extra_trees_importance_method_comparison.pdf"
-        fig.savefig(importance_figure_png, dpi=300, bbox_inches="tight")
-        fig.savefig(importance_figure_pdf, bbox_inches="tight")
-        fig.savefig(paper_importance_figure_png, dpi=300, bbox_inches="tight")
-        fig.savefig(paper_importance_figure_pdf, bbox_inches="tight")
+        importance_figure_base = FIGURE_DIR / "ieq_final_extra_trees_importance_method_comparison"
+        paper_importance_figure_base = PAPER_FIGURE_DIR / "final_extra_trees_importance_method_comparison"
+        save_figure(fig, importance_figure_base)
+        save_figure(fig, paper_importance_figure_base)
         print("Saved feature-importance table:", importance_comparison_path)
         print("Saved article feature-importance table:", article_importance_comparison_path)
-        print("Saved feature-importance figure:", importance_figure_png)
-        print("Saved paper feature-importance figure:", paper_importance_figure_pdf)
+        print("Saved feature-importance figure:", importance_figure_base.with_suffix(".png"))
+        print("Saved paper feature-importance figure:", paper_importance_figure_base.with_suffix(".pdf"))
         plt.show()
         """
     ),

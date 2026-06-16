@@ -48,10 +48,14 @@ Status as of `2026-05-13`:
 - Tuned model-comparison notebooks and output tables exist for both papers:
   - thermal comfort: current strongest tuned model is Random Forest, with accuracy=0.669, macro F1=0.593, and ordinal MAE=0.396.
   - IEQ: current selected single-model line is refined Extra Trees with fixed final hyperparameters.
-- For IEQ, a portable supervisor handoff notebook was created: `ieq_paper/01_notebook/04_ieq_final_extra_trees_supervisor.ipynb`.
-  - It uses only `../02_Datasets/model_ready/ieq_model_dataset.xlsx`, fixed final Extra Trees hyperparameters, deterministic 5-fold cross-validation, a confusion-matrix heatmap, and a reference comparison figure.
-  - After removing `Estimated Age` from the model-ready `data` sheet, the current IEQ handoff run uses 20 predictors and reaches accuracy=0.722, macro F1=0.591, weighted F1=0.719, and ordinal MAE=0.316.
-  - The same handoff-notebook pattern can be copied to thermal comfort with the tuned Random Forest configuration.
+- IEQ handoff notebooks now follow the paper-facing analysis sequence:
+  - `ieq_paper/01_notebook/02_ieq_all_models_hyperparameter_tuning.ipynb`
+  - `ieq_paper/01_notebook/03_ieq_tuned_all_models_comparison.ipynb`
+  - `ieq_paper/01_notebook/04_ieq_extra_trees_fine_tuning.ipynb`
+  - `ieq_paper/01_notebook/05_ieq_final_extra_trees_model.ipynb`
+  The sequence starts at `02` because dataset preparation is step `01` and is
+  handled by `_project_tools/create_step1_clean_paper_datasets.py` and
+  `_project_tools/create_step2_imputed_model_datasets.py`.
 
 ## Folder Structure
 
@@ -67,13 +71,15 @@ The older thermal comfort track still uses its original numbering for now.
 
 ## Working Rules
 
-- Keep one main notebook per paper:
+- Keep the paper-facing notebook sequence concise:
   - `thermal_comfort_paper/03_notebook/thermal_comfort_workflow.ipynb`
-  - `ieq_paper/01_notebook/ieq_workflow.ipynb`
-- Keep supervisor handoff notebooks separate from exploratory/tuning notebooks. For IEQ, the current handoff notebook is `ieq_paper/01_notebook/04_ieq_final_extra_trees_supervisor.ipynb`.
+  - IEQ notebooks in `ieq_paper/01_notebook/02` through `05`
+- Keep obsolete supervisor/baseline notebooks out of the IEQ handoff sequence.
 - Keep internal helper scripts in `_project_tools`; do not leave one-off maintenance scripts in the project root.
 - Use the shared figure style guide for all new paper figures: `PAPER_FIGURE_STYLE_GUIDE.md`.
-- Generate Matplotlib figures through `_project_tools/paper_style.py` when practical, so colors, fonts, and exports stay consistent.
+- Generate Matplotlib figures through `ieq_paper/01_notebook/paper_style.py`
+  when practical, so colors, fonts, and exports stay consistent. The old
+  `_project_tools/paper_style.py` path remains as an import wrapper.
 - Save manuscript-ready exported figures in the relevant `../04_Figures` subfolder.
 - After every meaningful work session:
   - update the paper-specific `00_progress/progress.md`
@@ -169,7 +175,7 @@ Current implemented imputation rule:
 - The model-ready `data` sheets remove trace/context columns (`source_row_number`, `Occupant ID`, `Group`, `Subgroup`) and imputation metadata columns. The `Estimated Age` flag was removed from the paper-facing `data` sheets on 2026-05-13 because it was not needed as a model input; detailed imputation counts remain in the workbook support sheets.
 - Broad missingness indicators (`Imputed CLO`, `Imputed Age`, `Imputed Gender`, `Imputed Location`, `Imputed Ttrend`, IEQ-specific `Imputed Lighting`/`Imputed Sound`, and the compact `Estimated Age` flag) were tested and then removed. The fixed-parameter gains were marginal and not robust enough to justify adding these columns to the paper-facing model-ready datasets.
 - Class-imbalance strategies were also tested on 2026-05-07. Thermal synthetic sampling, sample-weighted fitting, and probability multiplier calibration did not improve the primary macro F1 result enough to replace the tuned thermal Random Forest baseline. For IEQ, sample weighting and probability multiplier calibration did not beat the refined Extra Trees baseline; earlier IEQ synthetic sampling had also failed to improve macro F1.
-- Primary-school-only training was tested on 2026-05-08. It did not improve the best thermal comfort model on primary-school rows. For IEQ, the primary-only Extra Trees model reached accuracy=0.762 and macro F1=0.624, compared with the all-school Extra Trees baseline accuracy=0.725 and macro F1=0.597. The same-population comparison is smaller but still positive: the all-school model evaluated only on primary rows reached accuracy=0.758 and macro F1=0.614. Treat this as a strong IEQ subset/sensitivity result, not as a replacement for the all-school model.
+- Primary-school-only training was tested on 2026-05-08. It did not improve the best thermal comfort model on primary-school rows. For IEQ, the primary-only Extra Trees model reached accuracy=0.762 and macro F1=0.624. The current all-school tuned Extra Trees benchmark is accuracy=0.723 and macro F1=0.592, while the older same-population check had the all-school model evaluated only on primary rows at accuracy=0.758 and macro F1=0.614. Treat this as a strong IEQ subset/sensitivity result, not as a replacement for the all-school or final ten-fold model.
 
 ## Step 3: Simplify Satisfaction Classes
 
@@ -276,7 +282,7 @@ Done means: each paper has a model comparison table that is supervisor-ready.
 Current status:
 
 - Thermal comfort tuning is complete enough for supervisor discussion. The current best model is tuned Random Forest, and rejected ablations are documented in `thermal_comfort_paper/06_manuscript/modeling_results_notes.md`.
-- IEQ tuning is complete enough for supervisor discussion. The current selected single-model configuration is refined Extra Trees: `n_estimators=700`, `criterion="entropy"`, `bootstrap=True`, `max_samples=0.9`, `max_features=None`, `max_depth=20`, `min_samples_leaf=2`, `min_samples_split=10`, and `class_weight="balanced"`.
+- IEQ tuning is complete enough for supervisor discussion. The current selected single-model configuration is refined Extra Trees: `n_estimators=500`, `criterion="entropy"`, `bootstrap=True`, `max_samples=0.9`, `max_features=None`, `max_depth=None`, `min_samples_leaf=2`, `min_samples_split=10`, and `class_weight="balanced"`.
 - The IEQ final handoff notebook uses the selected hyperparameters directly instead of running `RandomizedSearchCV`, so repeated supervisor runs are intended to stay aligned with the article-facing model definition.
 
 ## Step 7: Select the Best Model
@@ -326,7 +332,7 @@ Feature importance means model reliance, not causal influence. The manuscript sh
 Current status:
 
 - This step is still the main next analysis gap for both papers. The selected models exist, but final feature-importance figures and interpretation paragraphs have not yet been produced in the clean supervisor handoff format.
-- IEQ should be handled first using the fixed Extra Trees pipeline from `04_ieq_final_extra_trees_supervisor.ipynb`; thermal comfort can then reuse the same structure with the selected Random Forest model.
+- IEQ final-model reporting should use `05_ieq_final_extra_trees_model.ipynb`; thermal comfort can then reuse the same structure with the selected Random Forest model.
 
 ## Step 9: External Dataset Search
 

@@ -8,3 +8,24 @@ __pycache__/
 .DS_Store
 Thumbs.db
 ~$*
+Preferences.xml
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.run.xml
+*.synctex.gz
+*.toc
+*.out
+*.bbl-SAVE-ERROR
+pdflatex*.fls
+
+# Temporary analysis outputs
+**/smoke/
+**/*_smoke/
+04_Figures/ieq_paper/output.png

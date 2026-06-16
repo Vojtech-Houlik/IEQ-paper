@@ -149,8 +149,8 @@ def plot_feature_completeness(table: pd.DataFrame, paper: PaperDataset, output_p
         edgecolor=COLORS["border"],
         linewidth=0.55,
     )
-    ax.set_title(f"Feature Completeness: {paper.title}", fontsize=18, fontweight="bold", pad=18)
-    ax.set_xlabel("Completeness (% of all rows)", fontsize=11.5)
+    ax.set_title(f"Feature Completeness: {paper.title}", fontsize=11.5, fontweight="bold", pad=18)
+    ax.set_xlabel("Completeness (% of all rows)", fontsize=11)
     ax.set_xlim(0, 100)
     ax.grid(axis="x", color=COLORS["grid"], alpha=0.85)
     ax.set_axisbelow(True)
@@ -194,8 +194,8 @@ def plot_complete_cases(table: pd.DataFrame, paper: PaperDataset, output_path: P
         edgecolor=COLORS["border"],
         linewidth=0.55,
     )
-    ax.set_title(f"Complete-Case Availability\n{paper.title}", fontsize=16, fontweight="bold", pad=16)
-    ax.set_xlabel("Complete rows (% of all rows)", fontsize=11.5)
+    ax.set_title(f"Complete-Case Availability\n{paper.title}", fontsize=11.5, fontweight="bold", pad=16)
+    ax.set_xlabel("Complete rows (% of all rows)", fontsize=11)
     ax.set_xlim(0, 100)
     ax.grid(axis="x", color=COLORS["grid"], alpha=0.85)
     ax.set_axisbelow(True)

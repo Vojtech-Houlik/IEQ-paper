@@ -17,7 +17,7 @@ from paper_style import COLORS as PAPER_COLORS, apply_paper_style, save_figure, 
 SUMMARY_PATH = PROJECT_ROOT / "03_Code" / "ieq_paper" / "02_outputs" / "tables" / "tuned_model_comparison_5fold_summary.csv"
 OUTPUT_DIRS = [
     PROJECT_ROOT / "03_Code" / "ieq_paper" / "02_outputs" / "figures",
-    PROJECT_ROOT / "04_Figures" / "ieq_paper",
+    PROJECT_ROOT / "04_Figures",
 ]
 
 MODEL_ORDER = [
@@ -87,7 +87,7 @@ def main() -> None:
                 fontweight="bold",
                 color=model_value_label_color(model),
             )
-        ax.set_title(label, fontsize=12, fontweight="bold", pad=8)
+        ax.set_title(label, fontsize=11.5, fontweight="bold", pad=8)
         ax.set_ylim(0, 1)
         ax.set_xticks(x)
         ax.set_xticklabels([MODEL_LABELS[model] for model in MODEL_ORDER])

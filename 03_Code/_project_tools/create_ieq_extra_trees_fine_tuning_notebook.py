@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-NOTEBOOK_PATH = PROJECT_ROOT / "03_Code" / "ieq_paper" / "01_notebook" / "06_ieq_extra_trees_fine_tuning.ipynb"
+NOTEBOOK_PATH = PROJECT_ROOT / "03_Code" / "ieq_paper" / "01_notebook" / "04_ieq_extra_trees_fine_tuning.ipynb"
 
 
 def markdown_cell(source: str) -> dict:
@@ -61,6 +61,7 @@ cells = [
         from __future__ import annotations
 
         import json
+        import sys
         import time
         from pathlib import Path
         from typing import Callable
@@ -81,6 +82,19 @@ cells = [
         from sklearn.model_selection import StratifiedKFold
         from sklearn.pipeline import Pipeline
         from sklearn.preprocessing import OneHotEncoder, StandardScaler
+
+        STYLE_DIR = Path.cwd()
+        for root in [Path.cwd(), *Path.cwd().parents]:
+            candidate = root / "03_Code" / "ieq_paper" / "01_notebook"
+            if (candidate / "paper_style.py").exists():
+                STYLE_DIR = candidate.resolve()
+                break
+        if str(STYLE_DIR) not in sys.path:
+            sys.path.insert(0, str(STYLE_DIR))
+
+        from paper_style import apply_paper_style, plot_confusion_matrix
+
+        apply_paper_style()
 
         pd.set_option("display.max_columns", 120)
         pd.set_option("display.width", 160)
@@ -780,20 +794,20 @@ cells = [
         best_ordinal_confusion.to_csv(ordinal_confusion_path)
 
         fig, ax = plt.subplots(figsize=(4.8, 4.2), constrained_layout=True)
-        image = ax.imshow(best_ordinal_confusion.to_numpy(), cmap="Blues")
-        ax.set_xticks(np.arange(len(CLASS_ORDER)), labels=CLASS_ORDER, rotation=30, ha="right")
-        ax.set_yticks(np.arange(len(CLASS_ORDER)), labels=CLASS_ORDER)
-        ax.set_xlabel("Predicted class")
-        ax.set_ylabel("True class")
-        ax.set_title(best_ordinal_variant.replace("_", " "))
-        for row in range(len(CLASS_ORDER)):
-            for column in range(len(CLASS_ORDER)):
-                value = int(best_ordinal_confusion.iloc[row, column])
-                ax.text(column, row, value, ha="center", va="center", color="black")
-        fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
+        image, colorbar_label = plot_confusion_matrix(
+            ax,
+            best_ordinal_confusion,
+            labels=CLASS_ORDER,
+            display_labels=CLASS_ORDER,
+            title=None,
+            xtick_rotation=35,
+            annotation_fontsize=9,
+        )
+        colorbar = fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
+        colorbar.set_label(colorbar_label)
 
         ordinal_confusion_figure_path = FIGURE_DIR / "ieq_ordinal_classification_best_confusion_matrix.png"
-        fig.savefig(ordinal_confusion_figure_path, dpi=220, bbox_inches="tight")
+        fig.savefig(ordinal_confusion_figure_path, dpi=300, bbox_inches="tight")
         print("Saved ordinal fold-level results to:", ordinal_folds_path)
         print("Saved ordinal predictions to:", ordinal_predictions_path)
         print("Saved ordinal summary to:", ordinal_summary_path)
@@ -882,7 +896,10 @@ cells = [
 
         def per_class_recall_row(y_true: pd.Series, y_pred: pd.Series | np.ndarray) -> dict[str, float]:
             recalls = recall_score(y_true, y_pred, labels=CLASS_ORDER, average=None, zero_division=0)
-            return {f"recall_{label}": float(value) for label, value in zip(CLASS_ORDER, recalls)}
+            recall_row = {}
+            for index, label in enumerate(CLASS_ORDER):
+                recall_row[f"recall_{label}"] = float(recalls[index])
+            return recall_row
 
 
         def evaluate_class_weight_variant(
@@ -1292,24 +1309,24 @@ cells = [
         class_weight_threshold_confusions = pd.concat(confusion_tables, ignore_index=True)
 
         fig, axes = plt.subplots(1, 3, figsize=(12.5, 3.8), constrained_layout=True)
-        max_count = 0
-        confusion_matrices = []
-        for _, variant in confusion_variants:
-            matrix = confusion_matrix_for_predictions(class_weight_threshold_predictions, variant)
-            confusion_matrices.append(matrix)
-            max_count = max(max_count, int(matrix.to_numpy().max()))
-
+        confusion_matrices = [
+            confusion_matrix_for_predictions(class_weight_threshold_predictions, variant)
+            for _, variant in confusion_variants
+        ]
+        image = None
         for ax, (label, _), matrix in zip(axes, confusion_variants, confusion_matrices):
-            image = ax.imshow(matrix.to_numpy(), cmap="Blues", vmin=0, vmax=max_count)
-            ax.set_title(label)
-            ax.set_xticks(np.arange(len(CLASS_ORDER)), labels=CLASS_ORDER, rotation=30, ha="right")
-            ax.set_yticks(np.arange(len(CLASS_ORDER)), labels=CLASS_ORDER)
-            ax.set_xlabel("Predicted class")
-            ax.set_ylabel("True class")
-            for row in range(len(CLASS_ORDER)):
-                for column in range(len(CLASS_ORDER)):
-                    ax.text(column, row, int(matrix.iloc[row, column]), ha="center", va="center", color="black")
-        fig.colorbar(image, ax=axes, fraction=0.025, pad=0.02)
+            image, colorbar_label = plot_confusion_matrix(
+                ax,
+                matrix,
+                labels=CLASS_ORDER,
+                display_labels=CLASS_ORDER,
+                title=label,
+                xtick_rotation=30,
+                annotation_fontsize=8.4,
+            )
+        for ax in axes[1:]:
+            ax.set_ylabel("")
+        fig.colorbar(image, ax=axes, fraction=0.025, pad=0.02, label=colorbar_label)
 
         class_weight_folds_path = OUTPUT_DIR / "ieq_class_weight_search_folds.csv"
         class_weight_summary_path = OUTPUT_DIR / "ieq_class_weight_search_summary.csv"
@@ -1329,7 +1346,7 @@ cells = [
         threshold_predictions.to_csv(threshold_predictions_path, index=False)
         threshold_display.to_csv(threshold_comparison_path, index=False)
         class_weight_threshold_confusions.to_csv(threshold_confusions_path, index=False)
-        fig.savefig(threshold_figure_path, dpi=220, bbox_inches="tight")
+        fig.savefig(threshold_figure_path, dpi=300, bbox_inches="tight")
 
         print("Saved class-weight folds to:", class_weight_folds_path)
         print("Saved class-weight summary to:", class_weight_summary_path)
@@ -1684,9 +1701,11 @@ cells = [
     ),
     markdown_cell(
         """
-        ## Combined fine-tuning summary
+        ## Fine-tuning summary
 
-        The table below is the notebook's main output. Delta columns are computed against the main all-school Extra Trees baseline. Rows with fewer observations are marked as a different evaluation population and should not be treated as direct replacements for the main model.
+        This final table is formatted for the paper. The first row gives the absolute cross-validated performance of the main all-school Extra Trees baseline. Every later row gives the change relative to that same baseline, so positive values mean improvement for F1, accuracy, and balanced accuracy, while negative values mean improvement for ordinal MAE.
+
+        The rows intentionally follow the article order rather than sorting by score. Screens that tested many variants contribute only the best row from that method.
         """
     ),
     code_cell(
@@ -1704,26 +1723,65 @@ cells = [
         if not sampling_folds.empty:
             fold_tables.append(sampling_folds)
 
-        fine_tuning_folds = pd.concat(fold_tables, ignore_index=True)
-        fine_tuning_summary = summarize_folds(fine_tuning_folds)
+        if not ten_fold_folds.empty:
+            fold_tables.append(ten_fold_folds)
 
-        baseline_row = fine_tuning_summary[fine_tuning_summary["variant"].eq("main_all_school_extra_trees")].iloc[0]
+        fine_tuning_folds = pd.concat([table for table in fold_tables if not table.empty], ignore_index=True)
+        full_fine_tuning_summary = summarize_folds(fine_tuning_folds)
+
+        baseline_row = full_fine_tuning_summary[full_fine_tuning_summary["variant"].eq("main_all_school_extra_trees")].iloc[0]
 
         for metric in REPORT_METRICS:
-            fine_tuning_summary[f"{metric}_delta_vs_main"] = fine_tuning_summary[f"{metric}_mean"] - baseline_row[f"{metric}_mean"]
+            full_fine_tuning_summary[f"{metric}_delta_vs_main"] = full_fine_tuning_summary[f"{metric}_mean"] - baseline_row[f"{metric}_mean"]
 
-        fine_tuning_summary["same_population_as_main"] = fine_tuning_summary["rows"].eq(int(baseline_row["rows"]))
+        full_fine_tuning_summary["same_population_as_main"] = full_fine_tuning_summary["rows"].eq(int(baseline_row["rows"]))
 
-        variant_order = [
-            "main_all_school_extra_trees",
-            "threshold_flags_co2_1000_t18_t24",
-            "imputation_indicators",
-            "soft_vote_et_0.90_rf_0.10",
-            "soft_vote_et_0.86_rf_0.14",
-            "soft_vote_et_0.80_rf_0.20",
-            "soft_vote_et_0.95_rf_0.05",
-            "ordinal_extra_trees_decomposition",
-            "ordinal_random_forest_decomposition",
+
+        def get_variant_row(variant: str) -> pd.Series:
+            rows = full_fine_tuning_summary[full_fine_tuning_summary["variant"].eq(variant)]
+            if rows.empty:
+                raise ValueError(f"Missing expected final-summary variant: {variant}")
+            return rows.iloc[0]
+
+
+        def get_best_variant_row(variants: list[str]) -> pd.Series:
+            rows = full_fine_tuning_summary[full_fine_tuning_summary["variant"].isin(variants)].copy()
+            if rows.empty:
+                raise ValueError(f"No variants found from expected set: {variants}")
+            return rows.sort_values(["macro_f1_mean", "accuracy_mean"], ascending=[False, False]).iloc[0]
+
+
+        def format_absolute(value: float) -> str:
+            return f"{value:.3f}"
+
+
+        def format_delta(value: float) -> str:
+            return "0.000" if abs(value) < 0.0005 else f"{value:+.3f}"
+
+
+        def numeric_row(experiment: str, row: pd.Series, *, baseline: bool = False) -> dict[str, float | str | bool]:
+            if baseline:
+                return {
+                    "Experiment": experiment,
+                    "Macro F1": row["macro_f1_mean"],
+                    "Accuracy": row["accuracy_mean"],
+                    "Bal. acc.": row["balanced_accuracy_mean"],
+                    "Ordinal MAE": row["ordinal_mae_mean"],
+                    "is_baseline": True,
+                    "variant": row["variant"],
+                }
+            return {
+                "Experiment": experiment,
+                "Macro F1": row["macro_f1_delta_vs_main"],
+                "Accuracy": row["accuracy_delta_vs_main"],
+                "Bal. acc.": row["balanced_accuracy_delta_vs_main"],
+                "Ordinal MAE": row["ordinal_mae_delta_vs_main"],
+                "is_baseline": False,
+                "variant": row["variant"],
+            }
+
+
+        class_weight_variants = [
             "class_weight_balanced",
             "class_weight_equal_1_1_1",
             "class_weight_dissatisfied_2_neutral_1_5",
@@ -1733,91 +1791,95 @@ cells = [
             "class_weight_stronger_dissatisfied",
             "class_weight_stronger_neutral",
             "class_weight_stronger_dissatisfied_neutral",
-            "best_class_weight_nested_threshold",
-            "complete_main_ieq_sensors",
-            "complete_lighting_sound_ttrend",
+        ]
+        sampling_variants = [
             "random_oversample_to_50pct_majority",
             "synthetic_interpolate_to_50pct_majority",
             "synthetic_interpolate_to_majority",
         ]
-        order_map = {variant: index for index, variant in enumerate(variant_order)}
-        fine_tuning_summary["display_order"] = fine_tuning_summary["variant"].map(order_map).fillna(999).astype(int)
-        fine_tuning_summary = fine_tuning_summary.sort_values(["display_order", "variant"]).reset_index(drop=True)
 
-        article_columns = [
-            "experiment",
-            "variant",
-            "cv_splits",
-            "rows",
-            "predictors",
-            "same_population_as_main",
-            "macro_f1_mean",
-            "macro_f1_delta_vs_main",
-            "accuracy_mean",
-            "accuracy_delta_vs_main",
-            "balanced_accuracy_mean",
-            "balanced_accuracy_delta_vs_main",
-            "ordinal_mae_mean",
-            "ordinal_mae_delta_vs_main",
-            "note",
-        ]
-        article_table = fine_tuning_summary[article_columns].copy()
+        soft_vote_article_row = get_variant_row("soft_vote_et_0.80_rf_0.20")
+        final_summary_numeric = pd.DataFrame(
+            [
+                numeric_row("Main all-school Extra Trees baseline", baseline_row, baseline=True),
+                numeric_row("Threshold T/CO2 feature engineering", get_variant_row("threshold_flags_co2_1000_t18_t24")),
+                numeric_row("Imputation-indicator columns", get_variant_row("imputation_indicators")),
+                numeric_row("Soft-vote ET 0.80 + RF 0.20", soft_vote_article_row),
+                numeric_row("Ordinal Extra Trees decomposition", get_variant_row("ordinal_extra_trees_decomposition")),
+                numeric_row("Ordinal Random Forest decomposition", get_variant_row("ordinal_random_forest_decomposition")),
+                numeric_row("Best class-weight Extra Trees", get_best_variant_row(class_weight_variants)),
+                numeric_row("Best class-weight + nested threshold", get_variant_row("best_class_weight_nested_threshold")),
+                numeric_row("Main-sensor complete-case filter", get_variant_row("complete_main_ieq_sensors")),
+                numeric_row("Lighting + Sound + Ttrend complete-case filter", get_variant_row("complete_lighting_sound_ttrend")),
+                numeric_row("Best synthetic sampling screen", get_best_variant_row(sampling_variants)),
+                numeric_row("Ten-fold validation check", get_variant_row("main_all_school_extra_trees_10fold")),
+            ]
+        )
 
-        for column in article_table.select_dtypes(include=["float"]).columns:
-            article_table[column] = article_table[column].round(6)
+        final_summary_table = final_summary_numeric.copy()
+        for metric in ["Macro F1", "Accuracy", "Bal. acc.", "Ordinal MAE"]:
+            final_summary_table[metric] = [
+                format_absolute(value) if is_baseline else format_delta(value)
+                for value, is_baseline in zip(final_summary_numeric[metric], final_summary_numeric["is_baseline"])
+            ]
 
+        final_summary_table = final_summary_table[["Experiment", "Macro F1", "Accuracy", "Bal. acc.", "Ordinal MAE"]]
+        fine_tuning_summary = final_summary_numeric.copy()
+        article_table = final_summary_table.copy()
+
+        print("Table 3: Extra Trees optimization summary.")
         display(article_table)
         """
     ),
     code_cell(
         """
         folds_path = OUTPUT_DIR / "ieq_extra_trees_fine_tuning_folds.csv"
-        summary_path = OUTPUT_DIR / "ieq_extra_trees_fine_tuning_summary.csv"
+        full_summary_path = OUTPUT_DIR / "ieq_extra_trees_fine_tuning_full_summary.csv"
+        summary_path = OUTPUT_DIR / "ieq_extra_trees_fine_tuning_summary_numeric.csv"
         article_table_path = OUTPUT_DIR / "ieq_extra_trees_fine_tuning_article_table.csv"
 
         fine_tuning_folds.to_csv(folds_path, index=False)
+        full_fine_tuning_summary.to_csv(full_summary_path, index=False)
         fine_tuning_summary.to_csv(summary_path, index=False)
         article_table.to_csv(article_table_path, index=False)
 
         print("Saved fold-level results to:", folds_path)
-        print("Saved full summary to:", summary_path)
-        print("Saved article table to:", article_table_path)
+        print("Saved full variant summary to:", full_summary_path)
+        print("Saved numeric final summary to:", summary_path)
+        print("Saved formatted article table to:", article_table_path)
         """
     ),
     markdown_cell(
         """
         ## Visual check
 
-        This plot separates the main macro F1 comparison from ordinal MAE. Lower ordinal MAE is better. Complete-case rows are shown with a hatch because they are based on a different evaluation population.
+        This plot is only a quick diagnostic for the notebook. The paper-facing output is the Table 3 dataframe above.
         """
     ),
     code_cell(
         """
-        plot_data = article_table.copy()
-        plot_data["label"] = plot_data["variant"].str.replace("_", " ", regex=False)
+        plot_data = final_summary_numeric[~final_summary_numeric["is_baseline"]].copy()
+        plot_data = plot_data.iloc[::-1]
+        metric_specs = [
+            ("Macro F1", "Macro F1 delta", True),
+            ("Ordinal MAE", "Ordinal MAE delta", False),
+        ]
 
-        fig, axes = plt.subplots(1, 2, figsize=(12, 4.8), constrained_layout=True)
-
-        for ax, metric, title in [
-            (axes[0], "macro_f1_mean", "Macro F1"),
-            (axes[1], "ordinal_mae_mean", "Ordinal MAE"),
-        ]:
-            bars = ax.barh(plot_data["label"], plot_data[metric], color="#4C78A8")
-            for bar, same_population in zip(bars, plot_data["same_population_as_main"]):
-                if not same_population:
-                    bar.set_hatch("//")
-                    bar.set_alpha(0.75)
-            ax.invert_yaxis()
-            ax.set_title(title)
+        fig, axes = plt.subplots(1, 2, figsize=(12, 5.3), constrained_layout=True)
+        for ax, (metric, xlabel, higher_is_better) in zip(axes, metric_specs):
+            if higher_is_better:
+                colors = np.where(plot_data[metric] >= 0, "#0F7B5F", "#B42318")
+            else:
+                colors = np.where(plot_data[metric] <= 0, "#0F7B5F", "#B42318")
+            ax.barh(plot_data["Experiment"], plot_data[metric], color=colors)
+            ax.axvline(0, color="#6B7280", linewidth=0.9)
+            ax.set_xlabel(xlabel)
             ax.grid(axis="x", alpha=0.25)
             ax.spines["top"].set_visible(False)
             ax.spines["right"].set_visible(False)
 
-        axes[0].set_xlabel("Higher is better")
-        axes[1].set_xlabel("Lower is better")
-
         figure_path = FIGURE_DIR / "ieq_extra_trees_fine_tuning_summary.png"
-        fig.savefig(figure_path, dpi=220, bbox_inches="tight")
+        fig.savefig(figure_path, dpi=300, bbox_inches="tight")
         print("Saved figure to:", figure_path)
         plt.show()
         """
@@ -1826,34 +1888,26 @@ cells = [
         """
         ## Interpretation template
 
-        Use this final cell to generate a short text summary after rerunning the notebook. The sentence is intentionally conservative: it separates small same-population gains from complete-case checks that change the evaluated dataset.
+        Use this final cell to generate a short text summary after rerunning the notebook. It reports the largest macro-F1 gain and the largest ordinal-MAE reduction from the article-format Table 3 rows.
         """
     ),
     code_cell(
         """
-        same_population = article_table[article_table["same_population_as_main"]].copy()
-        same_population = same_population[same_population["variant"].ne("main_all_school_extra_trees")]
-
-        best_same_population = same_population.sort_values("macro_f1_mean", ascending=False).iloc[0]
-        best_overall = article_table.sort_values("macro_f1_mean", ascending=False).iloc[0]
+        summary_deltas = final_summary_numeric[~final_summary_numeric["is_baseline"]].copy()
+        best_macro_f1_row = summary_deltas.sort_values(["Macro F1", "Accuracy"], ascending=[False, False]).iloc[0]
+        best_mae_row = summary_deltas.sort_values("Ordinal MAE", ascending=True).iloc[0]
 
         print(
-            "Best same-population variant:",
-            best_same_population["variant"],
-            f"(macro F1 = {best_same_population['macro_f1_mean']:.3f}, "
-            f"delta = {best_same_population['macro_f1_delta_vs_main']:+.3f}).",
+            "Largest macro-F1 gain:",
+            best_macro_f1_row["Experiment"],
+            f"({best_macro_f1_row['Macro F1']:+.3f}).",
         )
         print(
-            "Best numeric macro F1 overall:",
-            best_overall["variant"],
-            f"(macro F1 = {best_overall['macro_f1_mean']:.3f}, "
-            f"rows = {int(best_overall['rows'])}).",
+            "Largest ordinal-MAE reduction:",
+            best_mae_row["Experiment"],
+            f"({best_mae_row['Ordinal MAE']:+.3f}).",
         )
-
-        if not bool(best_overall["same_population_as_main"]):
-            print(
-                "The best numeric result uses a different row population, so it should be treated as a data-quality check rather than a direct replacement for the main model."
-            )
+        print("The displayed Table 3 uses absolute values only for the baseline row; all other rows are deltas versus that baseline.")
         """
     ),
 ]

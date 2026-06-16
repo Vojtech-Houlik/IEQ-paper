@@ -108,7 +108,7 @@ def add_confusion_matrix_page(pdf: PdfPages, image_path: Path) -> None:
         ha="center",
         va="top",
         family="DejaVu Sans",
-        fontsize=12,
+        fontsize=11.5,
         color="#111827",
     )
     fig.text(

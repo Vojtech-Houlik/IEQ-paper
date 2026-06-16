@@ -1,0 +1,6 @@
+model,macro_f1,accuracy,balanced_accuracy,ordinal_mae
+Extra Trees,0.5949,0.7234,0.5957,0.3146
+Random Forest,0.5897,0.7167,0.5923,0.3221
+Gradient boosting,0.4976,0.6964,0.4734,0.3453
+ANN / MLP,0.4955,0.6526,0.493,0.3998
+Logistic regression,0.4025,0.4835,0.4677,0.6687

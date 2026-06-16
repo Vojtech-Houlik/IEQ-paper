@@ -1,4 +1,4 @@
 variant,macro_f1_mean,macro_f1_delta_vs_main,accuracy_mean,accuracy_delta_vs_main,balanced_accuracy_mean,balanced_accuracy_delta_vs_main,ordinal_mae_mean,ordinal_mae_delta_vs_main,recall_dissatisfied_mean,recall_neutral_mean,recall_satisfied_mean
-main_all_school_extra_trees,0.590984,0.0,0.722562,0.0,0.591758,0.0,0.31475,0.0,,,
-class_weight_dissatisfied_3_neutral_2,0.596637,0.005654,0.736025,0.013462,0.576546,-0.015211,0.297191,-0.017559,0.336598,0.528302,0.864739
-best_class_weight_nested_threshold,0.598699,0.007715,0.721539,-0.001023,0.593223,0.001465,0.311676,-0.003074,0.388252,0.572507,0.81891
+main_all_school_extra_trees,0.592314,0.0,0.723294,0.0,0.593757,0.0,0.313725,0.0,,,
+class_weight_dissatisfied_3_neutral_2,0.597796,0.005482,0.736171,0.012876,0.577339,-0.016418,0.296752,-0.016973,0.33866,0.528841,0.864516
+best_class_weight_nested_threshold,0.594516,0.002202,0.721832,-0.001462,0.584291,-0.009465,0.310066,-0.003659,0.353114,0.579515,0.820245

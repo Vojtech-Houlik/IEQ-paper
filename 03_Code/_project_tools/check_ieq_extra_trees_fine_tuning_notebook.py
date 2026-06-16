@@ -6,7 +6,7 @@ import time
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-NOTEBOOK_PATH = PROJECT_ROOT / "03_Code" / "ieq_paper" / "01_notebook" / "06_ieq_extra_trees_fine_tuning.ipynb"
+NOTEBOOK_PATH = PROJECT_ROOT / "03_Code" / "ieq_paper" / "01_notebook" / "04_ieq_extra_trees_fine_tuning.ipynb"
 SMOKE_ROOT = PROJECT_ROOT / "03_Code" / "ieq_paper" / "02_outputs" / "supplementary_experiments" / "smoke" / f"run_{int(time.time())}"
 
 

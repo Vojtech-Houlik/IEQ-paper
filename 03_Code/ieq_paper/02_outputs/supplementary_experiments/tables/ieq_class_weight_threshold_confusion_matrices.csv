@@ -1,28 +1,28 @@
 label,variant,true_class,predicted_class,count
-Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,dissatisfied,202
-Main all-school Extra Trees baseline,class_weight_balanced,neutral,dissatisfied,181
-Main all-school Extra Trees baseline,class_weight_balanced,satisfied,dissatisfied,122
-Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,neutral,149
-Main all-school Extra Trees baseline,class_weight_balanced,neutral,neutral,962
+Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,dissatisfied,205
+Main all-school Extra Trees baseline,class_weight_balanced,neutral,dissatisfied,188
+Main all-school Extra Trees baseline,class_weight_balanced,satisfied,dissatisfied,118
+Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,neutral,144
+Main all-school Extra Trees baseline,class_weight_balanced,neutral,neutral,960
 Main all-school Extra Trees baseline,class_weight_balanced,satisfied,neutral,599
-Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,satisfied,133
-Main all-school Extra Trees baseline,class_weight_balanced,neutral,satisfied,712
-Main all-school Extra Trees baseline,class_weight_balanced,satisfied,satisfied,3774
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,dissatisfied,dissatisfied,163
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,neutral,dissatisfied,95
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,satisfied,dissatisfied,65
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,dissatisfied,neutral,159
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,neutral,neutral,980
+Main all-school Extra Trees baseline,class_weight_balanced,dissatisfied,satisfied,135
+Main all-school Extra Trees baseline,class_weight_balanced,neutral,satisfied,707
+Main all-school Extra Trees baseline,class_weight_balanced,satisfied,satisfied,3778
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,dissatisfied,dissatisfied,164
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,neutral,dissatisfied,91
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,satisfied,dissatisfied,66
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,dissatisfied,neutral,161
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,neutral,neutral,981
 Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,satisfied,neutral,543
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,dissatisfied,satisfied,162
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,neutral,satisfied,780
-Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,satisfied,satisfied,3887
-Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,dissatisfied,188
-Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,dissatisfied,124
-Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,dissatisfied,103
-Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,neutral,172
-Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,neutral,1062
-Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,neutral,711
-Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,satisfied,124
-Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,satisfied,669
-Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,satisfied,3681
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,dissatisfied,satisfied,159
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,neutral,satisfied,783
+Best class-weight Extra Trees,class_weight_dissatisfied_3_neutral_2,satisfied,satisfied,3886
+Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,dissatisfied,171
+Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,dissatisfied,106
+Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,dissatisfied,85
+Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,neutral,180
+Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,neutral,1075
+Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,neutral,723
+Best class-weight + nested threshold,best_class_weight_nested_threshold,dissatisfied,satisfied,133
+Best class-weight + nested threshold,best_class_weight_nested_threshold,neutral,satisfied,674
+Best class-weight + nested threshold,best_class_weight_nested_threshold,satisfied,satisfied,3687

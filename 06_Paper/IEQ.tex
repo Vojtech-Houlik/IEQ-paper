@@ -53,7 +53,7 @@
 
 \maketitle
 \begin{abstract}
-This paper investigates whether overall indoor environmental quality (IEQ) satisfaction in classrooms can be predicted from environmental, contextual, occupant, and building-related variables. The analysis uses an open Belgian classroom dataset containing 6{,}834 repeated satisfaction assessments from 321 occupants across primary, secondary, and university classrooms. The original five-point overall IEQ scale is collapsed into three classes: dissatisfied, neutral, and satisfied. Five model families are compared under matched five-fold cross-validation, using macro F1 as the main selection metric because the target distribution is imbalanced. The best single model is an Extra Trees classifier, reaching macro F1 = 0.591, accuracy = 0.723, balanced accuracy = 0.592, and ordinal MAE = 0.315.
+This paper investigates whether overall indoor environmental quality (IEQ) satisfaction in classrooms can be predicted from environmental, contextual, occupant, and building-related variables. The analysis uses an open Belgian classroom dataset containing 6{,}834 repeated satisfaction assessments from 321 occupants across primary, secondary, and university classrooms. The original five-point overall IEQ scale is collapsed into three classes: dissatisfied, neutral, and satisfied. Five model families are compared under matched five-fold cross-validation, using macro F1 as the main selection metric because the target distribution is imbalanced. The best single model is an Extra Trees classifier, reaching macro F1 = 0.592, accuracy = 0.723, balanced accuracy = 0.594, and ordinal MAE = 0.314.
 
 The confusion matrices show that satisfied votes are predicted most reliably, while dissatisfied and neutral responses remain harder to separate. Feature-importance and sensitivity analyses suggest that overall IEQ satisfaction is shaped by a combination of environmental, occupant, and contextual factors rather than by one dominant domain alone. Follow-up experiments with complete-case filtering, feature engineering, synthetic class balancing, and primary-school-specific training produce only modest gains and reveal domain shift between educational settings. The results quantify the performance and limits of classroom IEQ prediction and show how such models could support occupant-centered and energy-aware decision support in school buildings.
 \end{abstract}
@@ -106,28 +106,28 @@ This study uses the combined simplified version of the dataset, which keeps vari
 
 \begin{figure}[H]
     \centering
-    \supervisorgraphic[width=0.88\textwidth]{04_Figures/both_papers/fig_01_raw_dataset_column_completeness.pdf}
+    \supervisorgraphic[width=0.88\textwidth]{04_Figures/fig_01_raw_dataset_column_completeness.pdf}
     \caption{Supervisor-only supporting figure: raw dataset column completeness across the shared classroom dataset.}
     \vspace{-0.40\baselineskip}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \supervisorgraphic[width=0.88\textwidth]{04_Figures/both_papers/fig_04_satisfaction_vote_distribution.pdf}
+    \supervisorgraphic[width=0.88\textwidth]{04_Figures/fig_04_satisfaction_vote_distribution.pdf}
     \caption{Supervisor-only supporting figure: satisfaction vote distributions across the overall IEQ target and the four domain targets on the original five-class scale.}
     \vspace{-0.40\baselineskip}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \supervisorgraphic[width=0.88\textwidth]{04_Figures/both_papers/fig_04b_unified_satisfaction_category_distribution.pdf}
+    \supervisorgraphic[width=0.88\textwidth]{04_Figures/fig_04b_unified_satisfaction_category_distribution.pdf}
     \caption{Supervisor-only supporting figure: unified satisfaction-category distributions across the shared target set.}
     \vspace{-0.40\baselineskip}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \supervisorgraphic[width=0.995\textwidth]{04_Figures/ieq_paper/fig_05_ieq_environmental_feature_boxplots.pdf}
+    \supervisorgraphic[width=0.995\textwidth]{04_Figures/fig_05_ieq_environmental_feature_boxplots.pdf}
     \caption{Supervisor-only supporting figure: environmental feature boxplots for the IEQ paper variables.}
 \end{figure}}
 
@@ -140,7 +140,7 @@ Before imputation, the model input and output variables were defined explicitly.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.82\textwidth]{04_Figures/ieq_paper/fig_03_ieq_feature_completeness.pdf}
+    \includegraphics[width=0.82\textwidth]{04_Figures/fig_03_ieq_feature_completeness.pdf}
     \caption{Feature completeness for the variables currently retained in the IEQ paper.}
     \label{fig:ieq-feature-completeness}
     \vspace{-0.35\baselineskip}
@@ -154,7 +154,7 @@ Missing values were filled using fixed, reproducible rules. Missing classroom po
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.88\textwidth]{04_Figures/ieq_paper/fig_overall_ieq_satisfaction_vote_distribution_original_unified.pdf}
+    \includegraphics[width=0.88\textwidth]{04_Figures/fig_overall_ieq_satisfaction_vote_distribution_original_unified.pdf}
     \caption{Original and unified overall IEQ satisfaction vote distributions in the current dataset.}
     \label{fig:overall-ieq-distribution}
 \end{figure}
@@ -215,11 +215,11 @@ Table~\ref{tab:ieq-main-benchmark} summarizes the performance after hyperparamet
         \hline
         Model & Macro F1 & Accuracy & Bal. acc. & Ordinal MAE \\
         \hline
-        Extra Trees & 0.591 & 0.723 & 0.592 & 0.315 \\
-        Random Forest & 0.585 & 0.715 & 0.587 & 0.325 \\
-        ANN / MLP & 0.510 & 0.694 & 0.490 & 0.344 \\
-        Gradient Boosting & 0.461 & 0.690 & 0.444 & 0.358 \\
-        Logistic Regression & 0.401 & 0.483 & 0.464 & 0.671 \\
+        Extra Trees & 0.592 & 0.723 & 0.594 & 0.314 \\
+        Random Forest & 0.587 & 0.714 & 0.590 & 0.326 \\
+        ANN / MLP & 0.494 & 0.691 & 0.476 & 0.352 \\
+        Gradient Boosting & 0.497 & 0.695 & 0.473 & 0.347 \\
+        Logistic Regression & 0.402 & 0.483 & 0.468 & 0.669 \\
         \hline
     \end{tabular}
 \end{table}
@@ -233,11 +233,11 @@ Table~\ref{tab:ieq-main-benchmark} summarizes the performance after hyperparamet
         \hline
         Model & Main selected settings \\
         \hline
-        Extra Trees & 700 trees, entropy criterion, bootstrap sampling, max depth 20, balanced class weights \\
-        Random Forest & 300 trees, max depth 20, square-root feature sampling, balanced class weights \\
-        ANN / MLP & One hidden layer with 32 neurons, ReLU activation, \texttt{alpha=0.01}, learning rate 0.003 \\
-        Gradient Boosting & 120 estimators, learning rate 0.08, max depth 3, square-root feature sampling \\
-        Logistic Regression & \texttt{C=30.0}, balanced class weights \\
+        Extra Trees & 500 trees, entropy criterion, bootstrap sampling, no maximum depth, full feature sampling, \texttt{max\_samples=0.9}, balanced class weights \\
+        Random Forest & 300 trees, Gini criterion, no maximum depth, square-root feature sampling, \texttt{min\_samples\_leaf=4}, \texttt{min\_samples\_split=10}, balanced subsample class weights \\
+        ANN / MLP & Hidden layers with 64 and 32 neurons, tanh activation, \texttt{alpha=0.001}, batch size 64, learning rate 0.003 \\
+        Gradient Boosting & 220 estimators, learning rate 0.08, max depth 3, \texttt{min\_samples\_leaf=10}, subsample 0.85, full feature sampling \\
+        Logistic Regression & \texttt{C=0.03}, L-BFGS solver, balanced class weights \\
         \hline
     \end{tabular}
 \end{table}
@@ -248,14 +248,14 @@ Extra Trees was therefore selected as the main reference model for the following
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.88\textwidth]{04_Figures/ieq_paper/tuned_model_comparison_performance.pdf}
+    \includegraphics[width=0.88\textwidth]{04_Figures/tuned_model_comparison_performance.pdf}
     \caption{Performance comparison for the IEQ benchmark models after hyperparameter tuning.}
     \label{fig:ieq-tuned-performance}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.93\textwidth]{04_Figures/ieq_paper/tuned_model_comparison_confusion_matrices.pdf}
+    \includegraphics[width=0.93\textwidth]{04_Figures/tuned_model_comparison_confusion_matrices.pdf}
     \caption{Aggregated confusion matrices for the tuned IEQ benchmark models.}
     \label{fig:ieq-tuned-confusion}
 \end{figure}
@@ -267,22 +267,22 @@ The confusion matrices show that satisfied votes are predicted most reliably, wh
 
 Several optimization experiments were compared with the selected all-school Extra Trees model:
 
-\paragraph{Manual temperature and CO$_2$ feature engineering.} We added three threshold indicators: CO$_2$ $>$ 1000 ppm, $T < 18^\circ$C, and $T > 24^\circ$C. Results: macro F1 = -0.003, accuracy = -0.004, balanced accuracy = -0.001, and ordinal MAE = +0.004. The indicators therefore did not improve the current baseline.
+\paragraph{Manual temperature and CO$_2$ feature engineering.} We added three threshold indicators: CO$_2$ $>$ 1000 ppm, $T < 18^\circ$C, and $T > 24^\circ$C. Results: macro F1 = -0.006, accuracy = -0.005, balanced accuracy = -0.006, and ordinal MAE = +0.006. The indicators therefore did not improve the current baseline.
 
-\paragraph{Imputation-indicator columns.} We added imputation flags for incomplete predictors plus a row-level imputation count. Results: macro F1 = +0.013, accuracy = +0.007, balanced accuracy = +0.015, and ordinal MAE = -0.008. This was the strongest simple improvement.
+\paragraph{Imputation-indicator columns.} We added imputation flags for incomplete predictors plus a row-level imputation count. Results: macro F1 = +0.012, accuracy = +0.007, balanced accuracy = +0.012, and ordinal MAE = -0.007. This was the strongest simple improvement.
 
-\paragraph{Soft-voting ensemble.} We combined Extra Trees and Random Forest probabilities; the best weight used 80\% Extra Trees and 20\% Random Forest. Results: macro F1 = +0.001, accuracy = 0.000, balanced accuracy = +0.001, and ordinal MAE = +0.000. The gain was negligible.
+\paragraph{Soft-voting ensemble.} We combined Extra Trees and Random Forest probabilities; the best weight used 80\% Extra Trees and 20\% Random Forest. Results: macro F1 = +0.002, accuracy = +0.001, balanced accuracy = +0.001, and ordinal MAE = +0.000. The gain was negligible.
 
-\paragraph{Ordinal classification experiment.} We tested two-threshold ordinal decompositions for $y >$ dissatisfied and $y >$ neutral. Extra Trees results: macro F1 = -0.005, accuracy = +0.008, balanced accuracy = -0.007, and ordinal MAE = -0.004. This stayed supplementary because macro F1 did not improve.
+\paragraph{Ordinal classification experiment.} We tested two-threshold ordinal decompositions for $y >$ dissatisfied and $y >$ neutral. Extra Trees results: macro F1 = -0.006, accuracy = +0.007, balanced accuracy = -0.008, and ordinal MAE = -0.003. This stayed supplementary because macro F1 did not improve.
 
-\paragraph{Data-quality and row-filtering strategies.} We tested complete-case filters for originally observed sensor values. The main-sensor filter kept 5{,}349 rows. Results: macro F1 = +0.013, accuracy = -0.002, balanced accuracy = +0.015, and ordinal MAE = +0.001. The stricter Lighting + Sound + Ttrend filter kept 2{,}314 rows. Results: macro F1 = +0.010, accuracy = -0.022, balanced accuracy = +0.011, and ordinal MAE = +0.018. We did not keep these filters because accuracy did not improve and other indicators improved only slightly.
+\paragraph{Data-quality and row-filtering strategies.} We tested complete-case filters for originally observed sensor values. The main-sensor filter kept 5{,}349 rows. Results: macro F1 = +0.014, accuracy = -0.002, balanced accuracy = +0.015, and ordinal MAE = +0.002. The stricter Lighting + Sound + Ttrend filter kept 2{,}314 rows. Results: macro F1 = +0.009, accuracy = -0.021, balanced accuracy = +0.009, and ordinal MAE = +0.018. We did not keep these filters because accuracy did not improve and other indicators improved only slightly.
 
 
-\paragraph{Synthetic class balancing.} We tried to reduce the class imbalance by adding extra copies of under-represented training samples. This was done only inside each training fold, so the validation data remained unchanged. The best setting raised the smaller classes to 50\% of the majority class size. It slightly improved macro F1 +0.003 and balanced accuracy +0.011, but reduced accuracy -0.004 and worsened ordinal MAE +0.008, so it was not retained.
+\paragraph{Synthetic class balancing.} We tried to reduce the class imbalance by adding extra copies of under-represented training samples. This was done only inside each training fold, so the validation data remained unchanged. The best setting raised the smaller classes to 50\% of the majority class size. It slightly improved macro F1 +0.003 and balanced accuracy +0.015, but reduced accuracy -0.006 and worsened ordinal MAE +0.013, so it was not retained.
 
-\paragraph{Class-weight and decision-threshold tuning.} We screened class weights and probability multipliers. The best class-weight setting, \{dissatisfied: 3, neutral: 2, satisfied: 1\}, gave: macro F1 = +0.006, accuracy = +0.013, balanced accuracy = -0.015, and ordinal MAE = -0.018. Nested threshold tuning gave: macro F1 = +0.008, accuracy = -0.001, balanced accuracy = +0.001, and ordinal MAE = -0.003. The gain was useful but small.
+\paragraph{Class-weight and decision-threshold tuning.} We screened class weights and probability multipliers. The best class-weight setting, \{dissatisfied: 3, neutral: 2, satisfied: 1\}, gave: macro F1 = +0.005, accuracy = +0.013, balanced accuracy = -0.016, and ordinal MAE = -0.017. Nested threshold tuning gave: macro F1 = +0.002, accuracy = -0.001, balanced accuracy = -0.009, and ordinal MAE = -0.004. The effect was small and mixed across metrics.
 
-\paragraph{Ten-fold validation check.} We reran the baseline and imputation-indicator models with ten stratified folds. The ten-fold baseline reached macro F1 = 0.597, accuracy = 0.726, balanced accuracy = 0.598, and ordinal MAE = 0.311. Imputation indicators gave: macro F1 = +0.012, accuracy = +0.007, balanced accuracy = +0.015, and ordinal MAE = -0.009. Overall, the ten-fold validation produced slightly better results than the five-fold validation.
+\paragraph{Ten-fold validation check.} We reran the baseline and imputation-indicator models with ten stratified folds. The ten-fold baseline reached macro F1 = 0.596, accuracy = 0.724, balanced accuracy = 0.598, and ordinal MAE = 0.313. Imputation indicators gave: macro F1 = +0.012, accuracy = +0.008, balanced accuracy = +0.015, and ordinal MAE = -0.010. Overall, the ten-fold validation produced slightly better results than the five-fold validation.
 
 
 \begin{table}[H]
@@ -294,18 +294,18 @@ Several optimization experiments were compared with the selected all-school Extr
         \hline
         Experiment & Macro F1 & Accuracy & Bal. acc. & Ordinal MAE \\
         \hline
-        \textbf{Main all-school Extra Trees baseline} & \textbf{0.591} & \textbf{0.722} & \textbf{0.592} & \textbf{0.316} \\
-        \notretained{Threshold T/CO$_2$ feature engineering} & \notretained{-0.003} & \notretained{-0.004} & \notretained{-0.001} & \notretained{+0.004} \\
-        Imputation-indicator columns & +0.013 & +0.007 & +0.015 & -0.008 \\
-        \notretained{Soft-vote ET 0.80 + RF 0.20} & \notretained{+0.001} & \notretained{0.000} & \notretained{+0.001} & \notretained{0.000} \\
-        \notretained{Ordinal Extra Trees decomposition} & \notretained{-0.005} & \notretained{+0.008} & \notretained{-0.007} & \notretained{-0.004} \\
-        \notretained{Ordinal Random Forest decomposition} & \notretained{-0.038} & \notretained{-0.009} & \notretained{-0.032} & \notretained{+0.019} \\
-        Best class-weight Extra Trees & +0.006 & +0.013 & -0.015 & -0.018 \\
-        Best class-weight + nested threshold & +0.008 & -0.001 & +0.001 & -0.003 \\
-        \notretained{Main-sensor complete-case filter} & \notretained{+0.013} & \notretained{-0.002} & \notretained{+0.015} & \notretained{+0.001} \\
-        \notretained{Lighting + Sound + Ttrend complete-case filter} & \notretained{+0.010} & \notretained{-0.022} & \notretained{+0.011} & \notretained{+0.018} \\
-        \notretained{Best synthetic sampling screen} & \notretained{+0.003} & \notretained{-0.004} & \notretained{+0.011} & \notretained{+0.008} \\
-        Ten-fold validation check & +0.006 & +0.004 & +0.006 & -0.005 \\
+        \textbf{Main all-school Extra Trees baseline} & \textbf{0.592} & \textbf{0.723} & \textbf{0.594} & \textbf{0.314} \\
+        \notretained{Threshold T/CO$_2$ feature engineering} & \notretained{-0.006} & \notretained{-0.005} & \notretained{-0.006} & \notretained{+0.006} \\
+        Imputation-indicator columns & +0.012 & +0.007 & +0.012 & -0.007 \\
+        \notretained{Soft-vote ET 0.80 + RF 0.20} & \notretained{+0.002} & \notretained{+0.001} & \notretained{+0.001} & \notretained{0.000} \\
+        \notretained{Ordinal Extra Trees decomposition} & \notretained{-0.006} & \notretained{+0.007} & \notretained{-0.008} & \notretained{-0.003} \\
+        \notretained{Ordinal Random Forest decomposition} & \notretained{-0.044} & \notretained{-0.011} & \notretained{-0.040} & \notretained{+0.023} \\
+        Best class-weight Extra Trees & +0.005 & +0.013 & -0.016 & -0.017 \\
+        Best class-weight + nested threshold & +0.002 & -0.001 & -0.009 & -0.004 \\
+        \notretained{Main-sensor complete-case filter} & \notretained{+0.014} & \notretained{-0.002} & \notretained{+0.015} & \notretained{+0.002} \\
+        \notretained{Lighting + Sound + Ttrend complete-case filter} & \notretained{+0.009} & \notretained{-0.021} & \notretained{+0.009} & \notretained{+0.018} \\
+        \notretained{Best synthetic sampling screen} & \notretained{+0.003} & \notretained{-0.006} & \notretained{+0.015} & \notretained{+0.013} \\
+        Ten-fold validation check & +0.003 & +0.001 & +0.004 & -0.001 \\
         \hline
     \end{tabular}
 \end{table}
@@ -317,7 +317,7 @@ In Table~\ref{tab:ieq-ablation-summary}, the baseline row reports the original m
 
 The final Extra Trees model therefore includes the fine-tuning steps retained in the previous section: imputation-indicator predictors, class-weight adjustment, nested threshold tuning, and ten-fold stratified validation. The threshold multipliers were selected only within the training portion of each fold, so the held-out folds remained independent validation data.
 
-Table~\ref{tab:ieq-final-extra-trees-results} reports the final cross-validated performance. The model reached macro F1 = 0.621, accuracy = 0.737, balanced accuracy = 0.624, and ordinal MAE = 0.295.
+Table~\ref{tab:ieq-final-extra-trees-results} reports the final cross-validated performance. The model reached macro F1 = 0.623, accuracy = 0.740, balanced accuracy = 0.625, and ordinal MAE = 0.291.
 
 \begin{table}[H]
     \centering
@@ -328,14 +328,14 @@ Table~\ref{tab:ieq-final-extra-trees-results} reports the final cross-validated 
         \hline
         Model & Macro F1 & Accuracy & Bal. acc. & Ordinal MAE \\
         \hline
-        Final Extra Trees & 0.621 & 0.737 & 0.624 & 0.295 \\
+        Final Extra Trees & 0.623 & 0.740 & 0.625 & 0.291 \\
         \hline
     \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.62\textwidth]{04_Figures/ieq_paper/final_extra_trees_confusion_matrix.pdf}
+    \includegraphics[width=0.62\textwidth]{04_Figures/final_extra_trees_confusion_matrix.pdf}
     \caption{Out-of-fold confusion matrix for the final Extra Trees model. Cells show row percentages and counts.}
     \label{fig:ieq-final-confusion}
 \end{figure}
@@ -346,7 +346,7 @@ After cross-validation, the same final workflow was fitted once more on the full
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.98\textwidth]{04_Figures/ieq_paper/final_extra_trees_importance_method_comparison.pdf}
+    \includegraphics[width=0.98\textwidth]{04_Figures/final_extra_trees_importance_method_comparison.pdf}
     \caption{Feature-importance comparison for the final Extra Trees IEQ prediction model. All original predictors are shown; imputation indicators are excluded.}
     \label{fig:ieq-feature-importance}
 \end{figure}
@@ -367,7 +367,7 @@ Figure~\ref{fig:ieq-feature-importance} compares built-in Extra Trees importance
 \Reviewed{
 \section{Preliminary Literature Benchmark}
 
-This section compares the final results with related IEQ prediction studies. The final Extra Trees model reached macro F1 = 0.621, accuracy = 0.737, balanced accuracy = 0.624, and ordinal MAE = 0.295 for the three-class overall IEQ target. These values are lower than some reported benchmarks, but the comparison is limited. This study predicts individual classroom votes across primary, secondary, and university classrooms, and it mainly uses sensor, occupant, and context variables rather than subjective votes from other IEQ domains.
+This section compares the final results with related IEQ prediction studies. The final Extra Trees model reached macro F1 = 0.623, accuracy = 0.740, balanced accuracy = 0.625, and ordinal MAE = 0.291 for the three-class overall IEQ target. These values are lower than some reported benchmarks, but the comparison is limited. This study predicts individual classroom votes across primary, secondary, and university classrooms, and it mainly uses sensor, occupant, and context variables rather than subjective votes from other IEQ domains.
 
 Higher scores in the literature are often reported for easier or different settings, such as binary targets, aggregated dissatisfaction rates, person- or building-specific models, or models using subjective thermal, air-quality, visual, and acoustic satisfaction as inputs \cite{tang2022,zhao2023}. In this context, the current performance appears realistic. The model is weaker for dissatisfied and neutral votes, but it still shows that sensor and context data can support broad IEQ satisfaction screening. Macro F1 and balanced accuracy are therefore important alongside accuracy, because they show the weaker performance on minority classes.}
 

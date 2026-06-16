@@ -77,12 +77,12 @@
     "model__bootstrap": true,
     "model__class_weight": "balanced",
     "model__criterion": "entropy",
-    "model__max_depth": 20,
+    "model__max_depth": null,
     "model__max_features": null,
     "model__max_samples": 0.9,
     "model__min_samples_leaf": 2,
     "model__min_samples_split": 10,
-    "model__n_estimators": 700
+    "model__n_estimators": 500
   },
   "final_class_weight": {
     "dissatisfied": 3.0,
@@ -99,12 +99,12 @@
   "seed": 20260507,
   "training_rows": 6834,
   "training_metrics_not_cv": {
-    "macro_f1": 0.846613668147762,
-    "accuracy": 0.88732806555458,
-    "balanced_accuracy": 0.873894463619277,
+    "macro_f1": 0.8462993034648602,
+    "accuracy": 0.8874743927421715,
+    "balanced_accuracy": 0.8719325772300585,
     "ordinal_mae": 0.12876792508047996,
-    "recall_dissatisfied": 0.8347107438016529,
-    "recall_neutral": 0.8986522911051213,
-    "recall_satisfied": 0.8883203559510567
+    "recall_dissatisfied": 0.8264462809917356,
+    "recall_neutral": 0.9008086253369272,
+    "recall_satisfied": 0.8885428253615127
   }
 }

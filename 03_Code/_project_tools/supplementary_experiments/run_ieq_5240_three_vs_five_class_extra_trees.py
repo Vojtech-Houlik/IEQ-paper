@@ -324,7 +324,7 @@ def draw_confusion_heatmap(
     row_totals = matrix.sum(axis=1, keepdims=True)
     normalized = np.divide(matrix, row_totals, out=np.zeros_like(matrix, dtype=float), where=row_totals != 0)
     image = ax.imshow(normalized, cmap="Blues", vmin=0, vmax=max(0.01, normalized.max()))
-    ax.set_title(title, fontsize=13, pad=10)
+    ax.set_title(title, fontsize=11.5, pad=10)
     ax.set_xlabel("Predicted")
     ax.set_ylabel("True")
     ax.set_xticks(np.arange(len(label_order)))
@@ -379,7 +379,7 @@ def write_confusion_figures(predictions: pd.DataFrame, paths: dict[str, Path]) -
         THREE_CLASS_ORDER,
         "5-class collapsed to 3-class",
     )
-    fig.suptitle("IEQ Extra Trees Confusion Matrices on the 5,240-Row Complete-Case Subset", fontsize=15)
+    fig.suptitle("IEQ Extra Trees Confusion Matrices on the 5,240-Row Complete-Case Subset", fontsize=11.5)
     save_figure(fig, paths["confusion_figure"])
     plt.close(fig)
 

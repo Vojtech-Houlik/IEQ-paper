@@ -7,7 +7,8 @@ while keeping the figures journal-ready and readable in print.
 Authoritative project files:
 
 - Human-readable guide: `PAPER_FIGURE_STYLE_GUIDE.md`
-- Matplotlib helper: `_project_tools/paper_style.py`
+- Matplotlib helper to edit: `ieq_paper/01_notebook/paper_style.py`
+- Compatibility import wrapper: `_project_tools/paper_style.py`
 - Matplotlib style file: `_project_tools/tu_hri_paper.mplstyle`
 - Paper-facing export folder: `../04_Figures`
 
@@ -89,7 +90,9 @@ Missingness and cleaning plots:
 
 ## Code Usage
 
-In project scripts inside `_project_tools`, import the shared helper directly:
+In project scripts inside `_project_tools`, import the shared helper directly.
+The import is kept stable by `_project_tools/paper_style.py`, while the editable
+implementation lives next to the IEQ notebooks:
 
 ```python
 from paper_style import COLORS, apply_paper_style, color_for_completeness, save_figure
@@ -97,7 +100,8 @@ from paper_style import COLORS, apply_paper_style, color_for_completeness, save_
 apply_paper_style()
 ```
 
-In notebooks, add `_project_tools` to `sys.path` before importing:
+In IEQ notebooks, `paper_style.py` is in the same folder as the notebooks. In
+other notebooks, add `_project_tools` to `sys.path` before importing:
 
 ```python
 from pathlib import Path

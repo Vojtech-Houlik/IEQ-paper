@@ -168,8 +168,8 @@ def read_raw_data() -> pd.DataFrame:
     return data
 
 
-def save_article_figure(fig, output_name: str, latex_subdir: str = "both_papers") -> None:
-    output_dir = FIGURE_DIR / latex_subdir
+def save_article_figure(fig, output_name: str, latex_subdir: str = "04_Figures") -> None:
+    output_dir = FIGURE_DIR
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / output_name
     save_figure(fig, output_path)
@@ -196,7 +196,7 @@ def draw_distribution_bars(
     percentages = percentage_labels(counts)
     bars = ax.bar(x_positions, counts.values, color=colors, edgecolor=COLORS["border"], linewidth=0.55)
 
-    ax.set_xlabel(x_label, fontsize=10.5)
+    ax.set_xlabel(x_label, fontsize=11)
     ax.set_xticks(x_positions)
     ax.set_xticklabels(counts.index)
     ax.grid(axis="y", color=COLORS["grid"], alpha=0.85)
@@ -271,7 +271,7 @@ def plot_raw_completeness(data: pd.DataFrame) -> None:
     left, right = split_table(table)
 
     fig, axes = plt.subplots(ncols=2, figsize=(13.6, 8.2), sharex=True)
-    fig.suptitle("Belgian Classrooms Dataset: Column Completeness", fontsize=17, fontweight="bold", y=0.985)
+    fig.suptitle("Belgian Classrooms Dataset: Column Completeness", fontsize=11.5, fontweight="bold", y=0.985)
     fig.text(
         0.5,
         0.948,
@@ -336,8 +336,8 @@ def plot_raw_completeness(data: pd.DataFrame) -> None:
                 )
 
     axes[0].legend(loc="upper left", bbox_to_anchor=(0.0, 1.075), ncol=2, frameon=False, fontsize=8.2)
-    axes[0].set_xlabel("Percent of rows", fontsize=10.5)
-    axes[1].set_xlabel("Percent of rows", fontsize=10.5)
+    axes[0].set_xlabel("Percent of rows", fontsize=11)
+    axes[1].set_xlabel("Percent of rows", fontsize=11)
     fig.subplots_adjust(left=0.08, right=0.985, top=0.89, bottom=0.08, wspace=0.2)
     save_article_figure(fig, "fig_01_raw_dataset_column_completeness")
     plt.close(fig)
@@ -358,8 +358,8 @@ def plot_feature_completeness(feature_set: FeatureSet) -> None:
         linewidth=0.55,
     )
 
-    ax.set_title(f"Feature Completeness: {feature_set.title}", fontsize=17, fontweight="bold", pad=14)
-    ax.set_xlabel("Completeness (% of all rows)", fontsize=11.5)
+    ax.set_title(f"Feature Completeness: {feature_set.title}", fontsize=11.5, fontweight="bold", pad=14)
+    ax.set_xlabel("Completeness (% of all rows)", fontsize=11)
     ax.set_xlim(0, 100)
     ax.grid(axis="x", color=COLORS["grid"], alpha=0.85)
     ax.grid(axis="y", visible=False)
@@ -392,7 +392,7 @@ def plot_feature_completeness(feature_set: FeatureSet) -> None:
 
 def plot_satisfaction_distribution(data: pd.DataFrame) -> None:
     fig, axes = plt.subplots(ncols=5, figsize=(13.8, 3.9), sharey=True)
-    fig.suptitle("Distribution of Overall and Domain Satisfaction Votes", fontsize=17, fontweight="bold", y=1.02)
+    fig.suptitle("Distribution of Overall and Domain Satisfaction Votes", fontsize=11.5, fontweight="bold", y=1.02)
 
     for ax, (title, column) in zip(axes, SATISFACTION_COLUMNS):
         votes = pd.to_numeric(data[column], errors="coerce").dropna().astype(int)
@@ -401,7 +401,7 @@ def plot_satisfaction_distribution(data: pd.DataFrame) -> None:
         colors = [VOTE_COLORS[vote] for vote in counts.index]
         bars = ax.bar(counts.index, counts.values, color=colors, edgecolor=COLORS["border"], linewidth=0.55)
 
-        ax.set_title(title, fontsize=12.5, fontweight="bold", pad=7)
+        ax.set_title(title, fontsize=11, fontweight="bold", pad=7)
         ax.set_xlabel("Vote", fontsize=10)
         ax.set_xticks([1, 2, 3, 4, 5])
         ax.grid(axis="y", color=COLORS["grid"], alpha=0.85)
@@ -423,7 +423,7 @@ def plot_satisfaction_distribution(data: pd.DataFrame) -> None:
                 color=COLORS["text"],
             )
 
-    axes[0].set_ylabel("Count", fontsize=10.5)
+    axes[0].set_ylabel("Count", fontsize=11)
     max_count = max(pd.to_numeric(data[column], errors="coerce").dropna().value_counts().max() for _, column in SATISFACTION_COLUMNS)
     for ax in axes:
         ax.set_ylim(0, max_count * 1.16)
@@ -435,7 +435,7 @@ def plot_satisfaction_distribution(data: pd.DataFrame) -> None:
 
 def plot_unified_satisfaction_distribution(data: pd.DataFrame) -> None:
     fig, axes = plt.subplots(ncols=5, figsize=(13.8, 3.9), sharey=True)
-    fig.suptitle("Distribution of Unified Overall and Domain Satisfaction Categories", fontsize=17, fontweight="bold", y=1.02)
+    fig.suptitle("Distribution of Unified Overall and Domain Satisfaction Categories", fontsize=11.5, fontweight="bold", y=1.02)
 
     all_counts = []
     x = np.arange(len(UNIFIED_SATISFACTION_CATEGORIES))
@@ -449,7 +449,7 @@ def plot_unified_satisfaction_distribution(data: pd.DataFrame) -> None:
         percentages = counts / counts.sum() * 100 if counts.sum() else counts.astype(float)
         bars = ax.bar(x, counts.values, color=colors, edgecolor=COLORS["border"], linewidth=0.55)
 
-        ax.set_title(title, fontsize=12.5, fontweight="bold", pad=7)
+        ax.set_title(title, fontsize=11, fontweight="bold", pad=7)
         ax.set_xlabel("Unified category", fontsize=10)
         ax.set_xticks(x)
         ax.set_xticklabels(x_labels)
@@ -472,7 +472,7 @@ def plot_unified_satisfaction_distribution(data: pd.DataFrame) -> None:
                 color=COLORS["text"],
             )
 
-    axes[0].set_ylabel("Count", fontsize=10.5)
+    axes[0].set_ylabel("Count", fontsize=11)
     max_count = max(int(counts.max()) for counts in all_counts)
     for ax in axes:
         ax.set_ylim(0, max_count * 1.16)
@@ -494,9 +494,9 @@ def plot_target_scale_comparison(
     unified_counts = unified_satisfaction_counts(votes)
 
     fig, axes = plt.subplots(ncols=2, figsize=(8.4, 3.8), sharey=True)
-    fig.suptitle(f"{title} Vote Distribution", fontsize=16.5, fontweight="bold", y=1.02)
+    fig.suptitle(f"{title} Vote Distribution", fontsize=11.5, fontweight="bold", y=1.02)
 
-    axes[0].set_title("Original five-class scale", fontsize=12.4, fontweight="bold", pad=7)
+    axes[0].set_title("Original five-class scale", fontsize=11, fontweight="bold", pad=7)
     draw_distribution_bars(
         axes[0],
         original_counts,
@@ -506,7 +506,7 @@ def plot_target_scale_comparison(
     )
 
     unified_x = np.arange(len(unified_counts))
-    axes[1].set_title("Unified three-class scale", fontsize=12.4, fontweight="bold", pad=7)
+    axes[1].set_title("Unified three-class scale", fontsize=11, fontweight="bold", pad=7)
     draw_distribution_bars(
         axes[1],
         unified_counts,
@@ -515,7 +515,7 @@ def plot_target_scale_comparison(
         "Unified category",
     )
 
-    axes[0].set_ylabel("Count", fontsize=10.8)
+    axes[0].set_ylabel("Count", fontsize=11)
     max_count = max(int(original_counts.max()), int(unified_counts.max()))
     for ax in axes:
         ax.set_ylim(0, max_count * 1.16)
@@ -549,7 +549,7 @@ def plot_environmental_boxplots(data: pd.DataFrame) -> None:
         plot_data[column] = pd.to_numeric(plot_data[column], errors="coerce")
 
     fig, axes = plt.subplots(nrows=len(ENVIRONMENTAL_FEATURES), ncols=1, figsize=(9.2, 9.6), sharex=True)
-    fig.suptitle("Environmental Features by Overall IEQ Satisfaction", fontsize=17, fontweight="bold", y=0.992)
+    fig.suptitle("Environmental Features by Overall IEQ Satisfaction", fontsize=11.5, fontweight="bold", y=0.992)
 
     positions = [1, 2, 3, 4, 5]
     for ax, (column, label) in zip(axes, ENVIRONMENTAL_FEATURES):
@@ -569,7 +569,7 @@ def plot_environmental_boxplots(data: pd.DataFrame) -> None:
             capprops={"color": COLORS["dark_blue"], "linewidth": 0.95},
         )
         ax.set_title(label, loc="left", fontsize=11.5, fontweight="bold", pad=6)
-        ax.set_ylabel(label, fontsize=10.5)
+        ax.set_ylabel(label, fontsize=11)
         ax.grid(axis="y", color=COLORS["grid"], alpha=0.85)
         ax.grid(axis="x", visible=False)
         for spine in ("top", "right"):

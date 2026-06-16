@@ -1,3 +1,0 @@
-experiment,variant,cv_splits,rows,predictors,same_population_as_10fold_baseline,macro_f1_mean,macro_f1_delta_vs_10fold_baseline,accuracy_mean,accuracy_delta_vs_10fold_baseline,balanced_accuracy_mean,balanced_accuracy_delta_vs_10fold_baseline,ordinal_mae_mean,ordinal_mae_delta_vs_10fold_baseline,note
-ten_fold_validation,imputation_indicators_10fold,2,6834,31,True,0.573074,0.01543,0.702809,0.005999,0.575454,0.019533,0.337723,-0.009072,Ten-fold sensitivity check for Extra Trees with imputation indicators.
-ten_fold_validation,main_all_school_extra_trees_10fold,2,6834,20,True,0.557644,0.0,0.69681,0.0,0.555922,0.0,0.346795,0.0,Ten-fold sensitivity check for the tuned Extra Trees baseline.
