@@ -140,7 +140,7 @@ Before imputation, the model input and output variables were defined explicitly.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.82\textwidth]{04_Figures/fig_03_ieq_feature_completeness.pdf}
+    \includegraphics[width=0.98\textwidth]{04_Figures/fig_03_ieq_feature_completeness.pdf}
     \caption{Feature completeness for the variables currently retained in the IEQ paper.}
     \label{fig:ieq-feature-completeness}
     \vspace{-0.35\baselineskip}
@@ -154,7 +154,7 @@ Missing values were filled using fixed, reproducible rules. Missing classroom po
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.88\textwidth]{04_Figures/fig_overall_ieq_satisfaction_vote_distribution_original_unified.pdf}
+    \includegraphics[width=0.98\textwidth]{04_Figures/fig_overall_ieq_satisfaction_vote_distribution_original_unified.pdf}
     \caption{Original and unified overall IEQ satisfaction vote distributions in the current dataset.}
     \label{fig:overall-ieq-distribution}
 \end{figure}
@@ -248,14 +248,14 @@ Extra Trees was therefore selected as the main reference model for the following
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.88\textwidth]{04_Figures/tuned_model_comparison_performance.pdf}
+    \includegraphics[width=0.98\textwidth]{04_Figures/tuned_model_comparison_performance.pdf}
     \caption{Performance comparison for the IEQ benchmark models after hyperparameter tuning.}
     \label{fig:ieq-tuned-performance}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.93\textwidth]{04_Figures/tuned_model_comparison_confusion_matrices.pdf}
+    \includegraphics[width=\textwidth]{04_Figures/tuned_model_comparison_confusion_matrices.pdf}
     \caption{Aggregated confusion matrices for the tuned IEQ benchmark models.}
     \label{fig:ieq-tuned-confusion}
 \end{figure}
@@ -282,7 +282,7 @@ Several optimization experiments were compared with the selected all-school Extr
 
 \paragraph{Class-weight and decision-threshold tuning.} We screened class weights and probability multipliers. The best class-weight setting, \{dissatisfied: 3, neutral: 2, satisfied: 1\}, gave: macro F1 = +0.005, accuracy = +0.013, balanced accuracy = -0.016, and ordinal MAE = -0.017. Nested threshold tuning gave: macro F1 = +0.002, accuracy = -0.001, balanced accuracy = -0.009, and ordinal MAE = -0.004. The effect was small and mixed across metrics.
 
-\paragraph{Ten-fold validation check.} We reran the baseline and imputation-indicator models with ten stratified folds. The ten-fold baseline reached macro F1 = 0.596, accuracy = 0.724, balanced accuracy = 0.598, and ordinal MAE = 0.313. Imputation indicators gave: macro F1 = +0.012, accuracy = +0.008, balanced accuracy = +0.015, and ordinal MAE = -0.010. Overall, the ten-fold validation produced slightly better results than the five-fold validation.
+\paragraph{Ten-fold validation check.} Five-fold cross-validation was used for model screening. After the final workflow was fixed, the selected Extra Trees model was re-evaluated with ten stratified folds. The ten-fold baseline reached macro F1 = 0.596, accuracy = 0.724, balanced accuracy = 0.598, and ordinal MAE = 0.313. With imputation indicators, performance changed by macro F1 = +0.012, accuracy = +0.008, balanced accuracy = +0.015, and ordinal MAE = -0.010. The ten-fold setup was used only for the final performance estimate, not for model selection.
 
 
 \begin{table}[H]
@@ -310,12 +310,12 @@ Several optimization experiments were compared with the selected all-school Extr
     \end{tabular}
 \end{table}
 
-In Table~\ref{tab:ieq-ablation-summary}, the baseline row reports the original metric values. The other rows report changes relative to this baseline. Black rows show the strategies used in the final Extra Trees workflow, while grey rows show experiments that were not used. The final workflow therefore kept the imputation-indicator columns, class-weight tuning, nested threshold adjustment, and ten-fold validation. The other experiments were treated only as supplementary checks, because their improvements were small, inconsistent across metrics, or based on a different subset of rows. For ordinal MAE, negative changes indicate improvement.}
+In Table~\ref{tab:ieq-ablation-summary}, the baseline row reports the original metric values. The other rows report changes relative to this baseline. Black rows show retained modelling steps, while grey rows show supplementary checks. The final workflow kept imputation indicators, class-weight tuning, and nested threshold adjustment. Ten-fold cross-validation was used only for the final performance estimate. For ordinal MAE, negative changes indicate improvement.}
 
 \Reviewed{
 \subsection{Final Extra Trees Model Results}
 
-The final Extra Trees model therefore includes the fine-tuning steps retained in the previous section: imputation-indicator predictors, class-weight adjustment, nested threshold tuning, and ten-fold stratified validation. The threshold multipliers were selected only within the training portion of each fold, so the held-out folds remained independent validation data.
+The final Extra Trees model includes imputation-indicator predictors, class-weight adjustment, and nested threshold tuning. After these choices were fixed, performance was estimated using ten-fold stratified validation. Threshold multipliers were selected only inside the training part of each fold.
 
 Table~\ref{tab:ieq-final-extra-trees-results} reports the final cross-validated performance. The model reached macro F1 = 0.623, accuracy = 0.740, balanced accuracy = 0.625, and ordinal MAE = 0.291.
 
@@ -335,12 +335,21 @@ Table~\ref{tab:ieq-final-extra-trees-results} reports the final cross-validated 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.62\textwidth]{04_Figures/final_extra_trees_confusion_matrix.pdf}
+    \includegraphics[width=0.76\textwidth]{04_Figures/final_extra_trees_confusion_matrix.pdf}
     \caption{Out-of-fold confusion matrix for the final Extra Trees model. Cells show row percentages and counts.}
     \label{fig:ieq-final-confusion}
 \end{figure}
 
 Figure~\ref{fig:ieq-final-confusion} shows that satisfied votes remain the easiest class. The model correctly identified 3{,}687 of 4{,}495 satisfied votes, giving satisfied recall of 0.820. Neutral recall was 0.613, and dissatisfied recall was 0.438. The main remaining errors were between neighboring classes: 568 neutral votes were predicted as satisfied, and 697 satisfied votes were predicted as neutral. This means the model is more reliable for broad IEQ screening than for exact separation of adjacent satisfaction states.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.76\textwidth]{04_Figures/final_extra_trees_roc_curve.pdf}
+    \caption{One-vs-rest ROC curves for the final Extra Trees model using ten-fold out-of-fold probabilities.}
+    \label{fig:ieq-final-roc}
+\end{figure}
+
+Figure~\ref{fig:ieq-final-roc} shows the ranking ability of the final model for each class. The one-vs-rest AUC values were 0.839 for dissatisfied, 0.807 for neutral, and 0.849 for satisfied votes. The micro-average AUC was 0.891.
 
 After cross-validation, the same final workflow was fitted once more on the full dataset of 6{,}834 observations. This full-data model is the version saved for later prediction or deployment. Its settings use the probability multipliers selected from the cross-validation results: \{dissatisfied: 1.5, neutral: 1.2, satisfied: 1.0\}. No additional performance score is reported for this fitted model, because it is trained on all available observations and therefore has no separate validation fold.
 
@@ -358,7 +367,36 @@ Figure~\ref{fig:ieq-feature-importance} compares built-in Extra Trees importance
 
 \subsection{Personalization Results}
 
-\supervisornote{Not done yet.}
+\supervisornote{These personalization experiments are exploratory. They were added to check whether the final Extra Trees modelling strategy can adapt to a new occupant or classroom after a small number of target-specific feedback votes. The design was target-held-out: all votes from the target occupant or classroom were removed from the zero-shot training set, the first $k$ chronological target votes were used for adaptation, and later target votes were used for testing.}
+
+\begin{figure}[H]
+    \centering
+    \supervisorgraphic[width=0.88\textwidth]{04_Figures/ieq_personalization_individual_learning_curve.pdf}
+    \caption{Supervisor-only exploratory figure: individual occupant personalization learning curve for the model with classroom-position predictors.}
+    \label{fig:ieq-personalization-individual-learning-supervisor}
+\end{figure}
+
+\supervisornote{For individual occupants, the curve improves mainly after larger feedback windows. This could mean that target feedback helps the model adapt, but it could also mean that the original model already contains indirect occupant information. Even though direct identifiers were excluded, variables such as age, student status, classroom position, and repeated response patterns may partly identify some pupils.}
+
+\begin{figure}[H]
+    \centering
+    \supervisorgraphic[width=0.88\textwidth]{04_Figures/ieq_personalization_classroom_learning_curve.pdf}
+    \caption{Supervisor-only exploratory figure: classroom personalization learning curve for the model with classroom-position predictors.}
+    \label{fig:ieq-personalization-classroom-learning-supervisor}
+\end{figure}
+
+\supervisornote{The classroom-level curve is weaker and not monotonic. It improves most clearly at a small feedback window, but adding more classroom votes does not steadily improve the result. This makes the current weighted-refit personalization method useful as a diagnostic check, but not yet strong enough to present as a robust article-ready personalization result.}
+
+\supervisornote{The main interpretability concern is classroom position. The original reason for using position was that pupils near windows or specific room zones can experience different sun exposure, glare, downdraught, ventilation, or local thermal conditions. However, the personalization results suggest that position may also help the model recognize recurring pupils or classroom patterns. For example, the model might partly learn that a 13-year-old pupil sitting on the left side of a specific classroom often answers ``satisfied'', rather than learning a general environmental effect of sitting on the left. To check this, I trained an additional Extra Trees model without the five classroom-position predictors.}
+
+\begin{figure}[H]
+    \centering
+    \supervisorgraphic[width=0.72\textwidth]{04_Figures/ieq_extra_trees_with_without_position_metric_comparison.pdf}
+    \caption{Supervisor-only exploratory figure: final Extra Trees performance with and without classroom-position predictors. Removing the five classroom-position columns reduced macro F1 from 0.623 to 0.514 and accuracy from 0.740 to 0.650.}
+    \label{fig:ieq-position-ablation-supervisor}
+\end{figure}
+
+\supervisornote{This ablation shows that classroom position carries substantial predictive signal. It does not prove whether the signal is a real spatial IEQ effect or an indirect identity signal. I would therefore treat the personalization section with caution and be ready to explain this limitation if reviewers ask about leakage, repeated occupants, or indirect personalization.}
 
 \subsection{Transfer-Learning and Cross-Setting Validation Results}
 
@@ -383,6 +421,14 @@ Future work should move the model closer to real building operation. A practical
 Future studies should also compare ML-based IEQ approaches with more conservative building-operation strategies. This would help determine whether IEQ satisfaction models can bring measurable energy benefits when used as part of more complex building control, and what benefits different satisfaction-energy trade-offs could provide. Further progress will require more data from different building types, schools, seasons, and climate zones. It would also be useful to define a more unified set of variables that should be collected in IEQ studies, so that future datasets are easier to combine and compare.}
 
 \section{Conclusion}
+
+\Reviewed{This study evaluated whether overall IEQ satisfaction in classrooms can be predicted from sensor, occupant, and contextual data. Using 6{,}834 repeated votes from the Belgian classroom dataset, the original five-point overall IEQ satisfaction scale was transformed into a three-class prediction task. Among the tested model families, Extra Trees gave the strongest and most stable performance. After the retained optimization steps, the final model reached macro F1 = 0.623, accuracy = 0.740, balanced accuracy = 0.625, and ordinal MAE = 0.291 under ten-fold cross-validation.
+
+The results show that overall classroom IEQ satisfaction can be predicted with useful but still limited accuracy from routinely collectable variables. Satisfied votes were identified most reliably, while dissatisfied and neutral votes remained more difficult to separate. This indicates that the model is more suitable for broad screening and dashboard-based warning support than for exact classification of every individual response. The feature-importance analyses also suggest that overall IEQ satisfaction is not driven by a single environmental variable, but by a combination of environmental conditions, occupant characteristics, and contextual factors.
+
+The study also shows the limits of the current approach. Simple feature engineering, synthetic class balancing, ordinal decomposition, and ensemble variants produced only modest or inconsistent improvements. Exploratory personalization checks further suggested that adapting the model to specific occupants or classrooms is harder for overall IEQ satisfaction than expected from thermal-comfort personalization studies. External transfer validation remains necessary before the model can be considered robust across schools, seasons, and measurement protocols.
+
+Overall, the findings support the use of machine learning as a complementary tool for occupant-centered classroom operation. The model should not replace direct feedback or established environmental measurements, but it can help combine multiple sensor and context signals into a single estimate of likely overall IEQ satisfaction. This makes it a useful first step toward classroom monitoring systems that consider both comfort and energy-related operational decisions.}
 
 \begingroup\sloppy\printbibliography[heading=bibnumbered,title={References}]\endgroup
 
