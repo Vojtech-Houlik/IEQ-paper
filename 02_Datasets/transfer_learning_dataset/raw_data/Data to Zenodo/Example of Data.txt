@@ -1,0 +1,17 @@
+Example of Data
+
+school_id,room_id,date,time,manuf_id,instr_id,co2_v,temp_v
+brannfjell,11,2023-12-31,23:00,sdanlegg,schneider,390.0,18.1
+brannfjell,11,2024-01-01,00:00,sdanlegg,schneider,391.0,18.1
+brannfjell,11,2024-01-01,01:00,sdanlegg,schneider,391.0,18.0
+
+school_id,room_id,date,time,manuf_id,instr_id,sessionid,feel_air,feel_temp,feel_bright,feel_health,feel_noise,response_duration,air_smell,air_heavy,air_dry,air_dust,air_electshock,temp_coldhot,temp_draw,temp_coldfloor,temp_heatsun,temp_heater,health_head,health_cough,health_tired,health_dryskin,bright_sun,bright_lamp_hi,bright_lamp_low
+brannfjell,11,2024-04-15,06:31,niluapp,1F2KLH,73dc63be-ec29-4091-a2d0-d10abb13d7d9,2.0,2.0,2.0,2.0,1.0,13.73,,,,,,,,,,,,,,,,,
+brannfjell,11,2024-04-15,06:32,niluapp,1F2KLH,a6e39d62-79b9-4738-8e83-1220325d60eb,2.0,1.0,2.0,2.0,2.0,16.508,,,,,,,,,,,,,,,,,
+brannfjell,11,2024-04-15,06:31,niluapp,1F2KLH,1b66c284-d62f-41ea-a479-cdd48f2b2e53,2.0,1.0,4.0,3.0,1.0,30.459,,,,,,,,,,,0.0,1.0,0.0,0.0,0.0,1.0,0.0
+
+
+school_id,room_id,date,time,manuf_id,instr_id,temp_a,rh_a,press_a,co2_a,voc_a,bright_a,rdn_a
+brannfjell,11,2023-12-31,23:09,airthings,spaceplus,19.2,22.0,993.0,438.0,48.0,2.0,100.0
+brannfjell,11,2023-12-31,23:14,airthings,spaceplus,19.3,22.0,993.0,441.0,46.0,2.0,100.0
+brannfjell,11,2023-12-31,23:19,airthings,spaceplus,19.4,22.0,993.0,443.0,46.0,2.0,100.0
